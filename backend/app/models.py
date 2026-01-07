@@ -1,6 +1,5 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Boolean, DateTime, BigInteger
-from sqlalchemy.orm import relationship
-from database import Base
+from .database import Base
 import datetime
 
 class TipoUsuario(Base):
@@ -15,7 +14,7 @@ class Usuario(Base):
     apellido = Column(String(30))
     usuario = Column(String(20), unique=True, index=True)
     mail = Column(String, unique=True, index=True)
-    hashed_password = Column(String) # Seguridad
+    hashed_password = Column(String) 
     activo = Column(Boolean, default=True)
     fecha_creacion = Column(DateTime, default=datetime.datetime.utcnow)
     id_tipo_usuario = Column(Integer, ForeignKey("tipo_usuario.id"))
@@ -24,7 +23,7 @@ class MotivoMovimiento(Base):
     __tablename__ = "motivo_movimientos"
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String)
-    tipo = Column(String) # "suma" o "resta"
+    tipo = Column(String) 
     id_usuario = Column(Integer, ForeignKey("usuarios.id"))
     fecha_creacion = Column(DateTime, default=datetime.datetime.utcnow)
 
@@ -33,5 +32,5 @@ class Movimiento(Base):
     id = Column(Integer, primary_key=True, index=True)
     id_usuario = Column(Integer, ForeignKey("usuarios.id"))
     id_motivo = Column(Integer, ForeignKey("motivo_movimientos.id"))
-    monto = Column(BigInteger) # Soporta números grandes sin decimales
+    monto = Column(BigInteger) 
     fecha_creacion = Column(DateTime, default=datetime.datetime.utcnow)
