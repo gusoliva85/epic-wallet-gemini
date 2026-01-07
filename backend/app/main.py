@@ -1,11 +1,20 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from . import models, schemas, auth, database
+from fastapi.middleware.cors import CORSMiddleware # Agregar este import
 
 # Crear tablas automáticamente
 models.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI(title="Epic Wallet API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # En desarrollo permitimos todo
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/register", status_code=status.HTTP_201_CREATED)
 def registrar_usuario(usuario: schemas.UsuarioCreate, db: Session = Depends(database.get_db)):
