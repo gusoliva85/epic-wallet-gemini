@@ -45,12 +45,15 @@ loginForm.addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (response.ok) {
-            // ÉXITO: Animación de salida y redirección
+            // ÉXITO: GUARDAR EL NOMBRE EN LA SESIÓN
+            // Tomamos el valor que el usuario escribió en el input
+            sessionStorage.setItem('usuarioNombre', userInput.value.trim());
+
             btnLogin.innerText = "¡ÉXITO!";
             btnLogin.classList.replace('bg-primary', 'bg-green-600');
             
             setTimeout(() => {
-                window.location.href = 'index.html'; // Redirigir al dashboard
+                window.location.href = 'index.html'; 
             }, 800);
             
         } else {

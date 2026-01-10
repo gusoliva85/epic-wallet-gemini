@@ -1,6 +1,6 @@
 /**************************************************
- * EPIC WALLET - FASE 1 (estable)
- * Lógica en memoria (sin backend)
+ * EPIC WALLET - FASE 2
+ * Implementando la base de datos y Seguridad
  **************************************************/
 
 // ============================
@@ -24,8 +24,9 @@ const chartData = {
     gastos:   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 };
 
+
 // ============================
-// REFERENCIAS AL DOM (IDs REALES)
+// REFERENCIAS AL DOM
 // ============================
 
 const motivoSelect = document.getElementById('motivo');
@@ -40,6 +41,31 @@ const totalAdicionalesEl = document.getElementById('totalAdicionales');
 const cardIngresos = totalIngresosEl.closest('.rounded-2xl');
 const cardGastos = totalGastosEl.closest('.rounded-2xl');
 const cardRestante = dineroRestanteEl.closest('.rounded-2xl');
+
+
+// ==========================================
+// CONTROL DE ACCESO Y PERSONALIZACIÓN
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const usuarioLogueado = sessionStorage.getItem('usuarioNombre');
+
+    // 1. Validar si existe la sesión
+    if (!usuarioLogueado) {
+        console.log("Acceso denegado: No hay usuario en sesión");
+        window.location.href = 'login.html';
+        return; 
+    }
+
+    // 2. Si existe, poner el nombre en el HTML
+    const spanNombre = document.getElementById('nombreUsuario');
+    if (spanNombre) {
+        const nombreBonito = usuarioLogueado.charAt(0).toUpperCase() + usuarioLogueado.slice(1);
+        spanNombre.textContent = nombreBonito;
+    }
+    
+    console.log("Sesión activa:", usuarioLogueado);
+});
+
 
 // ============================
 // UTILIDADES
@@ -356,3 +382,16 @@ setTimeout(() => {
 
     lineChart.update();
 }, 300);
+
+
+// ==========================================
+// LÓGICA DE SALIDA 
+// ==========================================
+// Detecta el click en el botón de cerrar sesión
+const btnLogOut = document.getElementById('btnLogOut');
+if (btnLogOut) {
+    btnLogOut.addEventListener('click', () => {
+        sessionStorage.clear();
+        window.location.href = 'login.html';
+    });
+}

@@ -70,6 +70,14 @@
                 </div>
             </nav>
 
+            <div class="p-6 border-t border-white/10 mt-auto">
+                <button id="btnLogOut" class="flex items-center gap-4 text-gray-400 hover:text-red-500 transition-all duration-300 w-full group">
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                    </svg>
+                    <span class="font-medium">Cerrar Sesión</span>
+                </button>
+            </div>
         </aside>
 
         <!-- CONTENIDO PRINCIPAL -->
@@ -77,6 +85,10 @@
             
             <!-- HEADER DE CONTENIDO -->
             <div class="flex flex-col gap-1">
+                <h4 class="text-1xl font-semibold tracking-wide text-gray-800">
+                    <!-- Hola, <span id="nombreUsuario" class="text-primary">Invitado</span> -->
+                    <span class="text-primary">Hola </span><span id="nombreUsuario">Invitado</span>
+                </h4>
                 <h2 class="text-4xl font-semibold tracking-wide text-gray-800">
                     Diciembre <span class="text-primary">2025</span>
                 </h2>
