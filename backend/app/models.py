@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Boolean, DateTime, BigInteger
 from .database import Base
-import datetime
+from datetime import datetime, timezone
 
 class TipoUsuario(Base):
     __tablename__ = "tipo_usuario"
@@ -16,7 +16,8 @@ class Usuario(Base):
     mail = Column(String, unique=True, index=True)
     hashed_password = Column(String) 
     activo = Column(Boolean, default=True)
-    fecha_creacion = Column(DateTime, default=datetime.datetime.utcnow)
+    # Corregido a lambda para mayor precisión
+    fecha_creacion = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     id_tipo_usuario = Column(Integer, ForeignKey("tipo_usuario.id"))
 
 class MotivoMovimiento(Base):
@@ -24,8 +25,11 @@ class MotivoMovimiento(Base):
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String)
     tipo = Column(String) 
+    mes = Column(Integer)
+    anio = Column(Integer)
     id_usuario = Column(Integer, ForeignKey("usuarios.id"))
-    fecha_creacion = Column(DateTime, default=datetime.datetime.utcnow)
+    # CORREGIDO: Se eliminó el .datetime extra que causaba el crash
+    fecha_creacion = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 class Movimiento(Base):
     __tablename__ = "movimientos"
@@ -33,4 +37,4 @@ class Movimiento(Base):
     id_usuario = Column(Integer, ForeignKey("usuarios.id"))
     id_motivo = Column(Integer, ForeignKey("motivo_movimientos.id"))
     monto = Column(BigInteger) 
-    fecha_creacion = Column(DateTime, default=datetime.datetime.utcnow)
+    fecha_creacion = Column(DateTime, default=lambda: datetime.now(timezone.utc))

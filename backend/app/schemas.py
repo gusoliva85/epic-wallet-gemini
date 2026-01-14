@@ -18,3 +18,8 @@ class UsuarioCreate(UsuarioBase):
 class LoginRequest(BaseModel):
     usuario: str
     password: str
+
+class MovimientoCreate(BaseModel):
+    monto: int
+    id_motivo: int
+    usuario: str
