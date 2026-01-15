@@ -188,6 +188,18 @@ def registrar_movimiento(mov: schemas.MovimientoCreate, db: Session = Depends(da
     db.refresh(nuevo_mov)
     return {"status": "success", "id": nuevo_mov.id}
 
+# BORRAR MOVIMIENTO
+@app.delete("/movimientos/{movimiento_id}")
+def eliminar_movimiento(movimiento_id: int, db: Session = Depends(database.get_db)):
+    movimiento = db.query(models.Movimiento).filter(models.Movimiento.id == movimiento_id).first()
+    if not movimiento:
+        raise HTTPException(status_code=404, detail="Movimiento no encontrado")
+    
+    db.delete(movimiento)
+    db.commit()
+    return {"message": "Movimiento eliminado correctamente"}
+
+
 # OBTENER HISTORIAL DE MOVIMIENTOS DEL USUARIO
 @app.get("/movimientos/{usuario}")
 def obtener_historial(usuario: str, db: Session = Depends(database.get_db)):
@@ -198,6 +210,7 @@ def obtener_historial(usuario: str, db: Session = Depends(database.get_db)):
     
     # Traemos sus movimientos haciendo un JOIN con los motivos
     movimientos = db.query(
+        models.Movimiento.id,
         models.Movimiento.monto,
         models.Movimiento.fecha_creacion,
         models.MotivoMovimiento.tipo,
@@ -208,6 +221,7 @@ def obtener_historial(usuario: str, db: Session = Depends(database.get_db)):
     resultado = []
     for m in movimientos:
         resultado.append({
+            "id": m.id,
             "monto": m.monto,
             "fecha": m.fecha_creacion.isoformat(),
             "tipo": m.tipo,
