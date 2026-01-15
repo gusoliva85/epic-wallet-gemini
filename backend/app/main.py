@@ -200,6 +200,28 @@ def eliminar_movimiento(movimiento_id: int, db: Session = Depends(database.get_d
     return {"message": "Movimiento eliminado correctamente"}
 
 
+# AGREGAR MOTIVO DE MOVIMIENTO
+@app.post("/motivos")
+def crear_motivo(datos: schemas.MotivoCreate, db: Session = Depends(database.get_db)):
+    # Buscamos al usuario por su nombre de usuario (string)
+    user = db.query(models.Usuario).filter(models.Usuario.usuario == datos.usuario).first()
+    
+    if not user:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+    nuevo_motivo = models.MotivoMovimiento(
+        nombre=datos.nombre,
+        tipo=datos.tipo,
+        id_usuario=user.id,
+        mes=datetime.now().month,
+        anio=datetime.now().year
+    )
+    db.add(nuevo_motivo)
+    db.commit()
+    db.refresh(nuevo_motivo)
+    return {"status": "success", "motivo": nuevo_motivo.nombre}
+
+
 # OBTENER HISTORIAL DE MOVIMIENTOS DEL USUARIO
 @app.get("/movimientos/{usuario}")
 def obtener_historial(usuario: str, db: Session = Depends(database.get_db)):
