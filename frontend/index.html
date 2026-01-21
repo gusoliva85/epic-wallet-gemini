@@ -6,6 +6,8 @@
     <title>Epic Wallet</title>
     <!-- Estilos -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Configuración básica de Tailwind -->
     <script>
         tailwind.config = {
@@ -29,10 +31,10 @@
 <body class="bg-gray-100 font-sans">
 
     <!-- Contenido principal -->
-    <div class="flex min-h-screen">
+    <div class="block lg:flex min-h-screen">
 
         <!-- BARRA LATERAL -->
-        <aside class="w-64 bg-sidebar text-gray-200 flex flex-col">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-sidebar text-gray-200 transform -translate-x-full lg:translate-x-0 lg:sticky lg:top-0 h-screen transition-transform duration-300 ease-in-out flex flex-col shadow-xl lg:shadow-none">
 
             <!-- Logo -->
             <div class="p-6 border-b border-white/10">
@@ -46,39 +48,34 @@
                 <!-- Opciones -->
                 <!-- Home activo -->
                 <a href="#" class="group flex items-center gap-4 px-6 py-3 bg-white/10 border-l-4 border-primary text-white transition">
-                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 9.75L12 4.5l9 5.25M4.5 10.5V19.5a.75.75 0 00.75.75H9.75v-6h4.5v6h4.5a.75.75 0 00.75-.75V10.5"/>
-                    </svg>
-                    Home
+                    <i class="bi bi-house-door"></i> Home
                 </a>
 
                 <!-- Detalle mensual -->
-                <div class="group flex items-center gap-4 px-6 py-3 text-gray-400 hover:text-white hover:bg-white/5 transition hover:translate-x-1 cursor-not-allowed">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                    Detalle mensual
+                <div class="group flex items-center gap-4 px-6 py-3 text-gray-400 cursor-not-allowed">
+                    <i class="bi bi-calendar-event"></i> Detalle mensual
                 </div>
 
                 <!-- CONFIG -->
-                <div class="group flex items-center gap-4 px-6 py-3 text-gray-400 hover:text-white hover:bg-white/5 transition hover:translate-x-1 cursor-not-allowed">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.983 13.25a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33h.01A1.65 1.65 0 0010.5 3.09V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51h.01a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v.01A1.65 1.65 0 0020.91 11H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
-                    </svg>
-                    Configuración
+                <div class="group flex items-center gap-4 px-6 py-3 text-gray-400 cursor-not-allowed">
+                    <i class="bi bi-gear"></i> Configuración
                 </div>
             </nav>
 
             <div class="p-6 border-t border-white/10 mt-auto">
-                <button id="btnLogOut" class="flex items-center gap-4 text-gray-400 hover:text-red-500 transition-all duration-300 w-full group">
-                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
-                    </svg>
-                    <span class="font-medium">Cerrar Sesión</span>
+                <button id="btnLogOut" class="flex items-center gap-4 text-gray-400 hover:text-red-500 w-full">
+                    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
                 </button>
             </div>
         </aside>
+
+        <!-- MENU HAMBURGESA EN MOBILES -->
+        <div class="lg:hidden bg-sidebar p-4 flex items-center justify-between text-white">
+            <h1 class="text-xl font-bold">Epic Wallet</h1>
+            <button id="btnAbrirMenu" class="p-2 text-2xl">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
 
         <!-- CONTENIDO PRINCIPAL -->
         <main class="flex-1 p-8 space-y-8">
@@ -86,11 +83,10 @@
             <!-- HEADER DE CONTENIDO -->
             <div class="flex flex-col gap-1">
                 <h4 class="text-1xl font-semibold tracking-wide text-gray-800">
-                    <!-- Hola, <span id="nombreUsuario" class="text-primary">Invitado</span> -->
                     <span class="text-primary">Hola </span><span id="nombreUsuario">Invitado</span>
                 </h4>
                 <h2 class="text-4xl font-semibold tracking-wide text-gray-800">
-                    Diciembre <span class="text-primary">2025</span>
+                    <span id="mesActual">Mes</span> <span id="anioActual" class="text-primary">2026</span>
                 </h2>
                 <div class="flex items-center gap-3">
                     <span class="h-1 w-12 bg-primary rounded-full"></span>
@@ -146,24 +142,22 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
 
                     <!-- Seleccionar motivo -->
-                    <div class="relative group focus-within:text-primary">
-                        <select id="motivo" class="w-full bg-white border border-gray-300 rounded-xl px-5 py-3.5 pr-10 text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition appearance-none">
-                            <option value="">Seleccionar motivo</option>
-                            <option value="sueldo" data-tipo="ingreso">Sueldo</option>
-                            <option value="alquiler" data-tipo="gasto">Alquiler</option>
-                            <option value="luz" data-tipo="gasto">Luz</option>
-                            <option value="gas" data-tipo="gasto">Gas</option>
-                            <option value="supermercado" data-tipo="gasto">Supermercado</option>
-                            <option value="carniceria" data-tipo="gasto">Carnicería / Pollería</option>
-                            <option value="verduleria" data-tipo="gasto">Verdulería</option>
-                        </select>
+                    <div class="flex gap-2">
+                        <div class="relative group focus-within:text-primary flex-1">
+                            <select select id="motivo" class="w-full bg-white border border-gray-300 rounded-xl px-5 py-3.5 pr-10 text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition appearance-none">
+                                <option value="">Seleccionar motivo</option>
+                            </select>
 
-                        <!-- Flecha custom -->
-                        <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400 transition-all duration-300 group-hover:text-primary group-hover:translate-y-0.5">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                            </svg>
+                            <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400 transition-all duration-300 group-hover:text-primary">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </div>
                         </div>
+
+                        <button type="button" onclick="mostrarModalNuevoMotivo()" class="bg-white border border-gray-300 rounded-xl px-4 hover:bg-gray-50 hover:border-primary hover:text-primary transition-all duration-200">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
                     </div>
 
                     <!-- Monto -->
@@ -178,16 +172,98 @@
             </section>
 
             <!-- Grafico -->
-            <section class="bg-white p-6 rounded-2xl shadow mt-8">
-                <h3 class="text-xl font-semibold text-gray-800 mb-4">
-                    Evolución mensual
-                </h3>
+            <div class="bg-white p-6 rounded-2xl shadow overflow-hidden">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Evolución Anual</h3>
+                <div class="overflow-x-auto">
+                    <div class="min-w-[600px] lg:min-w-full">
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+            </div>
 
-                <canvas id="lineChart" height="100"></canvas>
+            <!-- Tabla de Actividad Mensual -->
+            <section class="bg-white p-6 rounded-2xl shadow">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Informe Mensual</h3>
+                    <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-indigo-100 text-indigo-800">Resumen por categoría</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="text-gray-400 text-sm border-b">
+                                <th class="pb-1 font-medium">Motivo</th>
+                                <th class="pb-1 font-medium text-right">Ingresos</th>
+                                <th class="pb-1 font-medium text-right">Gastos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpo-informe-mensual" class="divide-y divide-gray-100"></tbody>
+                    </table>
+                </div>
             </section>
 
+            <!-- historial de movimientos del mes -->
+            <section class="bg-white p-6 rounded-2xl shadow mt-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800">Actividad Reciente</h3>
+                    <button onclick="cargarDatosHistoricos(usuarioLogueado)" class="text-gray-400 hover:text-indigo-600 transition-colors duration-200">
+                        <i class="bi bi-arrow-clockwise text-xl"></i>
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="text-gray-400 text-xs uppercase tracking-wider border-b border-gray-100">
+                                <th class="pb-4 font-medium">Fecha</th>
+                                <th class="pb-4 font-medium">Motivo</th>
+                                <th class="pb-4 font-medium text-right">Monto</th>
+                                <th class="pb-4"></th> </tr>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpo-tabla-movimientos" class="divide-y divide-gray-50"></tbody>
+                    </table>
+                </div>
+            </section>
+ 
         </main>
 
+    </div>
+
+    <!-- Modal para agregar un nuevo motivo de movimiento -->
+    <div id="modalMotivo" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden backdrop-blur-sm">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md p-8 transform transition-all">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">Nuevo Motivo</h3>
+            
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-500 mb-2">Nombre del motivo</label>
+                    <input type="text" id="nuevoMotivoNombre" placeholder="Ej: Gimnasio, Netflix..." 
+                        class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-500 mb-2">Tipo de movimiento</label>
+                    <div class="grid grid-cols-2 gap-3 p-1 bg-gray-100 rounded-xl">
+                        <button type="button" onclick="seleccionarTipoMotivo('suma')" id="btnSuma" 
+                                class="py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 bg-white shadow-sm text-emerald-600">
+                            <i class="bi bi-plus-circle mr-2"></i>Ingreso
+                        </button>
+                        <button type="button" onclick="seleccionarTipoMotivo('resta')" id="btnResta" 
+                                class="py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 text-gray-500 hover:bg-gray-200">
+                            <i class="bi bi-dash-circle mr-2"></i>Gasto
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex gap-3 pt-4">
+                    <button type="button" onclick="cerrarModalMotivo()" class="flex-1 py-2.5 rounded-xl border border-gray-300 text-gray-600 font-medium hover:bg-gray-50 transition-all">
+                        Cancelar
+                    </button>
+                    <button onclick="guardarNuevoMotivo()" class="flex-1 py-3 bg-primary text-white font-bold rounded-xl shadow-lg shadow-indigo-200 hover:scale-[1.02] transition">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/main.js"></script>

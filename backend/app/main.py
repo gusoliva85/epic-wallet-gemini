@@ -203,23 +203,37 @@ def eliminar_movimiento(movimiento_id: int, db: Session = Depends(database.get_d
 # AGREGAR MOTIVO DE MOVIMIENTO
 @app.post("/motivos")
 def crear_motivo(datos: schemas.MotivoCreate, db: Session = Depends(database.get_db)):
-    # Buscamos al usuario por su nombre de usuario (string)
+    # 1. Buscamos al usuario
     user = db.query(models.Usuario).filter(models.Usuario.usuario == datos.usuario).first()
     
     if not user:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    
+    try:
+        # 2. Creamos la instancia
+        nuevo_motivo = models.MotivoMovimiento(
+            nombre=datos.nombre,
+            tipo=datos.tipo,
+            id_usuario=user.id,
+            mes=datetime.now().month,
+            anio=datetime.now().year
+        )
 
-    nuevo_motivo = models.MotivoMovimiento(
-        nombre=datos.nombre,
-        tipo=datos.tipo,
-        id_usuario=user.id,
-        mes=datetime.now().month,
-        anio=datetime.now().year
-    )
-    db.add(nuevo_motivo)
-    db.commit()
-    db.refresh(nuevo_motivo)
-    return {"status": "success", "motivo": nuevo_motivo.nombre}
+        db.add(nuevo_motivo)
+        db.commit()
+        
+        # 3. En lugar de refresh (que a veces falla por la sesión), 
+        # devolvemos los datos que ya tenemos confirmados.
+        return {
+            "status": "success", 
+            "id": nuevo_motivo.id, 
+            "nombre": nuevo_motivo.nombre
+        }
+    
+    except Exception as e:
+        db.rollback() # Importantísimo: deshace el intento si hubo error
+        print(f"Error en base de datos: {e}")
+        raise HTTPException(status_code=500, detail="Error al guardar en base de datos")
 
 
 # OBTENER HISTORIAL DE MOVIMIENTOS DEL USUARIO

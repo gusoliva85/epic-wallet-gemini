@@ -47,7 +47,8 @@ loginForm.addEventListener('submit', async (e) => {
         if (response.ok) {
             // ÉXITO: GUARDAR EL NOMBRE EN LA SESIÓN
             // Tomamos el valor que el usuario escribió en el input
-            sessionStorage.setItem('usuarioNombre', userInput.value.trim());
+            sessionStorage.setItem('usuarioNombre', data.usuario); //userInput.value.trim());
+            sessionStorage.setItem('nombreReal', data.nombreReal);
 
             btnLogin.innerText = "¡ÉXITO!";
             btnLogin.classList.replace('bg-primary', 'bg-green-600');
