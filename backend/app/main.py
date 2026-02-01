@@ -239,19 +239,29 @@ def crear_motivo(datos: schemas.MotivoCreate, db: Session = Depends(database.get
 # OBTENER HISTORIAL DE MOVIMIENTOS DEL USUARIO
 @app.get("/movimientos/{usuario}")
 def obtener_historial(usuario: str, db: Session = Depends(database.get_db)):
+    # Obtener fecha de hoy para despues filtrar
+    ahora = datetime.now()
+    mes_actual = ahora.month
+    anio_actual = ahora.year
+
     # Se busca al usuario
     user = db.query(models.Usuario).filter(models.Usuario.usuario == usuario).first()
     if not user:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     
     # Traemos sus movimientos haciendo un JOIN con los motivos
+    # Existe el fitro de mes y año para traer solo los movimientos del corriente mes
     movimientos = db.query(
         models.Movimiento.id,
         models.Movimiento.monto,
         models.Movimiento.fecha_creacion,
         models.MotivoMovimiento.tipo,
         models.MotivoMovimiento.nombre
-    ).join(models.MotivoMovimiento).filter(models.Movimiento.id_usuario == user.id).all()
+    ).join(models.MotivoMovimiento).filter(
+        models.Movimiento.id_usuario == user.id,
+        models.MotivoMovimiento.mes == mes_actual,
+        models.MotivoMovimiento.anio == anio_actual
+    ).all()
 
     # Formateo de la respuesta
     resultado = []
