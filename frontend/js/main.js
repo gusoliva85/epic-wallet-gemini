@@ -1,6 +1,6 @@
 /**************************************************
- * EPIC WALLET - FASE 2
- * Implementando la base de datos y Seguridad
+ * EPIC WALLET - FASE 3
+ * Implementando informacion persistente en DB
  **************************************************/
 
 // ============================
@@ -9,13 +9,15 @@
 
 const walletData = {
     ingresos: 0,
-    gastos: 0
+    gastos: 0,
+    ahorrosGlobales: 0 // Nuevo: Acumulado histórico
 };
 
 let previousValues = {
     ingresos: 0,
     gastos: 0,
-    restante: 0
+    restante: 0,
+    ahorroTotal: 0
 };
 
 let usuarioLogueado = "";
@@ -26,7 +28,7 @@ function generarLabels13Meses() {
     const labels = [];
     const hoy = new Date();
 
-    for (let i = 12; i >= 0; i--){
+    for (let i = 12; i >= 0; i--) {
         const fechaCorte = new Date(hoy.getFullYear(), hoy.getMonth() - i, 1);
         const nombreMes = nombresMeses[fechaCorte.getMonth()];
         const anioShort = fechaCorte.getFullYear();
@@ -47,31 +49,248 @@ const chartData = {
 // ============================
 
 const motivoSelect = document.getElementById('motivo');
-const montoInput   = document.getElementById('monto');
-const agregarBtn   = document.getElementById('agregarBtn');
+const montoInput = document.getElementById('monto');
+const agregarBtn = document.getElementById('agregarBtn');
 
-const totalIngresosEl    = document.getElementById('totalIngresos');
-const totalGastosEl      = document.getElementById('totalGastos');
-const dineroRestanteEl   = document.getElementById('dineroRestante');
+const totalIngresosEl = document.getElementById('totalIngresos');
+const totalGastosEl = document.getElementById('totalGastos');
+const dineroRestanteEl = document.getElementById('dineroRestante');
 const totalAdicionalesEl = document.getElementById('totalAdicionales');
 
-const cardIngresos = totalIngresosEl.closest('.rounded-2xl');
-const cardGastos = totalGastosEl.closest('.rounded-2xl');
-const cardRestante = dineroRestanteEl.closest('.rounded-2xl');
+const cardIngresos = totalIngresosEl.closest('.rounded-3xl');
+const cardGastos = totalGastosEl.closest('.rounded-3xl');
+const cardRestante = dineroRestanteEl.closest('.rounded-3xl');
 
 
 // ==========================================
 // CONTROL DE ACCESO Y PERSONALIZACIÓN
 // ==========================================
+
+// ... (rest of the file remains similar until renderizarTablaMovimientos) ...
+
+// ============================
+// TABLA DE HISTORIAL DE MOVIMIENTOS
+// ============================
+function renderizarTablaMovimientos(movimientos) {
+    const tbody = document.getElementById('cuerpo-tabla-movimientos');
+    tbody.innerHTML = '';
+
+    // Ordenar: el más reciente arriba
+    const ordenados = [...movimientos].sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
+    if (ordenados.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" class="text-center text-gray-400 py-8 text-sm">Sin movimientos este mes</td></tr>`;
+        return;
+    }
+
+    ordenados.forEach(mov => {
+        const fila = document.createElement('tr');
+        // Estilo "tarjeta flotante" para cada fila
+        fila.className = "bg-gray-50 hover:bg-gray-100 transition-colors duration-200 group rounded-xl";
+
+        const fechaObj = new Date(mov.fecha);
+        const fechaFormateada = fechaObj.toLocaleDateString('es-AR', { day: '2-digit', month: 'short' });
+
+        const esIngreso = mov.tipo === 'suma';
+
+        let iconClass = 'bi-credit-card';
+        const min = mov.motivo.toLowerCase();
+        if (min.includes('sueldo')) iconClass = 'bi-cash-coin';
+        if (min.includes('alquiler') || min.includes('casa')) iconClass = 'bi-house';
+        if (min.includes('super') || min.includes('comida')) iconClass = 'bi-cart';
+        if (min.includes('luz') || min.includes('internet')) iconClass = 'bi-lightning-charge';
+        if (min.includes('transporte') || min.includes('nafta')) iconClass = 'bi-car-front';
+
+        fila.innerHTML = `
+            <td class="py-3 px-3 w-12 rounded-l-xl">
+                 <div class="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-500 group-hover:border-indigo-200 group-hover:text-indigo-600 transition-colors shadow-sm">
+                    <i class="bi ${iconClass} text-sm"></i>
+                 </div>
+            </td>
+            <td class="py-3 px-2 text-sm">
+                <p class="font-bold text-gray-700 leading-none group-hover:text-gray-900">${mov.motivo}</p>
+                <p class="text-[10px] text-gray-400 mt-1 uppercase tracking-wider font-semibold">${fechaFormateada}</p>
+            </td>
+            <td class="py-3 px-2 text-sm text-right font-bold ${esIngreso ? 'text-emerald-600' : 'text-gray-800'}">
+                ${esIngreso ? '+' : '-'} $${Math.abs(mov.monto).toLocaleString('es-AR')}
+            </td>
+            <td class="py-3 px-2 text-right rounded-r-xl">
+                <button onclick="eliminarMovimiento(${mov.id})" class="text-gray-300 hover:text-rose-500 transition-colors p-2 rounded-full hover:bg-rose-50">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        `;
+        tbody.appendChild(fila);
+    });
+}
+
+// Variable global para el gráfico de categorías
+let categoriesChartInstance = null;
+
+// ============================
+// INFORME MENSUAL (TABLA + CHART DONUT)
+// ============================
+function renderizarInformeMensual(movimientos) {
+    const tbody = document.getElementById('cuerpo-informe-mensual');
+    if (!tbody) return;
+
+    // Filtros
+    const mesActual = new Date().getMonth();
+    const anioActual = new Date().getFullYear();
+
+    const movimientosMes = movimientos.filter(m => {
+        const d = new Date(m.fecha);
+        return d.getMonth() === mesActual && d.getFullYear() === anioActual;
+    });
+
+    const agrupados = movimientosMes.reduce((acc, mov) => {
+        if (!acc[mov.motivo]) {
+            acc[mov.motivo] = { nombre: mov.motivo, ingresos: 0, gastos: 0 };
+        }
+        if (mov.tipo === 'suma') acc[mov.motivo].ingresos += Math.abs(mov.monto);
+        else acc[mov.motivo].gastos += Math.abs(mov.monto);
+        return acc;
+    }, {});
+
+    let items = Object.values(agrupados);
+
+    // Ordenamiento por monto total (mayor a menor)
+    items.sort((a, b) => (b.ingresos + b.gastos) - (a.ingresos + a.gastos));
+
+    const totalGastosMes = items.reduce((acc, item) => acc + item.gastos, 0) || 1;
+    const totalMovimientosMes = items.reduce((acc, item) => acc + item.gastos + item.ingresos, 0) || 1;
+
+    // PALETA DE COLORES DINÁMICA
+    // Sueldo = Verde esmeralda fijo (#10b981)
+    // Otros = Paleta de colores atractiva
+    const paletaColores = [
+        '#6366f1', // Indigo
+        '#f59e0b', // Amber
+        '#ec4899', // Pink
+        '#8b5cf6', // Violet
+        '#06b6d4', // Cyan
+        '#f43f5e', // Rose
+        '#3b82f6', // Blue
+        '#eab308'  // Yellow
+    ];
+    let colorIndex = 0;
+
+    // Asignamos color a cada item
+    items.forEach(item => {
+        if (item.nombre.toLowerCase().includes('sueldo')) {
+            item.color = '#10b981'; // Emerald 500
+        } else {
+            item.color = paletaColores[colorIndex % paletaColores.length];
+            colorIndex++;
+        }
+    });
+
+    // 1. RENDERIZAR TABLA CON BARRAS DE COLOR PERSONALIZADO
+    tbody.innerHTML = '';
+    items.forEach(item => {
+        const esGasto = item.gastos > 0;
+        const monto = esGasto ? item.gastos : item.ingresos;
+
+        // Calculamos porcentaje sobre el total de MOVIMIENTOS (gasto+ingreso) para que la barra tenga sentido visual relativo
+        // O sobre gastos si es gasto. El usuario pidió barra de progreso. 
+        // Vamos a usar porcentaje relativo al mayor valor para que se vea bien visualmente.
+        const totalRef = esGasto ? totalGastosMes : (item.ingresos || 1);
+        // Simplificación: Porcentaje del item sobre el total operado en ese concepto
+        const porcentaje = Math.round((monto / totalMovimientosMes) * 100);
+
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td class="py-3 pr-4 align-middle">
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-2 h-2 rounded-full" style="background-color: ${item.color}"></span>
+                        <span class="text-xs font-bold text-gray-700 uppercase tracking-wide">${item.nombre}</span>
+                    </div>
+                    <div class="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+                         <div class="h-1.5 rounded-full" style="width: ${porcentaje}%; background-color: ${item.color}"></div>
+                    </div>
+                </div>
+            </td>
+            <td class="py-3 text-sm text-right font-bold text-gray-700 align-middle">
+                <div class="flex flex-col items-end">
+                     <span>$${monto.toLocaleString('es-AR')}</span>
+                     <span class="text-[10px] text-gray-400 font-medium">${porcentaje}%</span>
+                </div>
+            </td>
+        `;
+        tbody.appendChild(fila);
+    });
+
+    // 2. RENDERIZAR GRAFICO DONUT
+    // EXCLUIMOS SUELDO DEL GRÁFICO (Solo mostramos gastos/otros)
+    let chartItems = items.filter(i => !i.nombre.toLowerCase().includes('sueldo'));
+
+    let chartLabels = chartItems.map(i => i.nombre);
+    let chartData = chartItems.map(i => i.ingresos + i.gastos);
+    let chartColors = chartItems.map(i => i.color);
+
+    // Si hay muchos, cortamos en 5 y sumamos 'Otros'
+    if (chartItems.length > 5) {
+        const top5 = chartItems.slice(0, 5);
+        const otrosItems = chartItems.slice(5);
+        const totalOtros = otrosItems.reduce((acc, i) => acc + i.ingresos + i.gastos, 0);
+
+        chartLabels = top5.map(i => i.nombre);
+        chartLabels.push("Otros");
+
+        chartData = top5.map(i => i.ingresos + i.gastos);
+        chartData.push(totalOtros);
+
+        chartColors = top5.map(i => i.color);
+        chartColors.push("#94a3b8"); // Color gris para Otros
+    }
+
+    const ctxDonut = document.getElementById('categoriesChart');
+    if (ctxDonut) {
+        if (categoriesChartInstance) {
+            categoriesChartInstance.destroy(); // Destruir anterior para evitar glitches
+        }
+
+        categoriesChartInstance = new Chart(ctxDonut, {
+            type: 'doughnut',
+            data: {
+                labels: chartLabels,
+                datasets: [{
+                    data: chartData,
+                    backgroundColor: chartColors,
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%', // Más grueso (antes 75%)
+                plugins: {
+                    legend: { display: false }, // Ocultamos leyenda para limpieza
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                let label = context.label || '';
+                                let value = context.raw || 0;
+                                return `${label}: $${value.toLocaleString('es-AR')}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Obtener datos de la sesión
-    usuarioLogueado = sessionStorage.getItem('usuarioNombre'); 
+    usuarioLogueado = sessionStorage.getItem('usuarioNombre');
     const nombreReal = sessionStorage.getItem('nombreReal');
 
     // 2. Validar sesión
     if (!usuarioLogueado) {
         window.location.href = 'login.html';
-        return; 
+        return;
     }
 
     // 3. Saludo con NOMBRE REAL
@@ -94,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const anioEl = document.getElementById('anioActual');
     if (mesEl) mesEl.textContent = mesesAnio[fecha.getMonth()];
     if (anioEl) anioEl.textContent = fecha.getFullYear();
-    
+
     // 5. Cargar los motivos desde la Base de Datos
     cargarMotivosDelMes(usuarioLogueado);
 
@@ -183,24 +402,41 @@ async function cargarDatosHistoricos(usuario) {
         const hoy = new Date();
 
         // --- IMPORTANTE: RESETEAR DATOS ANTES DE RECALCULAR ---
-        walletData.ingresos = 0;
-        walletData.gastos = 0;
+        walletData.ingresos = 0;       // Solo Mes Actual
+        walletData.gastos = 0;         // Solo Mes Actual
+        walletData.ahorrosGlobales = 0; // Acumulado Total Histórico
+
         chartData.ingresos.fill(0);
         chartData.gastos.fill(0);
         // -----------------------------------------------------
+
+        const mesActual = hoy.getMonth();
+        const anioActual = hoy.getFullYear();
 
         movimientos.forEach(mov => {
             const fechaMov = new Date(mov.fecha);
             const monto = Math.abs(mov.monto);
 
-            if (mov.tipo === 'suma'){
-                walletData.ingresos += monto;
+            // 1. CALCULAMOS TOTAL HISTÓRICO GLOBAl (Ahorros)
+            if (mov.tipo === 'suma') {
+                walletData.ahorrosGlobales += monto;
             } else {
-                walletData.gastos += monto;
+                walletData.ahorrosGlobales -= monto;
             }
 
+            // 2. FILTRAMOS SOLO MOVIMIENTOS DEL MES ACTUAL PARA EL DASHBOARD
+            // Ojo: getMonth() devuelve 0-11
+            if (fechaMov.getMonth() === mesActual && fechaMov.getFullYear() === anioActual) {
+                if (mov.tipo === 'suma') {
+                    walletData.ingresos += monto;
+                } else {
+                    walletData.gastos += monto;
+                }
+            }
+
+            // 3. LÓGICA DEL GRÁFICO (Últimos 13 meses)
             const diffMeses = (hoy.getFullYear() - fechaMov.getFullYear()) * 12 + (hoy.getMonth() - fechaMov.getMonth());
-            
+
             if (diffMeses >= 0 && diffMeses <= 12) {
                 const indice = 12 - diffMeses;
                 if (mov.tipo === 'suma') {
@@ -212,14 +448,22 @@ async function cargarDatosHistoricos(usuario) {
         });
 
         actualizarTotales();
-        
+
         lineChart.data.datasets[0].data = [...chartData.ingresos];
         lineChart.data.datasets[1].data = [...chartData.gastos];
         lineChart.data.datasets[2].data = chartData.ingresos.map((v, i) => v - chartData.gastos[i]);
         lineChart.update('none'); // 'none' evita animaciones molestas en cada refresh
-        
-        renderizarTablaMovimientos(movimientos);
-        renderizarInformeMensual(movimientos);
+
+
+        // Filtramos solo los movimientos del MES ACTUAL para ambas tablas del Home
+        const movimientosMesActual = movimientos.filter(m => {
+            const d = new Date(m.fecha);
+            return d.getMonth() === mesActual && d.getFullYear() === anioActual;
+        });
+
+        renderizarTablaMovimientos(movimientosMesActual);
+        // renderizarInformeMensual ya filtra internamente, pero le pasamos el mismo array filtrado por consistencia
+        renderizarInformeMensual(movimientosMesActual);
 
     } catch (error) {
         console.error("Error cargando historial:", error);
@@ -275,7 +519,7 @@ async function cargarMotivosDelMes(usuario) {
         if (!response.ok) throw new Error("No se pudieron cargar");
 
         const motivos = await response.json();
-        
+
         // Solo actualizamos si la cantidad de motivos cambió (evita refrescos innecesarios)
         if (selectMotivo.options.length - 1 === motivos.length) return;
 
@@ -284,7 +528,7 @@ async function cargarMotivosDelMes(usuario) {
             const option = document.createElement('option');
             option.value = m.id;
             option.textContent = m.nombre;
-            option.dataset.tipo = m.tipo; 
+            option.dataset.tipo = m.tipo;
             selectMotivo.appendChild(option);
         });
     } catch (error) {
@@ -301,7 +545,7 @@ agregarBtn.addEventListener('click', async () => {
     // 1. Captura de datos inicial
     const usuario = sessionStorage.getItem('usuarioNombre');
     const selectedOption = motivoSelect.selectedOptions[0];
-    const tipo = selectedOption.dataset.tipo; 
+    const tipo = selectedOption.dataset.tipo;
     const montoLimpio = parseMonto(montoInput.value);
     const idMotivo = selectedOption.value;
 
@@ -328,37 +572,44 @@ agregarBtn.addEventListener('click', async () => {
 
         if (!response.ok) throw new Error("Error al persistir en base de datos");
 
-        // 4. ACTUALIZACIÓN DE ESTADO (Solo si fetch dio OK)
+        // 4. ACTUALIZACIÓN DE ESTADO LOCAL
         if (tipo === 'suma') {
-            walletData.ingresos += montoLimpio;
+            walletData.ingresos += montoLimpio;        // Mes actual
+            walletData.ahorrosGlobales += montoLimpio; // Global
         } else {
-            walletData.gastos += montoLimpio;
+            walletData.gastos += montoLimpio;          // Mes actual
+            walletData.ahorrosGlobales -= montoLimpio; // Global
         }
 
         // 5. ACTUALIZACIÓN DE INTERFAZ Y GRÁFICO
-        const mesActual = new Date().getMonth();
-        
+        // Asumimos que el gráfico termina en el mes actual (índice 12)
+        const indiceMesActual = 12;
+
         if (tipo === 'suma') {
-            chartData.ingresos[mesActual] += montoLimpio;
-            glowChartPoint(0, mesActual); // Punto verde
+            chartData.ingresos[indiceMesActual] += montoLimpio;
+            glowChartPoint(0, indiceMesActual); // Punto verde
             triggerGlow(cardIngresos, 'glow-ingreso');
         } else {
-            chartData.gastos[mesActual] += montoLimpio;
-            glowChartPoint(1, mesActual); // Punto rojo
+            chartData.gastos[indiceMesActual] += montoLimpio;
+            glowChartPoint(1, indiceMesActual); // Punto rojo
             triggerGlow(cardGastos, 'glow-gasto');
         }
 
         // Actualizar línea de "Restante"
         lineChart.data.datasets[2].data = chartData.ingresos.map((v, i) => v - chartData.gastos[i]);
         lineChart.update();
-        
+
         // Efectos finales
         actualizarTotales();
         glowChartPoint(2, mesActual); // Punto naranja (restante)
         triggerGlow(cardRestante, 'glow-restante');
-        
+
         resetFormulario();
-        console.log("¡Éxito! Datos sincronizados con el servidor.");
+
+        // 6. REFRESCAR TABLAS Y GRAFICO DE CATEGORIAS
+        await cargarDatosHistoricos(usuario);
+
+        console.log("¡Éxito! Datos sincronizados y UI actualizada.");
 
     } catch (error) {
         console.error("Error crítico:", error);
@@ -399,142 +650,32 @@ async function eliminarMovimiento(id) {
 // ============================
 
 function actualizarTotales() {
-    const restante = walletData.ingresos - walletData.gastos;
+    // Restante del mes (Ingresos Mes - Gastos Mes)
+    const restanteMes = walletData.ingresos - walletData.gastos;
 
     animateValue(totalIngresosEl, previousValues.ingresos, walletData.ingresos);
     animateValue(totalGastosEl, previousValues.gastos, walletData.gastos);
-    animateValue(dineroRestanteEl, previousValues.restante, restante);
-    animateValue(totalAdicionalesEl, previousValues.restante, restante);
 
-    dineroRestanteEl.classList.toggle('text-danger', restante < 0);
+    // Card "Dinero restante" -> Mes Actual
+    animateValue(dineroRestanteEl, previousValues.restante, restanteMes);
+
+    // Card "Total Ahorros" -> Acumulado Global
+    animateValue(totalAdicionalesEl, previousValues.ahorroTotal, walletData.ahorrosGlobales);
+
+    // Color rojo si estamos en negativo
+    dineroRestanteEl.classList.toggle('text-danger', restanteMes < 0);
+    totalAdicionalesEl.classList.toggle('text-danger', walletData.ahorrosGlobales < 0);
 
     previousValues = {
         ingresos: walletData.ingresos,
         gastos: walletData.gastos,
-        restante
+        restante: restanteMes,
+        ahorroTotal: walletData.ahorrosGlobales
     };
 }
 
 
-// ============================
-// TABLA DE HISTORIAL DE MOVIMIENTOS
-// ============================
-function renderizarTablaMovimientos(movimientos) {
-    const tbody = document.getElementById('cuerpo-tabla-movimientos');
-    tbody.innerHTML = ''; 
-
-    // Ordenar: el más reciente arriba
-    const ordenados = [...movimientos].sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
-
-    ordenados.forEach(mov => {
-        const fila = document.createElement('tr');
-        fila.className = "group hover:bg-gray-50 transition-colors duration-150";
-
-        const fechaObj = new Date(mov.fecha);
-        const fechaFormateada = fechaObj.toLocaleDateString('es-AR', {
-            day: '2-digit',
-            month: 'short'
-        });
-
-        const esIngreso = mov.tipo === 'suma';
-        // Colores profesionales: Emerald para ingresos, Rose para egresos
-        const colorClase = esIngreso ? 'text-emerald-600' : 'text-rose-600';
-        const signo = esIngreso ? '+' : '-';
-
-        fila.innerHTML = `
-            <td class="py-3 text-sm text-gray-500">${fechaFormateada}</td>
-            <td class="py-3 text-sm font-medium text-gray-700">${mov.motivo}</td>
-            <td class="py-3 text-sm text-right font-bold ${colorClase}">
-                ${signo} $${Math.abs(mov.monto).toLocaleString('es-AR')}
-            </td>
-            <td class="py-3 text-right">
-                <button onclick="eliminarMovimiento(${mov.id})" class="text-gray-300 hover:text-rose-500 transition-colors">
-                    <i class="bi bi-trash"></i>
-                </button>
-            </td>
-        `;
-        tbody.appendChild(fila);
-    });
-}
-
-// ============================
-// INFORME MENSUAL
-// ============================
-function renderizarInformeMensual(movimientos) {
-    const tbody = document.getElementById('cuerpo-informe-mensual');
-    if (!tbody) return;
-
-    const mesActual = new Date().getMonth();
-    const anioActual = new Date().getFullYear();
-
-    // Filtrar solo movimientos del mes actual
-    const movimientosMes = movimientos.filter(m => {
-        const d = new Date(m.fecha);
-        return d.getMonth() === mesActual && d.getFullYear() === anioActual;
-    });
-
-    // Agrupar por Motivo
-    const agrupados = movimientosMes.reduce((acc, mov) => {
-        if (!acc[mov.motivo]) {
-            acc[mov.motivo] = { nombre: mov.motivo, ingresos: 0, gastos: 0 };
-        }
-        if (mov.tipo === 'suma') acc[mov.motivo].ingresos += Math.abs(mov.monto);
-        else acc[mov.motivo].gastos += Math.abs(mov.monto);
-        return acc;
-    }, {});
-
-    // Convertir objeto a array para ordenar
-    let items = Object.values(agrupados);
-
-    // Lógica de Ordenamiento Inteligente
-    const obtenerPrioridad = (nombre) => {
-        const n = nombre.toLowerCase();
-        // INGRESOS
-        if (n.includes('sueldo') || n.includes('honorarios') || n.includes('venta')) return 1;
-        
-        // GASTOS FIJOS VIVIENDA
-        if (n.includes('alquiler') || n.includes('expensas') || n.includes('cochera')) return 2;
-        
-        // SERVICIOS
-        const servicios = ['luz', 'gas', 'agua', 'abl', 'internet', 'telefono', 'wifi'];
-        if (servicios.some(s => n.includes(s))) return 3;
-        
-        // DEUDAS Y EDUCACION
-        const fijos = ['tarjeta', 'prestamo', 'universidad', 'facultad', 'escuela', 'curso', 'cuota'];
-        if (fijos.some(f => n.includes(f))) return 4;
-
-        // OTROS (Al final)
-        if (n === 'otros') return 99;
-        
-        return 10; // Resto de gastos
-    };
-
-    items.sort((a, b) => {
-        // Primero por prioridad definida
-        const prioA = obtenerPrioridad(a.nombre);
-        const prioB = obtenerPrioridad(b.nombre);
-        if (prioA !== prioB) return prioA - prioB;
-        // Si tienen misma prioridad, por monto mayor primero
-        return (b.ingresos + b.gastos) - (a.ingresos + a.gastos);
-    });
-
-    // Renderizar la tabla
-    tbody.innerHTML = '';
-    items.forEach(item => {
-        const fila = document.createElement('tr');
-        fila.className = "hover:bg-gray-50 transition-colors";
-        fila.innerHTML = `
-            <td class="py-3 text-sm font-medium text-gray-700">${item.nombre}</td>
-            <td class="py-3 text-sm text-right text-emerald-600 font-bold">
-                ${item.ingresos > 0 ? '+ ' + formatCurrency(item.ingresos) : '-'}
-            </td>
-            <td class="py-3 text-sm text-right text-rose-600 font-bold">
-                ${item.gastos > 0 ? '- ' + formatCurrency(item.gastos) : '-'}
-            </td>
-        `;
-        tbody.appendChild(fila);
-    });
-}
+// (Funciones renderizarTablaMovimientos y renderizarInformeMensual eliminadas por duplicación - Usar las versiones de arriba)
 
 
 // ============================
@@ -555,10 +696,10 @@ function resetFormulario() {
 const ctx = document.getElementById('lineChart').getContext('2d');
 // Clonamos los datos reales
 const ingresosIniciales = [...chartData.ingresos];
-const gastosIniciales   = [...chartData.gastos];
+const gastosIniciales = [...chartData.gastos];
 // Forzamos arranque en 0
 chartData.ingresos = chartData.ingresos.map(() => 0);
-chartData.gastos   = chartData.gastos.map(() => 0);
+chartData.gastos = chartData.gastos.map(() => 0);
 
 const lineChart = new Chart(ctx, {
     type: 'line',
@@ -589,7 +730,7 @@ const lineChart = new Chart(ctx, {
                 label: 'Restante',
                 data: chartData.ingresos.map((v, i) => v - chartData.gastos[i]),
                 borderColor: '#f97316',
-                borderDash: [5,5],
+                borderDash: [5, 5],
                 tension: 0.4,
                 pointRadius: 3,
                 pointHoverRadius: 5
@@ -632,7 +773,7 @@ const lineChart = new Chart(ctx, {
                     size: 13
                 },
                 callbacks: {
-                    label: function(context) {
+                    label: function (context) {
                         const value = context.parsed.y || 0;
                         return `$ ${value.toLocaleString('es-AR')}`;
                     }
@@ -725,8 +866,8 @@ async function guardarNuevoMotivo() {
     // Importante: usuarioLogueado debe ser el string del nombre de usuario
     const datos = {
         nombre: nombre,
-        tipo: tipoSeleccionado, 
-        usuario: usuarioLogueado 
+        tipo: tipoSeleccionado,
+        usuario: usuarioLogueado
     };
 
     console.log("Enviando datos:", datos); // Esto te permite ver en consola qué se envía
@@ -744,8 +885,8 @@ async function guardarNuevoMotivo() {
             console.log("Respuesta servidor:", data);
             cerrarModalMotivo();
             // Corregido el nombre de la función a cargarMotivosDelMes
-            await cargarMotivosDelMes(usuarioLogueado); 
-            
+            await cargarMotivosDelMes(usuarioLogueado);
+
             // Seleccionamos el nuevo motivo automáticamente (opcional)
             alert("Motivo guardado con éxito");
         } else {
@@ -783,7 +924,7 @@ if (btnAbrirMenu && sidebar) {
 function toggleMenu() {
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
-    
+
     sidebar.classList.toggle('-translate-x-full'); // Quita o pone el desplazamiento
     overlay.classList.toggle('hidden');            // Muestra o esconde el fondo oscuro
 }

@@ -38,3 +38,13 @@ class Movimiento(Base):
     id_motivo = Column(Integer, ForeignKey("motivo_movimientos.id"))
     monto = Column(BigInteger) 
     fecha_creacion = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+class ResumenMensual(Base):
+    __tablename__ = "resumen_mensual"
+    id = Column(Integer, primary_key=True, index=True)
+    id_usuario = Column(Integer, ForeignKey("usuarios.id"))
+    mes = Column(Integer)
+    anio = Column(Integer)
+    ingresos_totales = Column(BigInteger, default=0)
+    gastos_totales = Column(BigInteger, default=0)
+    ahorro_mes = Column(BigInteger, default=0)

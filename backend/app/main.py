@@ -1,11 +1,35 @@
-from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi import FastAPI, Depends, HTTPException, status, Request
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from sqlalchemy import func
 from datetime import datetime
 from . import models, schemas, auth, database
+import logging
+import os
+import sys
+
+# --- CONFIGURACIÓN DE LOGGING ---
+# Crear directorio de logs si no existe (por seguridad)
+if not os.path.exists("logs"):
+    os.makedirs("logs")
+
+# Configurar el logger
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("logs/server.log"),
+        logging.StreamHandler(sys.stdout) # También mostrar en consola
+    ]
+)
+logger = logging.getLogger(__name__)
 
 # Crear tablas automáticamente en la base de datos
-models.Base.metadata.create_all(bind=database.engine)
+try:
+    models.Base.metadata.create_all(bind=database.engine)
+    logger.info("Tablas de base de datos verificadas/creadas correctamente.")
+except Exception as e:
+    logger.error(f"Error crítico al conectar con la base de datos: {e}")
 
 app = FastAPI(title="Epic Wallet API")
 
@@ -126,6 +150,7 @@ def registrar_usuario(usuario: schemas.UsuarioCreate, db: Session = Depends(data
 # INICIAR SESION
 @app.post("/login")
 def login(datos: schemas.LoginRequest, db: Session = Depends(database.get_db)):
+    logger.info(f"Intento de login para usuario: {datos.usuario}")
     # Buscar usuario
     user = db.query(models.Usuario).filter(models.Usuario.usuario == datos.usuario).first()
     
@@ -135,11 +160,17 @@ def login(datos: schemas.LoginRequest, db: Session = Depends(database.get_db)):
     if not user.activo:
         raise HTTPException(status_code=403, detail="Usuario inactivo")
     if not auth.verificar_password(datos.password, user.hashed_password):
+        logger.warning(f"Intento de login fallido (password incorrecto): {datos.usuario}")
         raise HTTPException(status_code=401, detail="Contraseña incorrecta")
     
     # Cada vez que inicia sesión, verificamos si es un mes nuevo para heredar motivos
-    ahora = datetime.now()
-    inicializar_motivos_mes(db, user.id, ahora.month, ahora.year)
+    try:
+        ahora = datetime.now()
+        inicializar_motivos_mes(db, user.id, ahora.month, ahora.year)
+    except Exception as e:
+        logger.error(f"Error al inicializar motivos para usuario {user.usuario}: {e}")
+
+    logger.info(f"Login exitoso para usuario: {user.usuario}")
     
     # Enviamos el nombre real además del usuario
     return {
@@ -147,6 +178,48 @@ def login(datos: schemas.LoginRequest, db: Session = Depends(database.get_db)):
         "usuario": user.usuario, 
         "nombreReal": user.nombre 
     }
+
+
+# CARGAR TARJETAS
+# Endpoint para el home (solo mes actual + ahorro total)
+@app.get("/dashboard/{usuario}")
+def obtener_dashboard(usuario: str, db: Session = Depends(database.get_db)):
+    ahora = datetime.now()
+    user = db.query(models.Usuario).filter(models.Usuario.usuario == usuario).first()
+    if not user: raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+    # Movimientos solo del mes actual
+    movs_mes = db.query(models.Movimiento).join(models.MotivoMovimiento).filter(
+        models.Movimiento.id_usuario == user.id,
+        models.MotivoMovimiento.mes == ahora.month,
+        models.MotivoMovimiento.anio == ahora.year,
+    ).all()
+
+    # Total ahorrado sumando los meses
+    ahorro_total = db.query(func.sum(models.Movimiento.monto)).filter(
+        models.Movimiento.id_usuario == user.id
+    ).scalar() or 0
+
+    return {
+        "movimientos_actuales": movs_mes,
+        "ahorro_total_global": ahorro_total
+    }
+
+# Endpoint para el detalle mensual
+@app.get("/historial-resumen/{usuario}")
+def obtener_resumenes_mensuales(usuario:str, db:Session = Depends(database.get_db)):
+    user = db.query(models.Usuario).filter(models.Usuario.usuario == usuario).first()
+
+    # Agrupar por mes y año
+    resumenes = db.query(
+        models.MotivoMovimiento.mes,
+        models.MotivoMovimiento.anio,
+        func.sum(models.Movimiento.monto).label("balance")
+    ).join(models.Movimiento).filter(
+        models.Movimiento.id_usuario == user.id
+    ).group_by(models.MotivoMovimiento.mes, models.MotivoMovimiento.anio).all()
+
+    return resumenes
 
 
 @app.get("/motivos")

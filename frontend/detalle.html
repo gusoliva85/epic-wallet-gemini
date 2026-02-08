@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Mensual - Epic Wallet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sidebar: '#0f172a',
+                        primary: '#6366f1',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <div class="block lg:flex min-h-screen">
+
+        <!-- Sidebar (Reused from Index) -->
+        <aside id="sidebar"
+            class="fixed inset-y-0 left-0 z-50 w-64 bg-sidebar text-gray-200 transform -translate-x-full lg:translate-x-0 lg:sticky lg:top-0 h-screen transition-transform duration-300 ease-in-out flex flex-col shadow-xl lg:shadow-none">
+            <div class="p-6 border-b border-white/10">
+                <h1 class="text-2xl font-semibold tracking-wide">Epic Wallet</h1>
+                <p class="text-sm text-gray-400">control de gastos</p>
+            </div>
+            <nav class="flex-1 mt-4 space-y-1">
+                <a href="index.html"
+                    class="group flex items-center gap-4 px-6 py-3 text-gray-400 hover:bg-white/5 hover:text-white transition">
+                    <i class="bi bi-house-door"></i> Home
+                </a>
+                <a href="#"
+                    class="group flex items-center gap-4 px-6 py-3 bg-white/10 border-l-4 border-primary text-white transition">
+                    <i class="bi bi-calendar-event"></i> Detalle mensual
+                </a>
+                <div class="group flex items-center gap-4 px-6 py-3 text-gray-400 cursor-not-allowed">
+                    <i class="bi bi-gear"></i> Configuración
+                </div>
+            </nav>
+            <div class="p-6 border-t border-white/10 mt-auto">
+                <button id="btnLogOut" class="flex items-center gap-4 text-gray-400 hover:text-red-500 w-full">
+                    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <!-- Mobile Header -->
+        <div class="lg:hidden bg-sidebar p-4 flex items-center justify-between text-white fixed top-0 w-full z-40">
+            <h1 class="text-xl font-bold">Epic Wallet</h1>
+            <button id="btnAbrirMenu" class="p-2 text-2xl"><i class="bi bi-list"></i></button>
+        </div>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-4 lg:p-8 mt-16 lg:mt-0 overflow-y-auto">
+
+            <!-- Filters & Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">Historial de Movimientos</h2>
+                    <p class="text-gray-500 text-sm mt-1">Revisá y gestioná tus transacciones al detalle.</p>
+                </div>
+
+                <div class="flex gap-2 bg-white p-2 rounded-xl shadow-sm border border-gray-200">
+                    <select id="filtroMes"
+                        class="bg-transparent text-gray-700 font-medium text-sm focus:outline-none cursor-pointer">
+                        <option value="0">Enero</option>
+                        <option value="1">Febrero</option>
+                        <option value="2">Marzo</option>
+                        <option value="3">Abril</option>
+                        <option value="4">Mayo</option>
+                        <option value="5">Junio</option>
+                        <option value="6">Julio</option>
+                        <option value="7">Agosto</option>
+                        <option value="8">Septiembre</option>
+                        <option value="9">Octubre</option>
+                        <option value="10">Noviembre</option>
+                        <option value="11">Diciembre</option>
+                    </select>
+                    <select id="filtroAnio"
+                        class="bg-transparent text-gray-700 font-medium text-sm focus:outline-none border-l border-gray-200 pl-2 cursor-pointer">
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
+                    <p class="text-xs text-gray-400 font-bold uppercase">Total Ingresos</p>
+                    <p id="totalIngresosMes" class="text-2xl font-bold text-emerald-600 mt-2">$ 0</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-rose-50">
+                    <p class="text-xs text-gray-400 font-bold uppercase">Total Gastos</p>
+                    <p id="totalGastosMes" class="text-2xl font-bold text-rose-600 mt-2">$ 0</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-400 font-bold uppercase">Balance Neto</p>
+                    <p id="balanceNetoMes" class="text-2xl font-bold text-gray-800 mt-2">$ 0</p>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="p-6 border-b border-gray-50 flex justify-between items-center">
+                    <h3 class="font-bold text-gray-800">Transacciones</h3>
+                    <div class="flex gap-2">
+                        <input type="text" id="buscador" placeholder="Buscar concepto..."
+                            class="bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50">
+                            <tr class="text-xs text-gray-400 uppercase tracking-wider">
+                                <th class="px-6 py-4 font-semibold">Fecha</th>
+                                <th class="px-6 py-4 font-semibold">Concepto</th>
+                                <th class="px-6 py-4 font-semibold">Tipo</th>
+                                <th class="px-6 py-4 font-semibold text-right">Monto</th>
+                                <th class="px-6 py-4 font-semibold text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaDetalle" class="divide-y divide-gray-50">
+                            <!-- Rows injected via JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="hidden p-12 text-center">
+                    <div
+                        class="bg-gray-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-400">
+                        <i class="bi bi-inbox text-2xl"></i>
+                    </div>
+                    <p class="text-gray-500 font-medium">No hay movimientos en este período</p>
+                    <p class="text-sm text-gray-400 mt-1">Probá cambiando los filtros de fecha</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="modalEditar"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden backdrop-blur-sm">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md p-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">Editar Movimiento</h3>
+            <input type="hidden" id="editId">
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Monto</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-3 flex items-center text-gray-400 text-lg">$</span>
+                        <input type="number" id="editMonto"
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-8 pr-4 py-3 font-bold text-lg focus:outline-none focus:border-primary">
+                    </div>
+                </div>
+
+                <div class="flex gap-3 pt-4">
+                    <button onclick="cerrarModalEditar()"
+                        class="flex-1 py-2.5 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-50">Cancelar</button>
+                    <button onclick="guardarEdicion()"
+                        class="flex-1 py-2.5 bg-primary text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-600">Guardar
+                        Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/detalle.js"></script>
+</body>
+
+</html>
