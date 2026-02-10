@@ -6,7 +6,7 @@
      .\venv\Scripts\Activate.ps1
 
 3. **Ejecutar app**
-    python -m uvicorn main:app --reload
+    python -m uvicorn app.main:app --reload
 
 ## Flujo Diario Recomendado
 1.  **Al iniciar el día (Notebook o PC)**:
