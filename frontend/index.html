@@ -52,13 +52,13 @@
 
                 <!-- Opciones -->
                 <!-- Home activo -->
-                <a href="#" onclick="mostrarSeccion('home')" id="nav-home"
+                <a href="index.html" id="nav-home"
                     class="group flex items-center gap-4 px-6 py-3 bg-white/10 border-l-4 border-primary text-white transition">
                     <i class="bi bi-house-door"></i> Home
                 </a>
 
                 <!-- Detalle mensual -->
-                <a href="#" onclick="mostrarSeccion('detalle')" id="nav-detalle"
+                <a href="detalle.html" id="nav-detalle"
                     class="group flex items-center gap-4 px-6 py-3 text-gray-400 hover:bg-white/5 hover:text-white transition">
                     <i class="bi bi-calendar-event"></i> Detalle mensual
                 </a>
@@ -89,19 +89,19 @@
         <!-- CONTENIDO PRINCIPAL -->
         <main class="flex-1 p-8 overflow-y-auto">
 
-            <!-- HEADER -->
-            <div id="seccion-home" class="mb-8">
+            <!-- HEADER PREMIUM UNIFICADO -->
+            <div id="seccion-home" class="mb-10">
                 <div class="flex flex-col gap-1">
-                    <h4 class="text-1xl font-semibold tracking-wide text-gray-500">
-                        <span class="text-primary">Hola </span><span id="nombreUsuario"
+                    <h4 class="text-xl font-semibold tracking-wide text-gray-400">
+                        <span class="text-indigo-500">Hola </span><span id="nombreUsuario"
                             class="text-gray-800">Invitado</span>
                     </h4>
-                    <h2 class="text-4xl font-semibold tracking-wide text-gray-800">
-                        <span id="mesActual">Mes</span> <span id="anioActual" class="text-primary">2026</span>
+                    <h2 class="text-4xl font-black text-gray-900 tracking-tight">
+                        <span id="mesActual">Mes</span> <span id="anioActual" class="text-indigo-600">2026</span>
                     </h2>
-                    <div class="flex items-center gap-3 mt-2">
-                        <span class="h-1 w-12 bg-primary rounded-full"></span>
-                        <p class="text-sm text-gray-500 tracking-wide">Resumen financiero del mes</p>
+                    <div class="flex items-center gap-3 mt-1">
+                        <span class="h-1.5 w-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></span>
+                        <p class="text-gray-500 text-sm font-medium tracking-wide">Resumen financiero del mes</p>
                     </div>
                 </div>
             </div>

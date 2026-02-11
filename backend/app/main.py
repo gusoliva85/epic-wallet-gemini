@@ -158,22 +158,64 @@ def login(datos: schemas.LoginRequest, db: Session = Depends(database.get_db)):
 
 @app.get("/dashboard/{usuario}")
 def obtener_dashboard(usuario: str, db: Session = Depends(database.get_db)):
+    """
+    Endpoint principal para el Dashboard. Retorna los totales del mes actual,
+    el ahorro global y los movimientos del mes.
+    """
     ahora = datetime.now()
     user = db.query(models.Usuario).filter(models.Usuario.usuario == usuario).first()
     if not user: raise HTTPException(status_code=404, detail="Usuario no encontrado")
 
-    movs_mes = db.query(models.Movimiento).join(models.MotivoMovimiento).filter(
+    # Movimientos únicamente del mes actual (para las tablas y reporte mensual)
+    # Se seleccionan columnas específicas de ambas tablas mediante el JOIN
+    movs_query = db.query(
+        models.Movimiento.id,
+        models.Movimiento.monto,
+        models.Movimiento.fecha_creacion,
+        models.MotivoMovimiento.tipo,
+        models.MotivoMovimiento.nombre
+    ).join(models.MotivoMovimiento).filter(
         models.Movimiento.id_usuario == user.id,
         models.MotivoMovimiento.mes == ahora.month,
         models.MotivoMovimiento.anio == ahora.year,
     ).all()
 
+    # Formateamos el resultado de la consulta para que el Frontend lo reciba como objetos limpios
+    movimientos_formateados = []
+    for m in movs_query:
+        movimientos_formateados.append({
+            "id": m.id,
+            "monto": m.monto,
+            "fecha": m.fecha_creacion.isoformat(),
+            "tipo": m.tipo,
+            "motivo": m.nombre
+        })
+
+    # Cálculo de ingresos del mes actual (suma de montos positivos)
+    total_ingresos_mes = db.query(func.sum(models.Movimiento.monto)).join(models.MotivoMovimiento).filter(
+        models.Movimiento.id_usuario == user.id,
+        models.MotivoMovimiento.mes == ahora.month,
+        models.MotivoMovimiento.anio == ahora.year,
+        models.Movimiento.monto > 0
+    ).scalar() or 0
+
+    # Cálculo de gastos del mes actual (suma de montos negativos, se retorna valor absoluto)
+    total_gastos_mes = db.query(func.sum(models.Movimiento.monto)).join(models.MotivoMovimiento).filter(
+        models.Movimiento.id_usuario == user.id,
+        models.MotivoMovimiento.mes == ahora.month,
+        models.MotivoMovimiento.anio == ahora.year,
+        models.Movimiento.monto < 0
+    ).scalar() or 0
+
+    # Ahorro global histórico (suma de todos los movimientos de siempre)
     ahorro_total = db.query(func.sum(models.Movimiento.monto)).filter(
         models.Movimiento.id_usuario == user.id
     ).scalar() or 0
 
     return {
-        "movimientos_actuales": movs_mes,
+        "movimientos_actuales": movimientos_formateados,
+        "ingresos_mes": total_ingresos_mes,
+        "gastos_mes": abs(total_gastos_mes),
         "ahorro_total_global": ahorro_total
     }
 
@@ -275,6 +317,8 @@ def obtener_historial(usuario: str, db: Session = Depends(database.get_db)):
     if not user:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     
+    # Se obtienen TODOS los movimientos del usuario sin filtrar por mes
+    # Esto es necesario para que el gráfico y el ahorro global se calculen correctamente
     movimientos = db.query(
         models.Movimiento.id,
         models.Movimiento.monto,
@@ -282,9 +326,7 @@ def obtener_historial(usuario: str, db: Session = Depends(database.get_db)):
         models.MotivoMovimiento.tipo,
         models.MotivoMovimiento.nombre
     ).join(models.MotivoMovimiento).filter(
-        models.Movimiento.id_usuario == user.id,
-        models.MotivoMovimiento.mes == mes_actual,
-        models.MotivoMovimiento.anio == anio_actual
+        models.Movimiento.id_usuario == user.id
     ).all()
 
     resultado = []
@@ -298,3 +340,26 @@ def obtener_historial(usuario: str, db: Session = Depends(database.get_db)):
         })
     
     return resultado
+@app.get("/movimientos-mensuales")
+def obtener_movimientos_mensuales(usuario: str, mes: int, anio: int, db: Session = Depends(database.get_db)):
+    user = db.query(models.Usuario).filter(models.Usuario.usuario == usuario).first()
+    if not user: raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    movimientos = db.query(models.Movimiento.id, models.Movimiento.monto, models.Movimiento.fecha_creacion, models.MotivoMovimiento.tipo, models.MotivoMovimiento.nombre).join(models.MotivoMovimiento).filter(models.Movimiento.id_usuario == user.id, models.MotivoMovimiento.mes == mes, models.MotivoMovimiento.anio == anio).all()
+    resultado = []
+    for m in movimientos:
+        resultado.append({"id": m.id, "monto": m.monto, "fecha": m.fecha_creacion.isoformat(), "tipo": m.tipo, "motivo": m.nombre})
+    return resultado
+
+@app.put("/movimientos/{id}")
+def actualizar_movimiento(id: int, datos: schemas.MovimientoUpdate, db: Session = Depends(database.get_db)):
+    movimiento = db.query(models.Movimiento).filter(models.Movimiento.id == id).first()
+    if not movimiento: raise HTTPException(status_code=404, detail="Movimiento no encontrado")
+    try:
+        movimiento.monto = datos.monto
+        db.commit()
+        return {"status": "success", "message": "Movimiento actualizado correctamente"}
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error al actualizar movimiento {id}: {e}")
+        raise HTTPException(status_code=500, detail="Error interno del servidor")
+

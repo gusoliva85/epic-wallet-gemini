@@ -65,8 +65,22 @@ const cardRestante = dineroRestanteEl.closest('.rounded-3xl');
 // ==========================================
 // CONTROL DE ACCESO Y PERSONALIZACIÓN
 // ==========================================
+document.addEventListener('DOMContentLoaded', async () => {
+    usuarioLogueado = sessionStorage.getItem('usuarioNombre');
+    const nombreReal = sessionStorage.getItem('nombreReal') || usuarioLogueado || "Invitado";
 
-// ... (rest of the file remains similar until renderizarTablaMovimientos) ...
+    if (!usuarioLogueado) {
+        window.location.href = 'login.html';
+        return;
+    }
+
+    // Actualizar nombre en el Header (Hola Gustavo)
+    const nombreEl = document.getElementById('nombreUsuario');
+    if (nombreEl) nombreEl.textContent = nombreReal;
+
+    // Cargar datos iniciales
+    await cargarDatosHistoricos(usuarioLogueado);
+});
 
 // ============================
 // TABLA DE HISTORIAL DE MOVIMIENTOS
@@ -393,48 +407,39 @@ function glowChartPoint(datasetIndex, pointIndex) {
 // ============================
 // CARGAR DATOS HISTORICOS
 // ============================
+// ============================
+// CARGAR DATOS HISTORICOS Y DASHBOARD
+// ============================
 async function cargarDatosHistoricos(usuario) {
     try {
-        const response = await fetch(`http://127.0.0.1:8000/movimientos/${usuario}`);
-        if (!response.ok) throw new Error("Error al obtener historial");
-        const movimientos = await response.json();
+        // 1. OBTENER TOTALES DEL DASHBOARD (Mes actual y Ahorro Global)
+        const responseDash = await fetch(`http://127.0.0.1:8000/dashboard/${usuario}`);
+        if (!responseDash.ok) throw new Error("Error al obtener datos del dashboard");
+        const dataDash = await responseDash.json();
+
+        // Asignamos los totales calculados por el backend
+        walletData.ingresos = dataDash.ingresos_mes;
+        walletData.gastos = dataDash.gastos_mes;
+        walletData.ahorrosGlobales = dataDash.ahorro_total_global;
+
+        // 2. OBTENER HISTORIAL COMPLETO (Para el Gráfico Anual)
+        const responseHist = await fetch(`http://127.0.0.1:8000/movimientos/${usuario}`);
+        if (!responseHist.ok) throw new Error("Error al obtener historial");
+        const movimientosTodos = await responseHist.json();
 
         const hoy = new Date();
-
-        // --- IMPORTANTE: RESETEAR DATOS ANTES DE RECALCULAR ---
-        walletData.ingresos = 0;       // Solo Mes Actual
-        walletData.gastos = 0;         // Solo Mes Actual
-        walletData.ahorrosGlobales = 0; // Acumulado Total Histórico
-
-        chartData.ingresos.fill(0);
-        chartData.gastos.fill(0);
-        // -----------------------------------------------------
-
         const mesActual = hoy.getMonth();
         const anioActual = hoy.getFullYear();
 
-        movimientos.forEach(mov => {
+        // Resetear datos del gráfico antes de recalcular
+        chartData.ingresos.fill(0);
+        chartData.gastos.fill(0);
+
+        movimientosTodos.forEach(mov => {
             const fechaMov = new Date(mov.fecha);
             const monto = Math.abs(mov.monto);
 
-            // 1. CALCULAMOS TOTAL HISTÓRICO GLOBAl (Ahorros)
-            if (mov.tipo === 'suma') {
-                walletData.ahorrosGlobales += monto;
-            } else {
-                walletData.ahorrosGlobales -= monto;
-            }
-
-            // 2. FILTRAMOS SOLO MOVIMIENTOS DEL MES ACTUAL PARA EL DASHBOARD
-            // Ojo: getMonth() devuelve 0-11
-            if (fechaMov.getMonth() === mesActual && fechaMov.getFullYear() === anioActual) {
-                if (mov.tipo === 'suma') {
-                    walletData.ingresos += monto;
-                } else {
-                    walletData.gastos += monto;
-                }
-            }
-
-            // 3. LÓGICA DEL GRÁFICO (Últimos 13 meses)
+            // Lógica del Gráfico (Últimos 13 meses)
             const diffMeses = (hoy.getFullYear() - fechaMov.getFullYear()) * 12 + (hoy.getMonth() - fechaMov.getMonth());
 
             if (diffMeses >= 0 && diffMeses <= 12) {
@@ -447,26 +452,22 @@ async function cargarDatosHistoricos(usuario) {
             }
         });
 
+        // 3. ACTUALIZAR INTERFAZ
         actualizarTotales();
 
+        // Actualizar datos de las series del gráfico
         lineChart.data.datasets[0].data = [...chartData.ingresos];
         lineChart.data.datasets[1].data = [...chartData.gastos];
         lineChart.data.datasets[2].data = chartData.ingresos.map((v, i) => v - chartData.gastos[i]);
-        lineChart.update('none'); // 'none' evita animaciones molestas en cada refresh
+        lineChart.update('none');
 
-
-        // Filtramos solo los movimientos del MES ACTUAL para ambas tablas del Home
-        const movimientosMesActual = movimientos.filter(m => {
-            const d = new Date(m.fecha);
-            return d.getMonth() === mesActual && d.getFullYear() === anioActual;
-        });
-
-        renderizarTablaMovimientos(movimientosMesActual);
-        // renderizarInformeMensual ya filtra internamente, pero le pasamos el mismo array filtrado por consistencia
-        renderizarInformeMensual(movimientosMesActual);
+        // 4. RENDERIZAR TABLAS (Solo con lo del mes actual)
+        // Usamos los movimientos del mes que ya vienen filtrados desde el dashboard
+        renderizarTablaMovimientos(dataDash.movimientos_actuales);
+        renderizarInformeMensual(dataDash.movimientos_actuales);
 
     } catch (error) {
-        console.error("Error cargando historial:", error);
+        console.error("Error cargando datos:", error);
     }
 }
 
@@ -588,11 +589,11 @@ agregarBtn.addEventListener('click', async () => {
         if (tipo === 'suma') {
             chartData.ingresos[indiceMesActual] += montoLimpio;
             glowChartPoint(0, indiceMesActual); // Punto verde
-            triggerGlow(cardIngresos, 'glow-ingreso');
+            triggerGlow(cardIngresos, 'bg-indigo-50/20');
         } else {
             chartData.gastos[indiceMesActual] += montoLimpio;
             glowChartPoint(1, indiceMesActual); // Punto rojo
-            triggerGlow(cardGastos, 'glow-gasto');
+            triggerGlow(cardGastos, 'bg-rose-50/20');
         }
 
         // Actualizar línea de "Restante"
@@ -601,8 +602,7 @@ agregarBtn.addEventListener('click', async () => {
 
         // Efectos finales
         actualizarTotales();
-        glowChartPoint(2, mesActual); // Punto naranja (restante)
-        triggerGlow(cardRestante, 'glow-restante');
+        triggerGlow(cardRestante, 'bg-indigo-50/20');
 
         resetFormulario();
 

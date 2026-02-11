@@ -28,3 +28,5 @@ class MotivoCreate(BaseModel):
     nombre: str
     tipo: str # "suma" o "resta"
     usuario: str
+class MovimientoUpdate(BaseModel):
+    monto: int
