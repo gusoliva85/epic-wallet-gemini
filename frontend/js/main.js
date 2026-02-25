@@ -171,8 +171,17 @@ function renderizarInformeMensual(movimientos) {
     // Ordenamiento por monto total (mayor a menor)
     items.sort((a, b) => (b.ingresos + b.gastos) - (a.ingresos + a.gastos));
 
-    const totalGastosMes = items.reduce((acc, item) => acc + item.gastos, 0) || 1;
-    const totalMovimientosMes = items.reduce((acc, item) => acc + item.gastos + item.ingresos, 0) || 1;
+    const totalGastosMes = items.reduce((acc, item) => acc + item.gastos, 0);
+    const totalIngresosMes = items.reduce((acc, item) => acc + item.ingresos, 0);
+    const balanceMes = totalIngresosMes - totalGastosMes;
+    const totalMovimientosMes = totalIngresosMes + totalGastosMes || 1;
+
+    // Actualizar balance en el centro del donut (Home)
+    const balanceDonutHome = document.getElementById('balanceDonutHome');
+    if (balanceDonutHome) {
+        balanceDonutHome.textContent = `$${Math.abs(balanceMes).toLocaleString('es-AR')}`;
+        balanceDonutHome.className = `text-xl font-black tracking-tighter ${balanceMes < 0 ? 'text-rose-500' : 'text-emerald-600'}`;
+    }
 
     // PALETA DE COLORES DINÁMICA
     // Sueldo = Verde esmeralda fijo (#10b981)
@@ -200,17 +209,28 @@ function renderizarInformeMensual(movimientos) {
     });
 
     // 1. RENDERIZAR TABLA CON BARRAS DE COLOR PERSONALIZADO
+    // El usuario pidió que Sueldo esté primero y no se contemple para el porcentaje del resto.
+    const sueldoItem = items.find(i => i.nombre.toLowerCase().includes('sueldo'));
+    const otrosItems = items.filter(i => !i.nombre.toLowerCase().includes('sueldo'));
+
+    // Total para porcentajes (excluyendo sueldo)
+    const totalRefOtros = otrosItems.reduce((acc, i) => acc + i.ingresos + i.gastos, 0) || 1;
+
+    // Re-ensamblar lista: Sueldo primero, luego el resto
+    const itemsOrdenados = sueldoItem ? [sueldoItem, ...otrosItems] : otrosItems;
+
     tbody.innerHTML = '';
-    items.forEach(item => {
+    itemsOrdenados.forEach(item => {
+        const esSueldo = item.nombre.toLowerCase().includes('sueldo');
         const esGasto = item.gastos > 0;
         const monto = esGasto ? item.gastos : item.ingresos;
 
-        // Calculamos porcentaje sobre el total de MOVIMIENTOS (gasto+ingreso) para que la barra tenga sentido visual relativo
-        // O sobre gastos si es gasto. El usuario pidió barra de progreso. 
-        // Vamos a usar porcentaje relativo al mayor valor para que se vea bien visualmente.
-        const totalRef = esGasto ? totalGastosMes : (item.ingresos || 1);
-        // Simplificación: Porcentaje del item sobre el total operado en ese concepto
-        const porcentaje = Math.round((monto / totalMovimientosMes) * 100);
+        let porcentaje;
+        if (esSueldo) {
+            porcentaje = 100; // El sueldo se muestra completo como referencia
+        } else {
+            porcentaje = Math.round((monto / totalRefOtros) * 100);
+        }
 
         const fila = document.createElement('tr');
         fila.innerHTML = `
@@ -221,14 +241,14 @@ function renderizarInformeMensual(movimientos) {
                         <span class="text-xs font-bold text-gray-700 uppercase tracking-wide">${item.nombre}</span>
                     </div>
                     <div class="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
-                         <div class="h-1.5 rounded-full" style="width: ${porcentaje}%; background-color: ${item.color}"></div>
+                         <div class="h-1.5 rounded-full transition-all duration-1000" style="width: ${porcentaje}%; background-color: ${item.color}"></div>
                     </div>
                 </div>
             </td>
             <td class="py-3 text-sm text-right font-bold text-gray-700 align-middle">
                 <div class="flex flex-col items-end">
                      <span>$${monto.toLocaleString('es-AR')}</span>
-                     <span class="text-[10px] text-gray-400 font-medium">${porcentaje}%</span>
+                     <span class="text-[10px] text-gray-400 font-medium">${esSueldo ? 'Referencia' : porcentaje + '%'}</span>
                 </div>
             </td>
         `;
@@ -272,25 +292,39 @@ function renderizarInformeMensual(movimientos) {
                 datasets: [{
                     data: chartData,
                     backgroundColor: chartColors,
-                    borderWidth: 0,
-                    hoverOffset: 4
+                    borderWidth: 1.5,
+                    borderColor: '#ffffff',
+                    hoverOffset: 25,
+                    spacing: 1
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                cutout: '60%', // Más grueso (antes 75%)
+                cutout: '70%',
+                layout: { padding: 10 },
                 plugins: {
-                    legend: { display: false }, // Ocultamos leyenda para limpieza
+                    legend: { display: false },
                     tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.98)',
+                        padding: 12,
+                        titleFont: { size: 14, weight: '900' },
+                        bodyFont: { size: 12 },
+                        cornerRadius: 15,
                         callbacks: {
                             label: function (context) {
                                 let label = context.label || '';
                                 let value = context.raw || 0;
-                                return `${label}: $${value.toLocaleString('es-AR')}`;
+                                return ` ${label}: $${value.toLocaleString('es-AR')}`;
                             }
                         }
                     }
+                },
+                animation: {
+                    duration: 2500,
+                    easing: 'easeOutElastic',
+                    animateRotate: true,
+                    animateScale: true
                 }
             }
         });
@@ -694,6 +728,16 @@ function resetFormulario() {
 // ============================
 
 const ctx = document.getElementById('lineChart').getContext('2d');
+
+// Gradientes para Barras (Premium Glow Style)
+const gradIngreso = ctx.createLinearGradient(0, 0, 0, 300);
+gradIngreso.addColorStop(0, 'rgba(34, 197, 94, 0.6)');
+gradIngreso.addColorStop(1, 'rgba(34, 197, 94, 0.05)');
+
+const gradGasto = ctx.createLinearGradient(0, 0, 0, 300);
+gradGasto.addColorStop(0, 'rgba(239, 68, 68, 0.6)');
+gradGasto.addColorStop(1, 'rgba(239, 68, 68, 0.05)');
+
 // Clonamos los datos reales
 const ingresosIniciales = [...chartData.ingresos];
 const gastosIniciales = [...chartData.gastos];
@@ -702,80 +746,70 @@ chartData.ingresos = chartData.ingresos.map(() => 0);
 chartData.gastos = chartData.gastos.map(() => 0);
 
 const lineChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar', // Cambiado a bar para permitir mixto
     data: {
         labels: chartData.meses,
         datasets: [
             {
                 label: 'Ingresos',
                 data: chartData.ingresos,
+                backgroundColor: gradIngreso,
                 borderColor: '#22c55e',
-                backgroundColor: 'rgba(34,197,94,0.1)',
-                tension: 0.4,
-                pointRadius: 4,
-                pointHoverRadius: 6,
-                fill: true
+                borderWidth: 1,
+                borderRadius: 8,
+                order: 2
             },
             {
                 label: 'Gastos',
                 data: chartData.gastos,
+                backgroundColor: gradGasto,
                 borderColor: '#ef4444',
-                backgroundColor: 'rgba(239,68,68,0.1)',
-                tension: 0.4,
-                pointRadius: 4,
-                pointHoverRadius: 6,
-                fill: true
+                borderWidth: 1,
+                borderRadius: 8,
+                order: 3
             },
             {
-                label: 'Restante',
+                type: 'line',
+                label: 'Balance',
                 data: chartData.ingresos.map((v, i) => v - chartData.gastos[i]),
-                borderColor: '#f97316',
-                borderDash: [5, 5],
+                borderColor: '#6366f1',
+                borderWidth: 4,
                 tension: 0.4,
-                pointRadius: 3,
-                pointHoverRadius: 5
+                pointRadius: 4,
+                pointBackgroundColor: '#6366f1',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                fill: false,
+                order: 1 // Balance siempre encima
             }
         ]
     },
     options: {
         responsive: true,
+        maintainAspectRatio: false,
         animation: {
-            duration: 1200,
+            duration: 1500,
             easing: 'easeOutQuart'
         },
         plugins: {
             legend: {
+                position: 'top',
                 labels: {
-                    color: '#374151',
-                    font: {
-                        size: 12,
-                        weight: '500'
-                    }
+                    usePointStyle: true,
+                    padding: 20,
+                    font: { size: 12, weight: 'bold' }
                 }
             },
             tooltip: {
-                backgroundColor: '#0f172a', // azul oscuro
-                titleColor: '#e5e7eb',
-                bodyColor: '#f9fafb',
-                borderColor: '#334155',
-                borderWidth: 1,
-                padding: 12,
-                cornerRadius: 10,
-                displayColors: false,
-                animation: {
-                    duration: 200
-                },
-                titleFont: {
-                    size: 13,
-                    weight: '600'
-                },
-                bodyFont: {
-                    size: 13
-                },
+                backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                padding: 15,
+                cornerRadius: 15,
+                titleFont: { size: 14, weight: 'bold' },
+                bodyFont: { size: 13 },
                 callbacks: {
                     label: function (context) {
                         const value = context.parsed.y || 0;
-                        return `$ ${value.toLocaleString('es-AR')}`;
+                        return ` ${context.dataset.label}: $${value.toLocaleString('es-AR')}`;
                     }
                 }
             }
@@ -783,14 +817,15 @@ const lineChart = new Chart(ctx, {
         scales: {
             y: {
                 beginAtZero: true,
+                grid: { color: 'rgba(0,0,0,0.03)' },
                 ticks: {
-                    callback: value => '$ ' + value.toLocaleString('es-AR')
+                    callback: value => '$' + value.toLocaleString('es-AR'),
+                    font: { size: 10 }
                 }
             },
             x: {
-                ticks: {
-                    color: '#6b7280'
-                }
+                grid: { display: false },
+                ticks: { font: { size: 10 } }
             }
         }
     }

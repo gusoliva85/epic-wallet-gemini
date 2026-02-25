@@ -107,13 +107,13 @@
             </div>
 
             <!-- BENTO GRID LAYOUT -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up">
 
                 <!-- 3. KPI CARDS (Middle Strip - 1 per column) -->
 
                 <!-- Ingresos -->
                 <div
-                    class="bg-white p-6 rounded-3xl shadow-sm border border-emerald-50 flex flex-col justify-between hover:shadow-emerald-100/50 transition-all duration-300 group cursor-default relative overflow-hidden">
+                    class="bg-white p-6 rounded-3xl shadow-sm border border-emerald-50 flex flex-col justify-between hover:shadow-emerald-200/50 hover:scale-[1.02] transition-all duration-300 group cursor-default relative overflow-hidden">
                     <!-- Decoracion fondo -->
                     <div class="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity">
                         <i
@@ -136,7 +136,7 @@
 
                 <!-- Gastos -->
                 <div
-                    class="bg-white p-6 rounded-3xl shadow-sm border border-rose-50 flex flex-col justify-between hover:shadow-rose-100/50 transition-all duration-300 group cursor-default relative overflow-hidden">
+                    class="bg-white p-6 rounded-3xl shadow-sm border border-rose-50 flex flex-col justify-between hover:shadow-rose-200/50 hover:scale-[1.02] transition-all duration-300 group cursor-default relative overflow-hidden">
                     <!-- Decoracion fondo -->
                     <div class="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity">
                         <i
@@ -159,7 +159,7 @@
 
                 <!-- Restante (Estilo Dark como Ahorro) -->
                 <div
-                    class="bg-gray-900 p-6 rounded-3xl shadow-lg shadow-gray-200 border border-gray-800 flex flex-col justify-between relative overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                    class="bg-gray-900 p-6 rounded-3xl shadow-lg shadow-gray-200 border border-gray-800 flex flex-col justify-between relative overflow-hidden group hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
                     <div
                         class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:bg-white/20 transition-all">
                     </div>
@@ -184,7 +184,7 @@
 
                 <!-- Ahorro Total (Estilo Dark Gradient) -->
                 <div
-                    class="bg-gradient-to-br from-indigo-600 to-indigo-800 p-6 rounded-3xl shadow-lg shadow-indigo-200 border border-indigo-500/50 flex flex-col justify-between relative overflow-hidden group hover:shadow-indigo-300 transition-all duration-300">
+                    class="bg-gradient-to-br from-indigo-600 to-indigo-800 p-6 rounded-3xl shadow-lg shadow-indigo-200 border border-indigo-500/50 flex flex-col justify-between relative overflow-hidden group hover:shadow-indigo-400 hover:scale-[1.02] transition-all duration-300">
                     <div
                         class="absolute -right-8 -bottom-8 opacity-20 rotate-12 group-hover:scale-110 transition duration-500">
                         <i class="bi bi-safe-fill text-9xl text-white"></i>
@@ -206,88 +206,80 @@
 
                 <!-- 1. AGREGAR MOVIMIENTO (Vertical Card - Col 1) -->
                 <div
-                    class="bg-white px-6 py-8 rounded-3xl shadow-lg shadow-indigo-50 border border-indigo-50 flex flex-col h-full relative overflow-hidden lg:col-span-1">
-                    <!-- Decoración de fondo sutil -->
-                    <div
-                        class="absolute -right-12 -top-12 w-40 h-40 bg-primary/5 rounded-full blur-3xl pointer-events-none">
-                    </div>
+                    class="bg-white px-6 py-5 rounded-3xl shadow-lg shadow-indigo-50 border border-indigo-50 flex flex-col h-full relative overflow-hidden lg:col-span-1 hover:shadow-indigo-100 hover:scale-[1.01] transition-all duration-300">
 
-                    <!-- Encabezado Card -->
-                    <div class="flex items-center justify-between mb-8 relative z-10">
-                        <div>
-                            <h3 class="font-bold text-gray-800 text-xl">Nuevo</h3>
-                            <p class="text-xs text-gray-400">Registrar transacción</p>
+                    <!-- Nuevo movimiento -->
+                    <div class="flex items-center justify-between mb-6 relative z-10">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-bold text-gray-800 text-lg">Nuevo</h3>
+                            <button onclick="abrirAyuda('nuevo_movimiento')"
+                                class="text-gray-300 hover:text-primary transition-colors">
+                                <i class="bi bi-info-circle text-xs"></i>
+                            </button>
                         </div>
                         <button onclick="mostrarModalNuevoMotivo()"
-                            class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 hover:text-indigo-700 p-2.5 rounded-xl transition-all shadow-sm group"
-                            title="Crear categoría">
-                            <i class="bi bi-plus-lg group-hover:rotate-90 transition-transform duration-300"></i>
+                            class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 p-2 rounded-xl transition-all">
+                            <i class="bi bi-plus-lg"></i>
                         </button>
                     </div>
 
-                    <!-- Formulario -->
-                    <div class="flex-1 flex flex-col gap-6 relative z-10">
-
-                        <!-- Select -->
-                        <div class="space-y-2">
+                    <!-- Ingresar movimiento -->
+                    <div class="flex-1 flex flex-col gap-4 relative z-10">
+                        <div class="space-y-1">
                             <label
-                                class="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">Concepto</label>
-                            <div class="relative group">
+                                class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Motivo</label>
+                            <div class="relative">
                                 <select id="motivo"
-                                    class="w-full bg-gray-50 border border-gray-100 rounded-2xl px-4 py-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-300 focus:bg-white transition-all appearance-none cursor-pointer font-medium text-sm">
-                                    <option value="">Seleccionar motivo</option>
+                                    class="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-100 appearance-none font-medium text-sm">
+                                    <option value=""></option>
                                 </select>
                                 <div
-                                    class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-400 group-hover:text-indigo-500 transition-colors">
-                                    <i class="bi bi-chevron-down text-xs"></i>
-                                </div>
+                                    class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-400">
+                                    <i class="bi bi-chevron-down text-xs"></i></div>
                             </div>
                         </div>
 
-                        <!-- Input Monto -->
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">Monto</label>
+                        <div class="space-y-1">
+                            <label
+                                class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Monto</label>
                             <div class="relative group">
                                 <span
-                                    class="absolute inset-y-0 left-4 flex items-center text-gray-400 font-bold text-xl group-focus-within:text-indigo-500 transition-colors">$</span>
+                                    class="absolute inset-y-0 left-4 flex items-center text-gray-400 font-bold text-lg group-focus-within:text-indigo-500">$</span>
                                 <input id="monto" type="text" placeholder="0"
-                                    class="w-full bg-gray-50 border border-gray-100 rounded-2xl pl-10 pr-4 py-4 text-gray-800 font-bold text-xl focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-300 focus:bg-white transition-all placeholder-gray-300">
+                                    class="w-full bg-gray-50 border border-gray-100 rounded-xl pl-10 pr-4 py-3 text-gray-800 font-bold text-xl focus:outline-none focus:ring-2 focus:ring-indigo-100 transition-all">
                             </div>
                         </div>
 
-                        <!-- Spacer para empujar boton al fondo si sobra espacio -->
-                        <div class="flex-1"></div>
-
-                        <!-- Boton -->
                         <button id="agregarBtn" disabled
-                            class="w-full bg-gray-900 hover:bg-black text-white font-bold rounded-2xl py-4 shadow-xl shadow-gray-200 transition-all transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none flex items-center justify-center gap-3 group">
-                            <span class="tracking-wide">AGREGAR</span>
-                            <i class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            class="w-full bg-gray-900 hover:bg-black text-white font-bold rounded-xl py-3.5 shadow-xl transition-all mt-2 disabled:opacity-50">
+                            Agregar <i class="bi bi-arrow-right ml-2"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- 2. GRAFICO (Col 2-4) -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 lg:col-span-3 flex flex-col">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
+                <!-- 2. GRAFICO -->
+                <div
+                    class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 lg:col-span-3 hover:shadow-md hover:scale-[1.005] transition-all duration-300 flex flex-col w-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-2">
                             <h3 class="font-bold text-gray-800 text-lg">Balance Anual</h3>
-                            <p class="text-sm text-gray-400">Evolución de tus finanzas (12 meses)</p>
+                            <button onclick="abrirAyuda('grafico_anual')"
+                                class="text-gray-400 hover:text-primary transition-colors">
+                                <i class="bi bi-info-circle text-xs"></i>
+                            </button>
                         </div>
                     </div>
-                    <div class="flex-1 w-full min-h-[300px] flex items-center justify-center">
+                    <div class="relative w-full h-[300px]">
                         <canvas id="lineChart"></canvas>
                     </div>
                 </div>
-
-
 
 
                 <!-- 4. TABLAS (Bottom Row) -->
 
                 <!-- Informe Mensual -->
                 <div
-                    class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 lg:col-span-2 h-96 flex flex-col relative overflow-hidden">
+                    class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 lg:col-span-2 h-[40rem] flex flex-col relative overflow-hidden hover:shadow-md hover:scale-[1.01] transition-all duration-300">
                     <h3 class="font-bold text-gray-800 mb-6 flex items-center gap-2 relative z-10">
                         <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
                             <i class="bi bi-pie-chart-fill text-sm"></i>
@@ -304,9 +296,14 @@
                             <div class="w-[150px] h-[150px]">
                                 <canvas id="categoriesChart"></canvas>
                             </div>
-                            <!-- Texto central del donut (opcional, visual) -->
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <i class="bi bi-wallet2 text-2xl text-gray-200"></i>
+                            <!-- Texto central del donut (Sincronizado con Detalle Mensual) -->
+                            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                                <span
+                                    class="text-[8px] font-black text-gray-400 uppercase tracking-[0.1em] text-center leading-none mb-1">Balance</span>
+                                <span id="balanceDonutHome"
+                                    class="text-xl font-black text-emerald-600 tracking-tighter">
+                                    $ 0
+                                </span>
                             </div>
                         </div>
 
@@ -328,7 +325,7 @@
 
                 <!-- Actividad Reciente -->
                 <div
-                    class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 lg:col-span-2 h-96 flex flex-col relative">
+                    class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 lg:col-span-2 h-[40rem] flex flex-col relative hover:shadow-md hover:scale-[1.01] transition-all duration-300">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="font-bold text-gray-800 flex items-center gap-2">
                             <div
@@ -394,6 +391,50 @@
             </div>
         </div>
     </div>
+
+    <!-- MODAL PARA INFORMACION / AYUDA -->
+    <div id="modalAyuda"
+        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl">
+            <div class="p-6">
+                <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center text-primary mb-4">
+                    <i class="bi bi-info-lg text-2xl"></i>
+                </div>
+                <h3 id="ayudaTitulo" class="text-xl font-bold text-gray-800 mb-2">Ayuda</h3>
+                <p id="ayudaCuerpo" class="text-gray-600 leading-relaxed text-sm">Cargando...</p>
+                <button onclick="cerrarAyuda()"
+                    class="mt-6 w-full py-3 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Lógica para el sistema de ayuda
+        async function abrirAyuda(clave) {
+            try {
+                // Buscamos el archivo en la raíz de la carpeta frontend
+                const respuesta = await fetch('./ayuda.json');
+
+                if (!respuesta.ok) {
+                    throw new Error(`No se pudo cargar ayuda.json (Estado: ${respuesta.status})`);
+                }
+
+                const datosAyuda = await respuesta.json();
+                const contenido = datosAyuda[clave];
+
+                if (contenido) {
+                    // Aquí puedes usar un 'alert' para probar, luego lo cambiamos por un modal bonito
+                    alert(`${contenido.titulo}\n\n${contenido.cuerpo}`);
+                } else {
+                    console.error("La clave '" + clave + "' no existe en ayuda.json");
+                }
+            } catch (error) {
+                console.error("Error en abrirAyuda:", error);
+                alert("Error al cargar la ayuda. Revisa la consola (F12).");
+            }
+        }
+    </script>
 
     <script src="js/main.js"></script>
 </body>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockups de Gráficos - Epic Wallet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-black text-gray-900 mb-8 tracking-tight">Opciones de Gráficos <span
+                class="text-indigo-600">Epic Wallet</span></h1>
+
+        <!-- Opción 1: Barras Apiladas -->
+        <div class="chart-container">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Opción 1: Comparativa de Barras</h2>
+            <p class="text-sm text-gray-500 mb-6">Ideal para visualizar el volumen total de dinero que entra y sale cada
+                mes de forma clara.</p>
+            <div class="h-[400px]">
+                <canvas id="chartOption1"></canvas>
+            </div>
+        </div>
+
+        <!-- Opción 2: Áreas Suavizadas -->
+        <div class="chart-container">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Opción 2: Áreas de Tendencia</h2>
+            <p class="text-sm text-gray-500 mb-6">Una estética más moderna que resalta la tendencia y el flujo de caja
+                mediante gradientes.</p>
+            <div class="h-[400px]">
+                <canvas id="chartOption2"></canvas>
+            </div>
+        </div>
+
+        <!-- Opción 3: Mixto (Barras + Línea de Balance) -->
+        <div class="chart-container">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Opción 3: Dashboard Mixto (Original)</h2>
+            <p class="text-sm text-gray-500 mb-6">Muestra ingresos y gastos en barras, con una línea de "Balance Neto"
+                resaltada para ver ganancias reales.</p>
+            <div class="h-[400px]">
+                <canvas id="chartOption3"></canvas>
+            </div>
+        </div>
+
+        <!-- Opción 4: Mixto con Línea Escalonada -->
+        <div class="chart-container">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Opción 4: Mixto - Balance Escalonado</h2>
+            <p class="text-sm text-gray-500 mb-6">Usa una línea escalonada (stepped) para el balance, ideal para ver
+                "escalones" o cambios bruscos en el ahorro.</p>
+            <div class="h-[400px]">
+                <canvas id="chartOption4"></canvas>
+            </div>
+        </div>
+
+        <!-- Opción 5: Mixto con Gradientes y Brillo -->
+        <div class="chart-container">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Opción 5: Mixto - Premium Glow</h2>
+            <p class="text-sm text-gray-500 mb-6">Barras con degradados suaves y una línea de balance con efecto de
+                brillo (glow) para resaltar el resultado final.</p>
+            <div class="h-[400px]">
+                <canvas id="chartOption5"></canvas>
+            </div>
+        </div>
+
+        <!-- Opción 6: Mixto con Burbujas de Balance -->
+        <div class="chart-container">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Opción 6: Mixto - Balance en Burbujas</h2>
+            <p class="text-sm text-gray-500 mb-6">En lugar de una línea continua, muestra burbujas flotantes con el
+                balance, evitando sobrecargar visualmente el gráfico.</p>
+            <div class="h-[400px]">
+                <canvas id="chartOption6"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const labels = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        const ingresos = [120000, 150000, 130000, 170000, 160000, 190000, 140000, 180000, 200000, 210000, 195000, 230000];
+        const gastos = [80000, 95000, 110000, 90000, 120000, 100000, 130000, 115000, 140000, 150000, 130000, 160000];
+        const balance = ingresos.map((v, i) => v - gastos[i]);
+
+        // Gráfico 1: Barras
+        new Chart(document.getElementById('chartOption1'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    { label: 'Ingresos', data: ingresos, backgroundColor: '#10b981', borderRadius: 8 },
+                    { label: 'Gastos', data: gastos, backgroundColor: '#f43f5e', borderRadius: 8 }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // Gráfico 2: Áreas Suavizadas
+        const ctx2 = document.getElementById('chartOption2').getContext('2d');
+        const gradIngreso = ctx2.createLinearGradient(0, 0, 0, 400);
+        gradIngreso.addColorStop(0, 'rgba(16, 185, 129, 0.4)');
+        gradIngreso.addColorStop(1, 'rgba(16, 185, 129, 0)');
+
+        const gradGasto = ctx2.createLinearGradient(0, 0, 0, 400);
+        gradGasto.addColorStop(0, 'rgba(244, 63, 94, 0.4)');
+        gradGasto.addColorStop(1, 'rgba(244, 63, 94, 0)');
+
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    { label: 'Ingresos', data: ingresos, borderColor: '#10b981', backgroundColor: gradIngreso, fill: true, tension: 0.4 },
+                    { label: 'Gastos', data: gastos, borderColor: '#f43f5e', backgroundColor: gradGasto, fill: true, tension: 0.4 }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // Gráfico 3: Mixto
+        new Chart(document.getElementById('chartOption3'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    { type: 'line', label: 'Balance Neto', data: balance, borderColor: '#6366f1', borderWidth: 3, pointBackgroundColor: '#6366f1', tension: 0.4, fill: false },
+                    { label: 'Ingresos', data: ingresos, backgroundColor: 'rgba(16, 185, 129, 0.2)', borderRadius: 5 },
+                    { label: 'Gastos', data: gastos, backgroundColor: 'rgba(244, 63, 94, 0.2)', borderRadius: 5 }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // Gráfico 4: Mixto Escalonado
+        new Chart(document.getElementById('chartOption4'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    { type: 'line', label: 'Balance Neto', data: balance, borderColor: '#6366f1', borderWidth: 2, stepped: true, fill: false },
+                    { label: 'Ingresos', data: ingresos, backgroundColor: '#10b98188', borderRadius: 4 },
+                    { label: 'Gastos', data: gastos, backgroundColor: '#f43f5e88', borderRadius: 4 }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // Gráfico 5: Mixed Glow
+        const ctx5 = document.getElementById('chartOption5').getContext('2d');
+        const grad5I = ctx5.createLinearGradient(0, 0, 0, 400);
+        grad5I.addColorStop(0, '#10b981'); grad5I.addColorStop(1, '#10b98122');
+        const grad5G = ctx5.createLinearGradient(0, 0, 0, 400);
+        grad5G.addColorStop(0, '#f43f5e'); grad5G.addColorStop(1, '#f43f5e22');
+
+        new Chart(ctx5, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    { type: 'line', label: 'Balance', data: balance, borderColor: '#6366f1', borderWidth: 4, shadowBlur: 10, shadowColor: '#6366f1' },
+                    { label: 'Ingresos', data: ingresos, backgroundColor: grad5I, borderRadius: 10 },
+                    { label: 'Gastos', data: gastos, backgroundColor: grad5G, borderRadius: 10 }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // Gráfico 6: Burbujas de Balance
+        new Chart(document.getElementById('chartOption6'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        type: 'line',
+                        label: 'Balance',
+                        data: balance,
+                        showLine: false,
+                        pointRadius: 8,
+                        pointHoverRadius: 12,
+                        pointBackgroundColor: '#6366f1',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    },
+                    { label: 'Ingresos', data: ingresos, backgroundColor: '#10b981dd', barThickness: 15 },
+                    { label: 'Gastos', data: gastos, backgroundColor: '#f43f5edd', barThickness: 15 }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+        });
+    </script>
+</body>
+
+</html>
