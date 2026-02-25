@@ -158,8 +158,15 @@ function renderizarMes(periodo, movimientos, index) {
                 <h3 class="text-3xl font-black text-gray-900 capitalize tracking-tighter group-hover:text-indigo-600 transition-colors duration-500">${periodo.label}</h3>
                 <span class="text-[12px] font-black text-indigo-400 tracking-[0.5em] uppercase">${periodo.anioLabel}</span>
             </div>
-            <div class="px-5 py-2 bg-gray-50/80 backdrop-blur-md border border-gray-100 shadow-sm rounded-3xl text-[10px] font-black text-gray-500 uppercase">
-                ${tieneDatos ? movimientos.length + ' OPERACIONES' : 'SIN DATOS'}
+            <div class="flex items-center gap-3">
+                <button onclick="agregarNuevoItem(${periodo.mes}, ${periodo.anio})" 
+                    class="w-10 h-10 flex items-center justify-center bg-indigo-50 text-indigo-600 rounded-2xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
+                    title="Agregar Movimiento">
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+                <div class="px-5 py-2 bg-gray-50/80 backdrop-blur-md border border-gray-100 shadow-sm rounded-3xl text-[10px] font-black text-gray-500 uppercase">
+                    ${tieneDatos ? movimientos.length + ' OPERACIONES' : 'SIN DATOS'}
+                </div>
             </div>
         </div>
 
@@ -184,7 +191,7 @@ function renderizarMes(periodo, movimientos, index) {
                                 <td class="py-0.5 px-3">
                                     <div class="flex flex-col">
                                         <span class="font-bold text-gray-800 text-[14px] leading-tight mb-1 truncate group-hover/row:text-indigo-600">${cat.nombre}</span>
-                                        <!-- Línea de Color Completa para identificación rápida -->
+                                        <!-- Línea de Color Completas -->
                                         <div class="h-[3px] w-full rounded-full opacity-80" style="background-color: ${cat.tipo === 'suma' ? '#10b981' : cat.color}"></div>
                                     </div>
                                 </td>
@@ -193,13 +200,21 @@ function renderizarMes(periodo, movimientos, index) {
                                         $${cat.monto.toLocaleString('es-AR')}
                                     </span>
                                     <div class="flex items-center justify-end gap-2 mt-1 opacity-0 group-hover/row:opacity-100 transition-all">
-                                        <button onclick="abrirModalEditar(${cat.ids[0]}, ${cat.monto})" class="w-7 h-7 flex items-center justify-center bg-indigo-50 text-indigo-500 rounded-xl hover:bg-indigo-500 hover:text-white transition-all"><i class="bi bi-pencil-square text-xs"></i></button>
+                                        <button onclick="abrirModalEditar(${cat.ids[0]}, ${cat.ids.length > 1 ? 'null' : (movimientos.find(m => m.id === cat.ids[0])?.id_motivo || 'null')}, ${cat.monto}, ${periodo.mes}, ${periodo.anio})" class="w-7 h-7 flex items-center justify-center bg-indigo-50 text-indigo-500 rounded-xl hover:bg-indigo-500 hover:text-white transition-all"><i class="bi bi-pencil-square text-xs"></i></button>
                                         <button onclick="eliminarFuga(${cat.ids[0]})" class="w-7 h-7 flex items-center justify-center bg-rose-50 text-rose-500 rounded-xl hover:bg-rose-500 hover:text-white transition-all"><i class="bi bi-trash text-xs"></i></button>
                                     </div>
                                 </td>
                             </tr>
                         `).join('') : `
-                            <tr><td colspan="2" class="py-28 text-center text-gray-300 font-bold uppercase tracking-widest opacity-20 text-md text-center w-full">No registra datos</td></tr>
+                            <tr>
+                                <td colspan="2" class="py-20 text-center flex flex-col items-center justify-center">
+                                    <p class="text-gray-300 font-bold uppercase tracking-widest opacity-40 text-sm mb-6">No registra datos</p>
+                                    <button onclick="agregarBasicos(${periodo.mes}, ${periodo.anio})" 
+                                        class="px-6 py-3 bg-indigo-50 text-indigo-600 font-black text-[10px] uppercase tracking-widest rounded-2xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
+                                        <i class="bi bi-magic mr-2"></i> Agregar Básicos
+                                    </button>
+                                </td>
+                            </tr>
                         `}
                     </tbody>
                 </table>
@@ -271,26 +286,61 @@ function initChart(index, cats) {
 
 // --- EDICIÓN ---
 let currentEditId = null;
+let currentMonthTarget = null; // { mes, anio }
 
-function abrirModalEditar(id, monto) {
+async function abrirModalEditar(id, idMotivo, monto, mes, anio) {
     currentEditId = id;
+    currentMonthTarget = { mes, anio };
+
     document.getElementById('editId').value = id;
     document.getElementById('editMonto').value = Math.abs(monto);
+
+    // Cargar motivos para ese mes específico en el select del modal
+    await cargarMotivosParaEdicion(mes, anio, idMotivo);
+
     document.getElementById('modalEditar').classList.remove('hidden');
+}
+
+async function cargarMotivosParaEdicion(mes, anio, selectedId) {
+    const select = document.getElementById('editMotivo');
+    select.innerHTML = '<option value="">Cargando...</option>';
+
+    try {
+        const res = await fetch(`http://127.0.0.1:8000/motivos?usuario=${usuarioLogueado}&mes=${mes}&anio=${anio}`);
+        const motivos = await res.json();
+
+        select.innerHTML = '';
+        motivos.forEach(m => {
+            const opt = document.createElement('option');
+            opt.value = m.id;
+            opt.textContent = m.nombre;
+            if (m.id === selectedId) opt.selected = true;
+            select.appendChild(opt);
+        });
+    } catch (e) {
+        console.error("Error al cargar motivos para edición", e);
+    }
 }
 
 function cerrarModalEditar() { document.getElementById('modalEditar').classList.add('hidden'); }
 
 async function guardarEdicion() {
     const monto = parseInt(document.getElementById('editMonto').value);
-    if (!monto || monto <= 0) return alert("Ingresá un monto válido");
+    const idMotivo = parseInt(document.getElementById('editMotivo').value);
+
+    if (!monto || monto < 0) return alert("Ingresá un monto válido");
+    if (!idMotivo) return alert("Seleccioná una categoría");
+
     try {
         const response = await fetch(`http://127.0.0.1:8000/movimientos/${currentEditId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ monto: monto })
+            body: JSON.stringify({ monto: monto, id_motivo: idMotivo })
         });
-        if (response.ok) { cerrarModalEditar(); cargarCuadricula(); }
+        if (response.ok) {
+            cerrarModalEditar();
+            cargarCuadricula();
+        }
     } catch (e) { console.error(e); }
 }
 
@@ -299,5 +349,56 @@ async function eliminarFuga(id) {
     try {
         const r = await fetch(`http://127.0.0.1:8000/movimientos/${id}`, { method: 'DELETE' });
         if (r.ok) cargarCuadricula();
+    } catch (e) { console.error(e); }
+}
+
+async function agregarBasicos(mes, anio) {
+    try {
+        const r = await fetch('http://127.0.0.1:8000/movimientos-basicos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ usuario: usuarioLogueado, mes, anio })
+        });
+        if (r.ok) cargarCuadricula();
+    } catch (e) { console.error(e); }
+}
+
+/**
+ * Función para agregar un item vacío (0) a un mes específico
+ * Esto permite luego editarlo para poner el valor real.
+ */
+async function agregarNuevoItem(mes, anio) {
+    // Para simplificar, abrimos el modal de motivos del Home o creamos uno rápido.
+    // Aquí simplemente pedimos el primer motivo disponible o mostramos un prompt rápido.
+    try {
+        const resMotivos = await fetch(`http://127.0.0.1:8000/motivos?usuario=${usuarioLogueado}&mes=${mes}&anio=${anio}`);
+        const motivos = await resMotivos.json();
+
+        if (motivos.length === 0) {
+            // Si no hay motivos, forzamos la creación de básicos primero
+            if (confirm("Este mes no tiene categorías. ¿Deseas agregar los básicos primero?")) {
+                await agregarBasicos(mes, anio);
+            }
+            return;
+        }
+
+        // Seleccionamos el primer motivo por defecto para crear un registro en 0
+        const idMotivo = motivos[0].id;
+
+        const r = await fetch('http://127.0.0.1:8000/movimientos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                monto: 0,
+                id_motivo: idMotivo,
+                usuario: usuarioLogueado
+            })
+        });
+
+        if (r.ok) {
+            const data = await r.json();
+            // Abrimos el modal de edición inmediatamente para que el usuario complete el monto
+            abrirModalEditar(data.id, idMotivo, 0, mes, anio);
+        }
     } catch (e) { console.error(e); }
 }

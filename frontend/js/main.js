@@ -412,9 +412,10 @@ function animateValue(element, start, end, duration = 400) {
 }
 
 function triggerGlow(element, className) {
-    element.classList.remove(className);
-    void element.offsetWidth; // fuerza reflow
     element.classList.add(className);
+    setTimeout(() => {
+        element.classList.remove(className);
+    }, 800);
 }
 
 // Animacion del grafico
@@ -623,11 +624,11 @@ agregarBtn.addEventListener('click', async () => {
         if (tipo === 'suma') {
             chartData.ingresos[indiceMesActual] += montoLimpio;
             glowChartPoint(0, indiceMesActual); // Punto verde
-            triggerGlow(cardIngresos, 'bg-indigo-50/20');
+            triggerGlow(cardIngresos, 'glow-ingreso');
         } else {
             chartData.gastos[indiceMesActual] += montoLimpio;
             glowChartPoint(1, indiceMesActual); // Punto rojo
-            triggerGlow(cardGastos, 'bg-rose-50/20');
+            triggerGlow(cardGastos, 'glow-gasto');
         }
 
         // Actualizar línea de "Restante"
@@ -636,7 +637,7 @@ agregarBtn.addEventListener('click', async () => {
 
         // Efectos finales
         actualizarTotales();
-        triggerGlow(cardRestante, 'bg-indigo-50/20');
+        triggerGlow(cardRestante, 'glow-restante');
 
         resetFormulario();
 

@@ -235,16 +235,19 @@ def obtener_resumenes_mensuales(usuario:str, db:Session = Depends(database.get_d
     return resumenes
 
 @app.get("/motivos")
-def obtener_motivos(usuario: str, db: Session = Depends(database.get_db)):
+def obtener_motivos(usuario: str, mes: int | None = None, anio: int | None = None, db: Session = Depends(database.get_db)):
     user = db.query(models.Usuario).filter(models.Usuario.usuario == usuario).first()
     if not user:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     
     ahora = datetime.now()
+    mes_target = mes if mes is not None else ahora.month
+    anio_target = anio if anio is not None else ahora.year
+    
     motivos = db.query(models.MotivoMovimiento).filter_by(
         id_usuario=user.id, 
-        mes=ahora.month, 
-        anio=ahora.year
+        mes=mes_target, 
+        anio=anio_target
     ).all()
     
     return motivos
@@ -309,16 +312,10 @@ def crear_motivo(datos: schemas.MotivoCreate, db: Session = Depends(database.get
 
 @app.get("/movimientos/{usuario}")
 def obtener_historial(usuario: str, db: Session = Depends(database.get_db)):
-    ahora = datetime.now()
-    mes_actual = ahora.month
-    anio_actual = ahora.year
-
     user = db.query(models.Usuario).filter(models.Usuario.usuario == usuario).first()
     if not user:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     
-    # Se obtienen TODOS los movimientos del usuario sin filtrar por mes
-    # Esto es necesario para que el gráfico y el ahorro global se calculen correctamente
     movimientos = db.query(
         models.Movimiento.id,
         models.Movimiento.monto,
@@ -340,14 +337,33 @@ def obtener_historial(usuario: str, db: Session = Depends(database.get_db)):
         })
     
     return resultado
+
 @app.get("/movimientos-mensuales")
 def obtener_movimientos_mensuales(usuario: str, mes: int, anio: int, db: Session = Depends(database.get_db)):
     user = db.query(models.Usuario).filter(models.Usuario.usuario == usuario).first()
     if not user: raise HTTPException(status_code=404, detail="Usuario no encontrado")
-    movimientos = db.query(models.Movimiento.id, models.Movimiento.monto, models.Movimiento.fecha_creacion, models.MotivoMovimiento.tipo, models.MotivoMovimiento.nombre).join(models.MotivoMovimiento).filter(models.Movimiento.id_usuario == user.id, models.MotivoMovimiento.mes == mes, models.MotivoMovimiento.anio == anio).all()
+    movimientos = db.query(
+        models.Movimiento.id, 
+        models.Movimiento.id_motivo,
+        models.Movimiento.monto, 
+        models.Movimiento.fecha_creacion, 
+        models.MotivoMovimiento.tipo, 
+        models.MotivoMovimiento.nombre
+    ).join(models.MotivoMovimiento).filter(
+        models.Movimiento.id_usuario == user.id, 
+        models.MotivoMovimiento.mes == mes, 
+        models.MotivoMovimiento.anio == anio
+    ).all()
     resultado = []
     for m in movimientos:
-        resultado.append({"id": m.id, "monto": m.monto, "fecha": m.fecha_creacion.isoformat(), "tipo": m.tipo, "motivo": m.nombre})
+        resultado.append({
+            "id": m.id, 
+            "id_motivo": m.id_motivo,
+            "monto": m.monto, 
+            "fecha": m.fecha_creacion.isoformat(), 
+            "tipo": m.tipo, 
+            "motivo": m.nombre
+        })
     return resultado
 
 @app.put("/movimientos/{id}")
@@ -356,10 +372,42 @@ def actualizar_movimiento(id: int, datos: schemas.MovimientoUpdate, db: Session 
     if not movimiento: raise HTTPException(status_code=404, detail="Movimiento no encontrado")
     try:
         movimiento.monto = datos.monto
+        if datos.id_motivo is not None:
+            movimiento.id_motivo = datos.id_motivo
         db.commit()
         return {"status": "success", "message": "Movimiento actualizado correctamente"}
     except Exception as e:
         db.rollback()
         logger.error(f"Error al actualizar movimiento {id}: {e}")
         raise HTTPException(status_code=500, detail="Error interno del servidor")
+
+@app.post("/movimientos-basicos")
+def agregar_movimientos_basicos(req: schemas.MovimientoBasicoRequest, db: Session = Depends(database.get_db)):
+    user = db.query(models.Usuario).filter(models.Usuario.usuario == req.usuario).first()
+    if not user: raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    
+    # Asegurar que existan los motivos para ese mes
+    inicializar_motivos_mes(db, user.id, req.mes, req.anio)
+    
+    # Obtener motivos creados
+    motivos = db.query(models.MotivoMovimiento).filter_by(
+        id_usuario=user.id, mes=req.mes, anio=req.anio
+    ).all()
+    
+    # Crear movimientos con monto 0 para cada motivo (si no existen ya)
+    for m in motivos:
+        existe = db.query(models.Movimiento).filter_by(
+            id_usuario=user.id, id_motivo=m.id
+        ).first()
+        if not existe:
+            nuevo_mov = models.Movimiento(
+                id_usuario=user.id,
+                id_motivo=m.id,
+                monto=0
+            )
+            db.add(nuevo_mov)
+    
+    db.commit()
+    return {"status": "success", "message": f"Movimientos básicos agregados para {req.mes}/{req.anio}"}
+
 

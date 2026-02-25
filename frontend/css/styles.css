@@ -160,6 +160,28 @@
     background: #cbd5e1;
 }
 
+/* Tooltips simples */
+[title] {
+    position: relative;
+}
+
+[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    white-space: nowrap;
+    z-index: 100;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
 /* Scrollbar sutil para la tabla */
 .overflow-x-auto::-webkit-scrollbar {
     height: 4px;

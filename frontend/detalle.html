@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle Mensual - Epic Wallet</title>
+    <meta name="author" content="Gustavo A Oliva">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script>
@@ -100,6 +102,12 @@
                 <!-- Los 4 bloques mensuales se inyectan dinámicamente vía JS -->
             </div>
 
+            <footer class="mt-12 py-4 text-center border-t border-gray-200/50">
+                <p class="text-gray-400 text-[10px] uppercase tracking-[0.2em]">© 2026 Epic Wallet — Desarrollado por
+                    <span class="text-gray-300">Gustavo A Oliva</span>
+                </p>
+            </footer>
+
         </main>
     </div>
 
@@ -118,7 +126,22 @@
 
             <input type="hidden" id="editId">
 
-            <div class="space-y-6">
+            <div class="space-y-1">
+                <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Concepto /
+                    Categoría</label>
+                <div class="relative">
+                    <select id="editMotivo"
+                        class="w-full bg-gray-50 border-2 border-transparent focus:border-indigo-500 rounded-2xl px-5 py-4 text-gray-800 font-bold focus:outline-none appearance-none transition-all">
+                        <!-- Motivos cargados dinámicamente -->
+                    </select>
+                    <div class="absolute inset-y-0 right-5 flex items-center pointer-events-none text-gray-400">
+                        <i class="bi bi-chevron-down text-sm"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-1">
+                <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Monto</label>
                 <div class="relative group">
                     <span
                         class="absolute inset-y-0 left-5 flex items-center text-gray-400 text-2xl font-bold group-focus-within:text-indigo-500 transition-colors">$</span>
@@ -126,17 +149,17 @@
                         class="w-full bg-gray-50 border-2 border-transparent focus:border-indigo-500 rounded-2xl pl-12 pr-6 py-4 font-bold text-3xl text-gray-800 focus:outline-none transition-all placeholder-gray-300"
                         placeholder="0">
                 </div>
+            </div>
 
-                <div class="flex flex-col gap-3">
-                    <button onclick="guardarEdicion()"
-                        class="w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl shadow-xl shadow-indigo-200 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all active:translate-y-0">
-                        Guardar Cambios
-                    </button>
-                    <button onclick="cerrarModalEditar()"
-                        class="w-full py-3 rounded-2xl text-gray-400 font-bold hover:bg-gray-50 transition-colors">
-                        Cancelar
-                    </button>
-                </div>
+            <div class="flex flex-col gap-3">
+                <button onclick="guardarEdicion()"
+                    class="w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl shadow-xl shadow-indigo-200 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all active:translate-y-0">
+                    Guardar Cambios
+                </button>
+                <button onclick="cerrarModalEditar()"
+                    class="w-full py-3 rounded-2xl text-gray-400 font-bold hover:bg-gray-50 transition-colors">
+                    Cancelar
+                </button>
             </div>
         </div>
     </div>
