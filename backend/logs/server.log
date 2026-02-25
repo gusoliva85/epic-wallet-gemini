@@ -27,3 +27,29 @@
 2026-02-10 20:58:37,309 [INFO] Tablas de base de datos verificadas/creadas correctamente.
 2026-02-10 20:58:45,509 [INFO] Intento de login para usuario: gusoliva
 2026-02-10 20:58:45,718 [INFO] Login exitoso para usuario: gusoliva
+2026-02-17 18:36:33,196 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-02-17 18:36:47,694 [INFO] Intento de login para usuario: gusoliva
+2026-02-17 18:36:47,914 [INFO] Login exitoso para usuario: gusoliva
+2026-02-18 20:35:21,049 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-02-18 20:40:35,760 [INFO] Intento de login para usuario: gusoliva
+2026-02-18 20:40:35,967 [WARNING] Intento de login fallido (password incorrecto): gusoliva
+2026-02-18 20:40:39,748 [INFO] Intento de login para usuario: gusoliva
+2026-02-18 20:40:39,946 [INFO] Login exitoso para usuario: gusoliva
+2026-02-22 14:05:54,791 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-02-22 14:06:13,939 [INFO] Intento de login para usuario: gusoliva
+2026-02-22 14:06:14,153 [INFO] Login exitoso para usuario: gusoliva
+2026-02-22 17:27:46,192 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-02-22 17:27:59,619 [INFO] Intento de login para usuario: gusoliva
+2026-02-22 17:27:59,827 [INFO] Login exitoso para usuario: gusoliva
+2026-02-22 20:19:54,456 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-02-22 20:20:11,378 [INFO] Intento de login para usuario: gusoliva
+2026-02-22 20:20:11,575 [INFO] Login exitoso para usuario: gusoliva
+2026-02-22 20:21:12,172 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-02-22 20:21:23,409 [INFO] Intento de login para usuario: gusoliva
+2026-02-22 20:21:23,616 [INFO] Login exitoso para usuario: gusoliva
+2026-02-25 08:37:06,314 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-02-25 08:37:32,760 [INFO] Intento de login para usuario: gusoliva
+2026-02-25 08:37:32,963 [INFO] Login exitoso para usuario: gusoliva
+2026-02-25 09:10:34,471 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-02-25 09:10:49,719 [INFO] Intento de login para usuario: gusoliva
+2026-02-25 09:10:49,915 [INFO] Login exitoso para usuario: gusoliva
