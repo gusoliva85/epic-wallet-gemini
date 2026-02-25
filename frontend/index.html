@@ -102,6 +102,10 @@
                     <div class="flex items-center gap-3 mt-1">
                         <span class="h-1.5 w-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></span>
                         <p class="text-gray-500 text-sm font-medium tracking-wide">Resumen financiero del mes</p>
+                        <button onclick="abrirAyuda('resumen_general')"
+                            class="help-trigger text-indigo-400 hover:text-indigo-600 transition-colors ml-auto">
+                            <i class="bi bi-info-circle text-base"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -125,8 +129,14 @@
                             class="p-3 bg-emerald-50 rounded-2xl text-emerald-600 group-hover:scale-110 transition-transform duration-300">
                             <i class="bi bi-arrow-down-left text-xl"></i>
                         </div>
-                        <span
-                            class="text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Ingreso</span>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Ingreso</span>
+                            <button onclick="abrirAyuda('ingresos_mes')"
+                                class="help-trigger text-emerald-400 hover:text-emerald-600 transition-colors">
+                                <i class="bi bi-info-circle text-xs"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="relative z-10">
                         <p class="text-3xl font-bold text-gray-800 tracking-tight" id="totalIngresos">$ 0</p>
@@ -148,8 +158,14 @@
                             class="p-3 bg-rose-50 rounded-2xl text-rose-600 group-hover:scale-110 transition-transform duration-300">
                             <i class="bi bi-arrow-up-right text-xl"></i>
                         </div>
-                        <span
-                            class="text-rose-600 bg-rose-50 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Gasto</span>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-rose-600 bg-rose-50 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Gasto</span>
+                            <button onclick="abrirAyuda('gastos_mes')"
+                                class="help-trigger text-rose-400 hover:text-rose-600 transition-colors">
+                                <i class="bi bi-info-circle text-xs"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="relative z-10">
                         <p class="text-3xl font-bold text-gray-800 tracking-tight" id="totalGastos">$ 0</p>
@@ -173,8 +189,14 @@
                             class="p-3 bg-white/10 rounded-2xl text-white group-hover:scale-110 transition-transform duration-300">
                             <i class="bi bi-wallet2 text-xl"></i>
                         </div>
-                        <span
-                            class="text-gray-300 bg-white/5 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Restante</span>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-gray-300 bg-white/5 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Restante</span>
+                            <button onclick="abrirAyuda('bolsillo_disponible')"
+                                class="help-trigger text-indigo-300 hover:text-white transition-colors">
+                                <i class="bi bi-info-circle text-xs"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="relative z-10">
                         <p class="text-3xl font-bold text-white tracking-tight" id="dineroRestante">$ 0</p>
@@ -195,8 +217,14 @@
                             class="p-3 bg-white/20 rounded-2xl text-white group-hover:scale-110 transition-transform duration-300">
                             <i class="bi bi-piggy-bank text-xl"></i>
                         </div>
-                        <span
-                            class="text-indigo-100 bg-white/10 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Global</span>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-indigo-100 bg-white/10 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Global</span>
+                            <button onclick="abrirAyuda('ahorro_global')"
+                                class="help-trigger text-indigo-200 hover:text-white transition-colors">
+                                <i class="bi bi-info-circle text-xs"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="relative z-10">
                         <p class="text-3xl font-bold text-white tracking-tight" id="totalAdicionales">$ 0</p>
@@ -213,7 +241,7 @@
                         <div class="flex items-center gap-2">
                             <h3 class="font-bold text-gray-800 text-lg">Nuevo</h3>
                             <button onclick="abrirAyuda('nuevo_movimiento')"
-                                class="text-gray-300 hover:text-primary transition-colors">
+                                class="help-trigger text-indigo-400 hover:text-indigo-600 transition-colors">
                                 <i class="bi bi-info-circle text-xs"></i>
                             </button>
                         </div>
@@ -235,7 +263,8 @@
                                 </select>
                                 <div
                                     class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-400">
-                                    <i class="bi bi-chevron-down text-xs"></i></div>
+                                    <i class="bi bi-chevron-down text-xs"></i>
+                                </div>
                             </div>
                         </div>
 
@@ -263,8 +292,8 @@
                     <div class="flex justify-between items-start mb-4">
                         <div class="flex items-center gap-2">
                             <h3 class="font-bold text-gray-800 text-lg">Balance Anual</h3>
-                            <button onclick="abrirAyuda('grafico_anual')"
-                                class="text-gray-400 hover:text-primary transition-colors">
+                            <button onclick="abrirAyuda('balance_anual')"
+                                class="help-trigger text-indigo-400 hover:text-indigo-600 transition-colors">
                                 <i class="bi bi-info-circle text-xs"></i>
                             </button>
                         </div>
@@ -285,6 +314,10 @@
                             <i class="bi bi-pie-chart-fill text-sm"></i>
                         </div>
                         Categorías del Mes
+                        <button onclick="abrirAyuda('categorias_mes')"
+                            class="help-trigger text-indigo-400 hover:text-indigo-600 transition-colors">
+                            <i class="bi bi-info-circle text-xs"></i>
+                        </button>
                     </h3>
 
                     <!-- Layout dividido: Grafico Donut + Lista -->
@@ -333,6 +366,10 @@
                                 <i class="bi bi-activity text-sm"></i>
                             </div>
                             Actividad Reciente
+                            <button onclick="abrirAyuda('actividad_reciente')"
+                                class="help-trigger text-indigo-400 hover:text-indigo-600 transition-colors">
+                                <i class="bi bi-info-circle text-xs"></i>
+                            </button>
                         </h3>
                         <button onclick="cargarDatosHistoricos(usuarioLogueado)"
                             class="text-xs font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition-colors">
@@ -408,34 +445,8 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
-    <script>
-        // Lógica para el sistema de ayuda
-        async function abrirAyuda(clave) {
-            try {
-                // Buscamos el archivo en la raíz de la carpeta frontend
-                const respuesta = await fetch('./ayuda.json');
-
-                if (!respuesta.ok) {
-                    throw new Error(`No se pudo cargar ayuda.json (Estado: ${respuesta.status})`);
-                }
-
-                const datosAyuda = await respuesta.json();
-                const contenido = datosAyuda[clave];
-
-                if (contenido) {
-                    // Aquí puedes usar un 'alert' para probar, luego lo cambiamos por un modal bonito
-                    alert(`${contenido.titulo}\n\n${contenido.cuerpo}`);
-                } else {
-                    console.error("La clave '" + clave + "' no existe en ayuda.json");
-                }
-            } catch (error) {
-                console.error("Error en abrirAyuda:", error);
-                alert("Error al cargar la ayuda. Revisa la consola (F12).");
-            }
-        }
-    </script>
-
+    <script src="ayuda.js"></script>
+    <script src="js/help.js"></script>
     <script src="js/main.js"></script>
 </body>
 
