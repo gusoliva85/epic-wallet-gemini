@@ -15,7 +15,11 @@
     
     *Esto baja los últimos cambios de la nube.*
 
-2.  **Al terminar el desarrollo del dia**:
+2.  **En caso de que existan modificaciones en el proyecto actual y quiero pisar todo, usar el siguiente comando:**:
+    git fetch origin
+    git reset --hard origin/main
+
+3.  **Al terminar el desarrollo del dia**:
     git add .
     git commit -m "Descripción breve de lo que hiciste"
     git push origin main
