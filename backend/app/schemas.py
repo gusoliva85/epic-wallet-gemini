@@ -53,6 +53,8 @@ class MotivoCreate(BaseModel):
     nombre: str
     tipo: str # "suma" o "resta"
     usuario: str
+    mes: int
+    anio: int
 class MovimientoUpdate(BaseModel):
     monto: int
     id_motivo: int | None = None

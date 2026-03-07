@@ -140,7 +140,7 @@
                 </div>
             </div>
 
-            <div class="space-y-1">
+            <div class="space-y-1 mb-8">
                 <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Monto</label>
                 <div class="relative group">
                     <span
@@ -157,6 +157,81 @@
                     Guardar Cambios
                 </button>
                 <button onclick="cerrarModalEditar()"
+                    class="w-full py-3 rounded-2xl text-gray-400 font-bold hover:bg-gray-50 transition-colors">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Movement Modal -->
+    <div id="modalNuevo"
+        class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center hidden backdrop-blur-md transition-all duration-300">
+        <div class="bg-white rounded-[2rem] shadow-2xl w-full max-w-sm p-10 transform scale-100">
+            <div class="text-center mb-8">
+                <div
+                    class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i class="bi bi-plus-circle text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800">Nuevo Movimiento</h3>
+                <p class="text-gray-400 text-sm mt-1" id="nuevoModalPeriodo">Cargando...</p>
+            </div>
+
+            <div class="space-y-1">
+                <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Concepto /
+                    Categoría</label>
+                <div class="relative">
+                    <select id="nuevoMotivo"
+                        class="w-full bg-gray-50 border-2 border-transparent focus:border-indigo-500 rounded-2xl px-5 py-4 text-gray-800 font-bold focus:outline-none appearance-none transition-all">
+                        <!-- Motivos cargados dinámicamente -->
+                    </select>
+                    <div class="absolute inset-y-0 right-5 flex items-center pointer-events-none text-gray-400">
+                        <i class="bi bi-chevron-down text-sm"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fields for Custom Motif (Hidden by default) -->
+            <div id="wrapperNuevoMotivo" class="space-y-4 hidden mt-4 animate-fade-in">
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Nombre del nuevo
+                        motivo</label>
+                    <input type="text" id="nuevoMotivoManual" placeholder="Ej: Gimnasio, Regalo..."
+                        class="w-full bg-gray-50 border-2 border-transparent focus:border-emerald-500 rounded-2xl px-5 py-3 text-gray-800 font-bold focus:outline-none transition-all">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Tipo de
+                        movimiento</label>
+                    <div class="grid grid-cols-2 gap-3 p-1 bg-gray-100 rounded-2xl">
+                        <button type="button" id="btnNuevoTipoSuma" onclick="seleccionarNuevoTipo('suma')"
+                            class="py-2 rounded-xl text-xs font-black uppercase transition-all bg-white shadow-sm text-emerald-600">
+                            Ingreso
+                        </button>
+                        <button type="button" id="btnNuevoTipoResta" onclick="seleccionarNuevoTipo('resta')"
+                            class="py-2 rounded-xl text-xs font-black uppercase transition-all text-gray-400 hover:bg-gray-200">
+                            Gasto
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-1 mb-6 mt-4">
+                <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Monto</label>
+                <div class="relative group">
+                    <span
+                        class="absolute inset-y-0 left-5 flex items-center text-gray-400 text-2xl font-bold group-focus-within:text-indigo-500 transition-colors">$</span>
+                    <input type="text" id="nuevoMonto"
+                        class="w-full bg-gray-50 border-2 border-transparent focus:border-indigo-500 rounded-2xl pl-12 pr-6 py-4 font-bold text-3xl text-gray-800 focus:outline-none transition-all placeholder-gray-300"
+                        placeholder="0">
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <button onclick="guardarNuevoMovimiento()"
+                    class="w-full py-4 bg-emerald-600 text-white font-bold rounded-2xl shadow-xl shadow-emerald-200 hover:bg-emerald-700 hover:-translate-y-0.5 transition-all active:translate-y-0">
+                    Guardar Movimiento
+                </button>
+                <button onclick="cerrarModalNuevo()"
                     class="w-full py-3 rounded-2xl text-gray-400 font-bold hover:bg-gray-50 transition-colors">
                     Cancelar
                 </button>

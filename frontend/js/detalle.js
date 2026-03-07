@@ -4,9 +4,19 @@
 
 let usuarioLogueado = "";
 let nombreReal = "";
-let mesBase = new Date().getMonth();
+// Inicializar mesBase al mes anterior al actual (Límite superior)
+let mesBase = new Date().getMonth() - 1;
 let anioBase = new Date().getFullYear();
+
+// Ajustar si el mes actual es Enero (0)
+if (mesBase < 0) {
+    mesBase = 11;
+    anioBase--;
+}
+
 let chartsInstancias = [];
+let minAnchorDate = null; // Fecha mínima permitida para el anchor (mesBase/anioBase)
+let maxAnchorDate = new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1);
 
 // PALETA DE COLORES VIBRANTES Y PREMIUM
 const COLOR_PALETTE = [
@@ -60,15 +70,90 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarCuadricula();
 });
 
-function navegar(direccion) {
-    mesBase += direccion;
-    const fecha = new Date(anioBase, mesBase, 1);
+async function navegar(direccion) {
+    // Calcular nueva fecha potencial
+    let nuevoMes = mesBase + direccion;
+    let fecha = new Date(anioBase, nuevoMes, 1);
+
+    // Verificar límite superior (No permitir mes actual ni futuros)
+    const hoy = new Date();
+    const limiteSup = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
+    if (fecha >= limiteSup) return;
+
+    // Verificar límite inferior (2 meses antes del último con datos)
+    if (minAnchorDate && fecha < minAnchorDate) return;
+
     mesBase = fecha.getMonth();
     anioBase = fecha.getFullYear();
-    cargarCuadricula();
+    await cargarCuadricula();
+}
+
+function actualizarControlesNavegacion() {
+    const btnAnt = document.getElementById('btnPeriodoAnterior');
+    const btnSig = document.getElementById('btnPeriodoSiguiente');
+    if (!btnAnt || !btnSig) return;
+
+    const hoy = new Date();
+    const limiteSup = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
+
+    // Siguiente (Hacia el futuro)
+    const fechaSig = new Date(anioBase, mesBase + 1, 1);
+    if (fechaSig >= limiteSup) {
+        btnSig.disabled = true;
+        btnSig.classList.add('opacity-30', 'cursor-not-allowed');
+    } else {
+        btnSig.disabled = false;
+        btnSig.classList.remove('opacity-30', 'cursor-not-allowed');
+    }
+
+    // Anterior (Hacia el pasado)
+    const fechaAnt = new Date(anioBase, mesBase - 1, 1);
+    if (minAnchorDate && fechaAnt < minAnchorDate) {
+        btnAnt.disabled = true;
+        btnAnt.classList.add('opacity-30', 'cursor-not-allowed');
+    } else {
+        btnAnt.disabled = false;
+        btnAnt.classList.remove('opacity-30', 'cursor-not-allowed');
+    }
+}
+
+async function calcularLimites() {
+    try {
+        const res = await api.get('/historial-resumen');
+        const historial = (res && res.ok) ? await res.json() : [];
+
+        // Referencia base para límites si no hay datos (Mes anterior al actual)
+        const hoy = new Date();
+        const refDate = new Date(hoy.getFullYear(), hoy.getMonth() - 1, 1);
+
+        if (historial && historial.length > 0) {
+            // Encontrar el mes más antiguo con datos
+            let first = historial[0];
+            let firstM = first.mes !== undefined ? first.mes : first[0];
+            let firstA = first.anio !== undefined ? first.anio : first[1];
+            let minDataDate = new Date(firstA, firstM - 1, 1);
+
+            historial.forEach(h => {
+                let m = h.mes !== undefined ? h.mes : h[0];
+                let a = h.anio !== undefined ? h.anio : h[1];
+                const d = new Date(a, m - 1, 1);
+                if (d < minDataDate) minDataDate = d;
+            });
+
+            // Límite Inferior: permitir que el ANCLA (mesBase) retroceda hasta 2 meses antes del dato más antiguo
+            minAnchorDate = new Date(minDataDate.getFullYear(), minDataDate.getMonth() - 2, 1);
+        } else {
+            // Si no hay datos, permitimos retroceder 2 meses desde la vista inicial
+            minAnchorDate = new Date(refDate.getFullYear(), refDate.getMonth() - 2, 1);
+        }
+    } catch (e) {
+        console.error("Error calculando límites:", e);
+    }
 }
 
 async function cargarCuadricula() {
+    await calcularLimites();
+    actualizarControlesNavegacion();
     const grid = document.getElementById('gridMeses');
     if (!grid) return;
 
@@ -178,7 +263,7 @@ function renderizarMes(periodo, movimientos, index) {
                 <span class="text-[12px] font-black text-indigo-400 tracking-[0.5em] uppercase">${periodo.anioLabel}</span>
             </div>
             <div class="flex items-center gap-3">
-                <button onclick="agregarNuevoItem(${periodo.mes}, ${periodo.anio})" 
+                <button onclick="abrirModalNuevo(${periodo.mes}, ${periodo.anio})" 
                     class="w-10 h-10 flex items-center justify-center bg-indigo-50 text-indigo-600 rounded-2xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
                     title="Agregar Movimiento">
                     <i class="bi bi-plus-lg"></i>
@@ -263,10 +348,16 @@ function renderizarMes(periodo, movimientos, index) {
                             <tr>
                                 <td colspan="2" class="py-20 text-center flex flex-col items-center justify-center">
                                     <p class="text-gray-300 font-bold uppercase tracking-widest opacity-40 text-sm mb-6">No registra datos</p>
-                                    <button onclick="agregarBasicos(${periodo.mes}, ${periodo.anio})" 
-                                        class="px-6 py-3 bg-indigo-50 text-indigo-600 font-black text-[10px] uppercase tracking-widest rounded-2xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
-                                        <i class="bi bi-magic mr-2"></i> Agregar Básicos
-                                    </button>
+                                    <div class="flex flex-col sm:flex-row gap-3">
+                                        <button onclick="agregarBasicos(${periodo.mes}, ${periodo.anio})" 
+                                            class="px-6 py-3 bg-indigo-50 text-indigo-600 font-black text-[10px] uppercase tracking-widest rounded-2xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
+                                            <i class="bi bi-magic mr-2"></i> Agregar Básicos
+                                        </button>
+                                        <button onclick="abrirModalNuevo(${periodo.mes}, ${periodo.anio})" 
+                                            class="px-6 py-3 bg-emerald-50 text-emerald-600 font-black text-[10px] uppercase tracking-widest rounded-2xl hover:bg-emerald-600 hover:text-white transition-all shadow-sm">
+                                            <i class="bi bi-plus-lg mr-2"></i> Agregar Movimiento
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         `}
@@ -364,26 +455,21 @@ async function abrirModalEditar(id, idMotivo, monto, mes, anio, tipo) {
 
 // NUEVO: Formateador de Moneda en Tiempo Real
 document.addEventListener('DOMContentLoaded', () => {
-    const inputMonto = document.getElementById('editMonto');
-    if (!inputMonto) return;
+    const inputs = ['editMonto', 'nuevoMonto'];
 
-    inputMonto.addEventListener('input', (e) => {
-        // Guardamos la posición del cursor
-        let cursorPosition = e.target.selectionStart;
+    inputs.forEach(id => {
+        const input = document.getElementById(id);
+        if (!input) return;
 
-        // Limpiamos todo lo que no sea número
-        let value = e.target.value.replace(/\D/g, "");
-        if (value === "") {
-            e.target.value = "";
-            return;
-        }
-
-        // Formateamos con separadores de miles
-        let formattedValue = parseInt(value).toLocaleString('es-AR');
-        e.target.value = formattedValue;
-
-        // Intentamos mantener la posición del cursor (aproximado)
-        // e.target.setSelectionRange(cursorPosition, cursorPosition);
+        input.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, "");
+            if (value === "") {
+                e.target.value = "";
+                return;
+            }
+            let formattedValue = parseInt(value).toLocaleString('es-AR');
+            e.target.value = formattedValue;
+        });
     });
 });
 
@@ -470,33 +556,152 @@ async function agregarBasicos(mes, anio) {
 }
 
 /**
- * Función para agregar un item vacío (0) a un mes específico
- * Esto permite luego editarlo para poner el valor real.
+ * Funciones para el Modal de Nuevo Movimiento
  */
-async function agregarNuevoItem(mes, anio) {
-    try {
-        const resMotivos = await api.get(`/motivos?mes=${mes}&anio=${anio}`);
-        if (!resMotivos) return;
-        const motivos = await resMotivos.json();
+let targetMonth = null;
+let nuevoTipoSeleccionado = 'resta';
 
-        if (motivos.length === 0) {
-            if (confirm("Este mes no tiene categorías. ¿Deseas agregar los básicos primero?")) {
-                await agregarBasicos(mes, anio);
+function seleccionarNuevoTipo(tipo) {
+    nuevoTipoSeleccionado = tipo;
+    const btnSuma = document.getElementById('btnNuevoTipoSuma');
+    const btnResta = document.getElementById('btnNuevoTipoResta');
+
+    if (tipo === 'suma') {
+        btnSuma.className = "py-2 rounded-xl text-xs font-black uppercase transition-all bg-white shadow-sm text-emerald-600";
+        btnResta.className = "py-2 rounded-xl text-xs font-black uppercase transition-all text-gray-400 hover:bg-gray-200";
+    } else {
+        btnResta.className = "py-2 rounded-xl text-xs font-black uppercase transition-all bg-white shadow-sm text-rose-600";
+        btnSuma.className = "py-2 rounded-xl text-xs font-black uppercase transition-all text-gray-400 hover:bg-gray-200";
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const selectMotivo = document.getElementById('nuevoMotivo');
+    if (selectMotivo) {
+        selectMotivo.addEventListener('change', (e) => {
+            const wrapper = document.getElementById('wrapperNuevoMotivo');
+            if (e.target.value === 'OTRO') {
+                wrapper.classList.remove('hidden');
+                seleccionarNuevoTipo('resta');
+            } else {
+                wrapper.classList.add('hidden');
             }
-            return;
+        });
+    }
+});
+
+async function abrirModalNuevo(mes, anio) {
+    targetMonth = { mes, anio };
+
+    const labelPeriodo = document.getElementById('nuevoModalPeriodo');
+    const mesesNombres = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    if (labelPeriodo) labelPeriodo.textContent = `${mesesNombres[mes - 1]} ${anio}`;
+
+    const select = document.getElementById('nuevoMotivo');
+    select.innerHTML = '<option value="">Cargando...</option>';
+
+    document.getElementById('nuevoMonto').value = '';
+    document.getElementById('nuevoMotivoManual').value = '';
+    document.getElementById('wrapperNuevoMotivo').classList.add('hidden');
+    document.getElementById('modalNuevo').classList.remove('hidden');
+
+    try {
+        const res = await api.get(`/motivos?mes=${mes}&anio=${anio}`);
+        if (!res) return;
+        const motivos = await res.json();
+
+        select.innerHTML = '<option value="">Seleccionar categoría</option>';
+        motivos.forEach(m => {
+            const opt = document.createElement('option');
+            opt.value = m.id;
+            opt.textContent = m.nombre;
+            opt.dataset.tipo = m.tipo;
+            select.appendChild(opt);
+        });
+
+        // Agregar opción de "Otro..."
+        const optOtro = document.createElement('option');
+        optOtro.value = 'OTRO';
+        optOtro.textContent = '+ Otro... (Agregar Nuevo)';
+        optOtro.className = "text-indigo-600 font-bold";
+        select.appendChild(optOtro);
+
+    } catch (e) {
+        console.error("Error al cargar motivos", e);
+    }
+}
+
+function cerrarModalNuevo() {
+    document.getElementById('modalNuevo').classList.add('hidden');
+}
+
+async function guardarNuevoMovimiento() {
+    const select = document.getElementById('nuevoMotivo');
+    let idMotivo = select.value;
+    const rawValue = document.getElementById('nuevoMonto').value.replace(/\D/g, "");
+    const montoNum = parseInt(rawValue);
+
+    if (!idMotivo) return alert("Seleccioná una categoría");
+    if (isNaN(montoNum) || montoNum <= 0) return alert("Ingresá un monto válido");
+
+    let tipoFinal = '';
+
+    // Si es un motivo nuevo
+    if (idMotivo === 'OTRO') {
+        const nombreManual = document.getElementById('nuevoMotivoManual').value.trim();
+        if (!nombreManual) return alert("Ingresá el nombre del nuevo motivo");
+
+        try {
+            const resMotivo = await api.post('/motivos', {
+                nombre: nombreManual,
+                tipo: nuevoTipoSeleccionado,
+                usuario: usuarioLogueado,
+                mes: targetMonth.mes,
+                anio: targetMonth.anio
+            });
+
+            if (resMotivo && resMotivo.ok) {
+                const dataMotivo = await resMotivo.json();
+                idMotivo = dataMotivo.id;
+                tipoFinal = nuevoTipoSeleccionado;
+            } else {
+                return alert("Error al crear la nueva categoría");
+            }
+        } catch (e) {
+            console.error(e);
+            return alert("Error al crear la categoría");
         }
+    } else {
+        const selectedOption = select.selectedOptions[0];
+        tipoFinal = selectedOption.dataset.tipo;
+        idMotivo = parseInt(idMotivo);
+    }
 
-        const idMotivo = motivos[0].id;
+    const montoFinal = tipoFinal === 'suma' ? Math.abs(montoNum) : -Math.abs(montoNum);
 
-        const r = await api.post('/movimientos', {
-            monto: 0,
+    try {
+        const response = await api.post('/movimientos', {
+            monto: montoFinal,
             id_motivo: idMotivo,
             usuario: usuarioLogueado
         });
 
-        if (r && r.ok) {
-            const data = await r.json();
-            abrirModalEditar(data.id, idMotivo, 0, mes, anio);
+        if (response && response.ok) {
+            cerrarModalNuevo();
+            cargarCuadricula();
+        } else {
+            alert("Error al guardar el movimiento");
         }
-    } catch (e) { console.error(e); }
+    } catch (e) {
+        console.error(e);
+        alert("Error de conexión");
+    }
+}
+
+/**
+ * Función obsoleta reemplazada por abrirModalNuevo
+ */
+async function agregarNuevoItem(mes, anio) {
+    // Redirigir a la nueva implementación
+    abrirModalNuevo(mes, anio);
 }

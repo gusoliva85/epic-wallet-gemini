@@ -362,8 +362,8 @@ def crear_motivo(datos: schemas.MotivoCreate, current_user: models.Usuario = Dep
             nombre=datos.nombre,
             tipo=datos.tipo,
             id_usuario=user.id,
-            mes=datetime.now().month,
-            anio=datetime.now().year
+            mes=datos.mes,
+            anio=datos.anio
         )
 
         db.add(nuevo_motivo)
