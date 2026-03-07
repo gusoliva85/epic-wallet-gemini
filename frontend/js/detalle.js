@@ -26,11 +26,14 @@ function getColorForCategory(category) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    usuarioLogueado = sessionStorage.getItem('usuarioNombre');
-    nombreReal = sessionStorage.getItem('nombreReal') || usuarioLogueado || "Invitado";
+    usuarioLogueado = localStorage.getItem('usuarioNombre') || sessionStorage.getItem('usuarioNombre');
+    const token = api.getToken();
+    nombreReal = localStorage.getItem('nombreReal') || sessionStorage.getItem('nombreReal') || usuarioLogueado || "Invitado";
 
-    if (!usuarioLogueado) {
-        window.location.href = 'login.html';
+    console.log("[Detalle] Verificando sesión:", { usuarioLogueado, token: token ? 'OK' : 'MISSING' });
+
+    if (!usuarioLogueado || !token) {
+        api.logout();
         return;
     }
 
@@ -46,10 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
         btnAbrirMenu.addEventListener('click', () => sidebar.classList.toggle('-translate-x-full'));
     }
 
-    document.getElementById('btnLogOut').addEventListener('click', () => {
-        sessionStorage.clear();
-        window.location.href = 'login.html';
-    });
+    const btnLogOut = document.getElementById('btnLogOut') || document.getElementById('logoutBtn');
+    if (btnLogOut) {
+        btnLogOut.addEventListener('click', (e) => {
+            e.preventDefault();
+            api.logout();
+        });
+    }
 
     cargarCuadricula();
 });
@@ -88,8 +94,8 @@ async function cargarCuadricula() {
 
     try {
         const promesas = periodos.map(p =>
-            fetch(`http://127.0.0.1:8000/movimientos-mensuales?usuario=${usuarioLogueado}&mes=${p.mes}&anio=${p.anio}`)
-                .then(res => res.ok ? res.json() : [])
+            api.get(`/movimientos-mensuales?mes=${p.mes}&anio=${p.anio}`)
+                .then(res => res && res.ok ? res.json() : [])
                 .catch(() => [])
         );
 
@@ -112,22 +118,35 @@ function renderizarMes(periodo, movimientos, index) {
 
     movimientos.forEach(m => {
         const montoAbs = Math.abs(m.monto);
-        if (m.tipo === 'suma') totalIngresos += montoAbs;
-        else totalGastos += montoAbs;
-
         const key = m.motivo;
+
         if (!categoriasMap[key]) {
-            categoriasMap[key] = { monto: 0, tipo: m.tipo, ids: [] };
+            categoriasMap[key] = { monto: 0, tipo: m.tipo, ids: [], rawData: [] };
         }
+
+        // Sumamos el valor absoluto al "balde" de la categoría
         categoriasMap[key].monto += montoAbs;
         categoriasMap[key].ids.push(m.id);
+        categoriasMap[key].rawData.push(m);
+
+        // Los totales globales se basan estrictamente en el TIPO de la categoría
+        if (m.tipo === 'suma') {
+            totalIngresos += montoAbs;
+        } else {
+            totalGastos += montoAbs;
+        }
     });
 
-    const catsArray = Object.keys(categoriasMap).map(nombre => ({
-        nombre,
-        ...categoriasMap[nombre],
-        color: getColorForCategory(nombre)
-    }));
+    const catsArray = Object.keys(categoriasMap).map(nombre => {
+        const catData = categoriasMap[nombre];
+        return {
+            nombre,
+            ...catData,
+            displayMonto: catData.monto, // Ya es absoluto por la lógica anterior
+            isNegativeUI: catData.tipo === 'resta',
+            color: getColorForCategory(nombre)
+        };
+    });
 
     catsArray.sort((a, b) => {
         const prioridad = (n) => {
@@ -182,30 +201,65 @@ function renderizarMes(periodo, movimientos, index) {
                 </div>
             </div>
 
-            <!-- Listado con Líneas de Color Completas -->
+            <!-- Listado Agrupado con Expansión -->
             <div class="flex-1 overflow-y-auto custom-scrollbar pr-2 max-h-[340px]">
                 <table class="w-full border-separate border-spacing-y-0.5">
                     <tbody>
-                        ${tieneDatos ? catsArray.map(cat => `
+                        ${tieneDatos ? catsArray.map(cat => {
+        const isGroup = cat.ids.length > 1;
+        return `
                             <tr class="group/row hover:bg-indigo-50/40 transition-all cursor-default">
-                                <td class="py-0.5 px-3">
+                                <td class="py-1 px-2 sm:px-3 max-w-[120px] sm:max-w-none" 
+                                    ${isGroup ? `onclick="toggleGrupo('${index}-${cat.nombre.replace(/\s+/g, '')}')"` : ''}>
                                     <div class="flex flex-col">
-                                        <span class="font-bold text-gray-800 text-[14px] leading-tight mb-1 truncate group-hover/row:text-indigo-600">${cat.nombre}</span>
-                                        <!-- Línea de Color Completas -->
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-bold text-gray-800 text-[13px] sm:text-[14px] leading-tight mb-1 truncate group-hover/row:text-indigo-600" title="${cat.nombre}">${cat.nombre}</span>
+                                            ${isGroup ? `<span class="px-2 py-0.5 bg-indigo-100 text-indigo-600 text-[9px] font-black rounded-full uppercase">${cat.ids.length} ítems</span>` : ''}
+                                        </div>
                                         <div class="h-[3px] w-full rounded-full opacity-80" style="background-color: ${cat.tipo === 'suma' ? '#10b981' : cat.color}"></div>
                                     </div>
                                 </td>
-                                <td class="py-0.5 px-3 text-right">
-                                    <span class="font-black text-[14px] ${cat.tipo === 'suma' ? 'text-emerald-600' : 'text-rose-600'} leading-none">
-                                        $${cat.monto.toLocaleString('es-AR')}
+                                <td class="py-1 px-2 sm:px-3 text-right whitespace-nowrap">
+                                    <span class="font-black text-[13px] sm:text-[14px] ${cat.isNegativeUI ? 'text-rose-600' : 'text-emerald-600'} leading-none">
+                                        ${cat.isNegativeUI ? '-' : ''}$${cat.displayMonto.toLocaleString('es-AR')}
                                     </span>
-                                    <div class="flex items-center justify-end gap-2 mt-1 opacity-0 group-hover/row:opacity-100 transition-all">
-                                        <button onclick="abrirModalEditar(${cat.ids[0]}, ${cat.ids.length > 1 ? 'null' : (movimientos.find(m => m.id === cat.ids[0])?.id_motivo || 'null')}, ${cat.monto}, ${periodo.mes}, ${periodo.anio})" class="w-7 h-7 flex items-center justify-center bg-indigo-50 text-indigo-500 rounded-xl hover:bg-indigo-500 hover:text-white transition-all"><i class="bi bi-pencil-square text-xs"></i></button>
-                                        <button onclick="eliminarFuga(${cat.ids[0]})" class="w-7 h-7 flex items-center justify-center bg-rose-50 text-rose-500 rounded-xl hover:bg-rose-500 hover:text-white transition-all"><i class="bi bi-trash text-xs"></i></button>
+                                    <div class="flex items-center justify-end gap-1 sm:gap-2 mt-1 opacity-0 group-hover/row:opacity-100 transition-all">
+                                        ${!isGroup ? `
+                                            <button onclick="abrirModalEditar(${cat.ids[0]}, ${cat.rawData[0].id_motivo}, ${cat.displayMonto}, ${periodo.mes}, ${periodo.anio}, '${cat.tipo}')" 
+                                                class="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center bg-indigo-50 text-indigo-500 rounded-lg sm:rounded-xl hover:bg-indigo-500 hover:text-white transition-all">
+                                                <i class="bi bi-pencil-square text-[10px] sm:text-xs"></i>
+                                            </button>
+                                            <button onclick="eliminarFuga(${cat.ids[0]})" 
+                                                class="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center bg-rose-50 text-rose-500 rounded-lg sm:rounded-xl hover:bg-rose-500 hover:text-white transition-all">
+                                                <i class="bi bi-trash text-[10px] sm:text-xs"></i>
+                                            </button>
+                                        ` : `
+                                            <button onclick="toggleGrupo('${index}-${cat.nombre.replace(/\s+/g, '')}')" 
+                                                class="w-16 py-1 text-[10px] font-black uppercase text-indigo-500 bg-indigo-50 rounded-lg hover:bg-indigo-500 hover:text-white transition-all">Ver Más</button>
+                                        `}
                                     </div>
                                 </td>
                             </tr>
-                        `).join('') : `
+                            ${isGroup ? `
+                                <tr id="sub-list-${index}-${cat.nombre.replace(/\s+/g, '')}" class="hidden bg-gray-50/50">
+                                    <td colspan="2" class="p-2">
+                                        <div class="space-y-1 pl-4 border-l-2 border-indigo-100">
+                                            ${cat.rawData.map(mov => `
+                                                <div class="flex items-center justify-between py-1 hover:bg-white rounded-lg px-2 transition-colors">
+                                                    <span class="text-[12px] text-gray-500">${new Date(mov.fecha).toLocaleDateString('es-AR', { day: '2-digit', month: '2-digit' })}</span>
+                                                    <span class="text-[12px] font-bold text-gray-700">$${Math.abs(mov.monto).toLocaleString('es-AR')}</span>
+                                                    <div class="flex gap-1">
+                                                        <button onclick="abrirModalEditar(${mov.id}, ${mov.id_motivo}, ${Math.abs(mov.monto)}, ${periodo.mes}, ${periodo.anio}, '${mov.tipo}')" class="text-indigo-400 hover:text-indigo-600"><i class="bi bi-pencil-square"></i></button>
+                                                        <button onclick="eliminarFuga(${mov.id})" class="text-rose-400 hover:text-rose-600"><i class="bi bi-trash"></i></button>
+                                                    </div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </td>
+                                </tr>
+                            ` : ''}
+                            `;
+    }).join('') : `
                             <tr>
                                 <td colspan="2" class="py-20 text-center flex flex-col items-center justify-center">
                                     <p class="text-gray-300 font-bold uppercase tracking-widest opacity-40 text-sm mb-6">No registra datos</p>
@@ -288,12 +342,19 @@ function initChart(index, cats) {
 let currentEditId = null;
 let currentMonthTarget = null; // { mes, anio }
 
-async function abrirModalEditar(id, idMotivo, monto, mes, anio) {
+let currentEditType = 'resta'; // Para saber si guardar como pos o neg
+
+async function abrirModalEditar(id, idMotivo, monto, mes, anio, tipo) {
     currentEditId = id;
     currentMonthTarget = { mes, anio };
+    currentEditType = tipo || 'resta';
 
     document.getElementById('editId').value = id;
-    document.getElementById('editMonto').value = Math.abs(monto);
+
+    // Seteamos el valor y disparamos el evento de entrada para que el formateador actúe
+    const inputMonto = document.getElementById('editMonto');
+    inputMonto.value = monto;
+    inputMonto.dispatchEvent(new Event('input'));
 
     // Cargar motivos para ese mes específico en el select del modal
     await cargarMotivosParaEdicion(mes, anio, idMotivo);
@@ -301,12 +362,44 @@ async function abrirModalEditar(id, idMotivo, monto, mes, anio) {
     document.getElementById('modalEditar').classList.remove('hidden');
 }
 
+// NUEVO: Formateador de Moneda en Tiempo Real
+document.addEventListener('DOMContentLoaded', () => {
+    const inputMonto = document.getElementById('editMonto');
+    if (!inputMonto) return;
+
+    inputMonto.addEventListener('input', (e) => {
+        // Guardamos la posición del cursor
+        let cursorPosition = e.target.selectionStart;
+
+        // Limpiamos todo lo que no sea número
+        let value = e.target.value.replace(/\D/g, "");
+        if (value === "") {
+            e.target.value = "";
+            return;
+        }
+
+        // Formateamos con separadores de miles
+        let formattedValue = parseInt(value).toLocaleString('es-AR');
+        e.target.value = formattedValue;
+
+        // Intentamos mantener la posición del cursor (aproximado)
+        // e.target.setSelectionRange(cursorPosition, cursorPosition);
+    });
+});
+
+// NUEVO: Toggle para grupos
+function toggleGrupo(id) {
+    const el = document.getElementById('sub-list-' + id);
+    if (el) el.classList.toggle('hidden');
+}
+
 async function cargarMotivosParaEdicion(mes, anio, selectedId) {
     const select = document.getElementById('editMotivo');
     select.innerHTML = '<option value="">Cargando...</option>';
 
     try {
-        const res = await fetch(`http://127.0.0.1:8000/motivos?usuario=${usuarioLogueado}&mes=${mes}&anio=${anio}`);
+        const res = await api.get(`/motivos?mes=${mes}&anio=${anio}`);
+        if (!res) return;
         const motivos = await res.json();
 
         select.innerHTML = '';
@@ -314,6 +407,7 @@ async function cargarMotivosParaEdicion(mes, anio, selectedId) {
             const opt = document.createElement('option');
             opt.value = m.id;
             opt.textContent = m.nombre;
+            opt.dataset.tipo = m.tipo; // Guardamos el tipo para el save
             if (m.id === selectedId) opt.selected = true;
             select.appendChild(opt);
         });
@@ -325,41 +419,53 @@ async function cargarMotivosParaEdicion(mes, anio, selectedId) {
 function cerrarModalEditar() { document.getElementById('modalEditar').classList.add('hidden'); }
 
 async function guardarEdicion() {
-    const monto = parseInt(document.getElementById('editMonto').value);
+    // Obtenemos el valor limpio (sin puntos ni comas)
+    const rawValue = document.getElementById('editMonto').value.replace(/\D/g, "");
+    const montoNum = parseInt(rawValue);
     const idMotivo = parseInt(document.getElementById('editMotivo').value);
 
-    if (!monto || monto < 0) return alert("Ingresá un monto válido");
+    if (isNaN(montoNum) || montoNum < 0) return alert("Ingresá un monto válido");
     if (!idMotivo) return alert("Seleccioná una categoría");
 
+    // BUSCAMOS EL TIPO DEL MOTIVO SI CAMBIÓ
+    const select = document.getElementById('editMotivo');
+    const selectedOption = select.selectedOptions[0];
+    const tipoFinal = selectedOption.dataset.tipo || currentEditType;
+
+    // APLICAMOS EL SIGNO CORRECTO
+    const montoFinal = tipoFinal === 'suma' ? Math.abs(montoNum) : -Math.abs(montoNum);
+
     try {
-        const response = await fetch(`http://127.0.0.1:8000/movimientos/${currentEditId}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ monto: monto, id_motivo: idMotivo })
+        const response = await api.put(`/movimientos/${currentEditId}`, {
+            monto: montoFinal,
+            id_motivo: idMotivo
         });
-        if (response.ok) {
+        if (response && response.ok) {
             cerrarModalEditar();
             cargarCuadricula();
         }
-    } catch (e) { console.error(e); }
+    } catch (e) {
+        console.error(e);
+        alert("Error al conectar con el servidor");
+    }
 }
 
 async function eliminarFuga(id) {
     if (!confirm("¿Deseas eliminar este registro?")) return;
     try {
-        const r = await fetch(`http://127.0.0.1:8000/movimientos/${id}`, { method: 'DELETE' });
-        if (r.ok) cargarCuadricula();
+        const r = await api.delete(`/movimientos/${id}`);
+        if (r && r.ok) cargarCuadricula();
     } catch (e) { console.error(e); }
 }
 
 async function agregarBasicos(mes, anio) {
     try {
-        const r = await fetch('http://127.0.0.1:8000/movimientos-basicos', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ usuario: usuarioLogueado, mes, anio })
+        const r = await api.post('/movimientos-basicos', {
+            usuario: usuarioLogueado,
+            mes,
+            anio
         });
-        if (r.ok) cargarCuadricula();
+        if (r && r.ok) cargarCuadricula();
     } catch (e) { console.error(e); }
 }
 
@@ -368,36 +474,28 @@ async function agregarBasicos(mes, anio) {
  * Esto permite luego editarlo para poner el valor real.
  */
 async function agregarNuevoItem(mes, anio) {
-    // Para simplificar, abrimos el modal de motivos del Home o creamos uno rápido.
-    // Aquí simplemente pedimos el primer motivo disponible o mostramos un prompt rápido.
     try {
-        const resMotivos = await fetch(`http://127.0.0.1:8000/motivos?usuario=${usuarioLogueado}&mes=${mes}&anio=${anio}`);
+        const resMotivos = await api.get(`/motivos?mes=${mes}&anio=${anio}`);
+        if (!resMotivos) return;
         const motivos = await resMotivos.json();
 
         if (motivos.length === 0) {
-            // Si no hay motivos, forzamos la creación de básicos primero
             if (confirm("Este mes no tiene categorías. ¿Deseas agregar los básicos primero?")) {
                 await agregarBasicos(mes, anio);
             }
             return;
         }
 
-        // Seleccionamos el primer motivo por defecto para crear un registro en 0
         const idMotivo = motivos[0].id;
 
-        const r = await fetch('http://127.0.0.1:8000/movimientos', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                monto: 0,
-                id_motivo: idMotivo,
-                usuario: usuarioLogueado
-            })
+        const r = await api.post('/movimientos', {
+            monto: 0,
+            id_motivo: idMotivo,
+            usuario: usuarioLogueado
         });
 
-        if (r.ok) {
+        if (r && r.ok) {
             const data = await r.json();
-            // Abrimos el modal de edición inmediatamente para que el usuario complete el monto
             abrirModalEditar(data.id, idMotivo, 0, mes, anio);
         }
     } catch (e) { console.error(e); }

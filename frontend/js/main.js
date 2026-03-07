@@ -65,21 +65,52 @@ const cardRestante = dineroRestanteEl.closest('.rounded-3xl');
 // ==========================================
 // CONTROL DE ACCESO Y PERSONALIZACIÓN
 // ==========================================
+// ==========================================
+// CONTROL DE ACCESO Y PERSONALIZACIÓN
+// ==========================================
 document.addEventListener('DOMContentLoaded', async () => {
-    usuarioLogueado = sessionStorage.getItem('usuarioNombre');
-    const nombreReal = sessionStorage.getItem('nombreReal') || usuarioLogueado || "Invitado";
+    // Intentar obtener de localStorage o sessionStorage
+    usuarioLogueado = localStorage.getItem('usuarioNombre') || sessionStorage.getItem('usuarioNombre');
+    const token = api.getToken();
+    const nombreReal = localStorage.getItem('nombreReal') || sessionStorage.getItem('nombreReal') || usuarioLogueado || "Invitado";
 
-    if (!usuarioLogueado) {
-        window.location.href = 'login.html';
+    console.log("[Main] Verificando sesión:", { usuarioLogueado, token: token ? 'OK' : 'MISSING' });
+
+    if (!usuarioLogueado || !token) {
+        console.warn("Sesión no válida o inexistente. Redirigiendo...");
+        api.logout();
         return;
     }
 
-    // Actualizar nombre en el Header (Hola Gustavo)
-    const nombreEl = document.getElementById('nombreUsuario');
-    if (nombreEl) nombreEl.textContent = nombreReal;
+    // 1. Saludo con NOMBRE REAL
+    const spanNombre = document.getElementById('nombreUsuario');
+    if (spanNombre) {
+        spanNombre.textContent = nombreReal.charAt(0).toUpperCase() + nombreReal.slice(1);
+    }
 
-    // Cargar datos iniciales
-    await cargarDatosHistoricos(usuarioLogueado);
+    // 2. MES Y AÑO DINÁMICO
+    const fecha = new Date();
+    const mesesAnio = [
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+    const mesEl = document.getElementById('mesActual');
+    const anioEl = document.getElementById('anioActual');
+    if (mesEl) mesEl.textContent = mesesAnio[fecha.getMonth()];
+    if (anioEl) anioEl.textContent = fecha.getFullYear();
+
+    // 3. Configurar Logout
+    const logoutBtn = document.getElementById('btnLogOut');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            api.logout();
+        });
+    }
+
+    // 4. Cargar datos iniciales
+    cargarMotivosDelMes();
+    await cargarDatosHistoricos();
 });
 
 // ============================
@@ -93,7 +124,17 @@ function renderizarTablaMovimientos(movimientos) {
     const ordenados = [...movimientos].sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
     if (ordenados.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="4" class="text-center text-gray-400 py-8 text-sm">Sin movimientos este mes</td></tr>`;
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="4" class="py-16 text-center">
+                    <p class="text-gray-300 font-bold uppercase tracking-widest opacity-40 text-xs mb-6">No hay movimientos este mes</p>
+                    <button onclick="agregarBasicosHome()" 
+                        class="px-6 py-3 bg-indigo-50 text-indigo-600 font-black text-[10px] uppercase tracking-widest rounded-2xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
+                        <i class="bi bi-magic mr-2"></i> Sugerir Básicos
+                    </button>
+                </td>
+            </tr>
+        `;
         return;
     }
 
@@ -330,44 +371,6 @@ function renderizarInformeMensual(movimientos) {
         });
     }
 }
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Obtener datos de la sesión
-    usuarioLogueado = sessionStorage.getItem('usuarioNombre');
-    const nombreReal = sessionStorage.getItem('nombreReal');
-
-    // 2. Validar sesión
-    if (!usuarioLogueado) {
-        window.location.href = 'login.html';
-        return;
-    }
-
-    // 3. Saludo con NOMBRE REAL
-    const spanNombre = document.getElementById('nombreUsuario');
-    if (spanNombre) {
-        // Si por algún motivo nombreReal es null, usamos el nick de usuario
-        const nombreAmostrar = nombreReal || usuarioLogueado;
-        spanNombre.textContent = nombreAmostrar.charAt(0).toUpperCase() + nombreAmostrar.slice(1);
-    }
-
-    // 4. MES Y AÑO DINÁMICO
-    const fecha = new Date();
-    const mesesAnio = [
-        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-    ];
-
-    // Verificamos que los elementos existan antes de asignarles valor
-    const mesEl = document.getElementById('mesActual');
-    const anioEl = document.getElementById('anioActual');
-    if (mesEl) mesEl.textContent = mesesAnio[fecha.getMonth()];
-    if (anioEl) anioEl.textContent = fecha.getFullYear();
-
-    // 5. Cargar los motivos desde la Base de Datos
-    cargarMotivosDelMes(usuarioLogueado);
-
-    // 6. Cargar historial de movimientos
-    cargarDatosHistoricos(usuarioLogueado);
-});
 
 
 // ============================
@@ -445,10 +448,10 @@ function glowChartPoint(datasetIndex, pointIndex) {
 // ============================
 // CARGAR DATOS HISTORICOS Y DASHBOARD
 // ============================
-async function cargarDatosHistoricos(usuario) {
+async function cargarDatosHistoricos() {
     try {
         // 1. OBTENER TOTALES DEL DASHBOARD (Mes actual y Ahorro Global)
-        const responseDash = await fetch(`http://127.0.0.1:8000/dashboard/${usuario}`);
+        const responseDash = await api.get('/dashboard');
         if (!responseDash.ok) throw new Error("Error al obtener datos del dashboard");
         const dataDash = await responseDash.json();
 
@@ -458,7 +461,7 @@ async function cargarDatosHistoricos(usuario) {
         walletData.ahorrosGlobales = dataDash.ahorro_total_global;
 
         // 2. OBTENER HISTORIAL COMPLETO (Para el Gráfico Anual)
-        const responseHist = await fetch(`http://127.0.0.1:8000/movimientos/${usuario}`);
+        const responseHist = await api.get('/movimientos');
         if (!responseHist.ok) throw new Error("Error al obtener historial");
         const movimientosTodos = await responseHist.json();
 
@@ -475,7 +478,8 @@ async function cargarDatosHistoricos(usuario) {
             const monto = Math.abs(mov.monto);
 
             // Lógica del Gráfico (Últimos 13 meses)
-            const diffMeses = (hoy.getFullYear() - fechaMov.getFullYear()) * 12 + (hoy.getMonth() - fechaMov.getMonth());
+            // Usamos el mes/anio asignado por el usuario en lugar de la fecha de creación
+            const diffMeses = (hoy.getFullYear() - mov.anio) * 12 + (hoy.getMonth() - (mov.mes - 1));
 
             if (diffMeses >= 0 && diffMeses <= 12) {
                 const indice = 12 - diffMeses;
@@ -545,13 +549,13 @@ montoInput.addEventListener('input', (e) => {
 });
 
 // Cargar motivos
-async function cargarMotivosDelMes(usuario) {
+async function cargarMotivosDelMes() {
     const selectMotivo = document.getElementById('motivo');
     // Si el usuario ya desplegó el select o tiene algo elegido, no refrescamos para no interrumpir
     if (document.activeElement === selectMotivo && selectMotivo.value !== "") return;
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/motivos?usuario=${usuario}`);
+        const response = await api.get('/motivos');
         if (!response.ok) throw new Error("No se pudieron cargar");
 
         const motivos = await response.json();
@@ -596,14 +600,10 @@ agregarBtn.addEventListener('click', async () => {
 
     try {
         // 3. ENVÍO AL BACKEND
-        const response = await fetch('http://127.0.0.1:8000/movimientos', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                monto: montoParaDB,
-                id_motivo: parseInt(idMotivo),
-                usuario: usuario
-            })
+        const response = await api.post('/movimientos', {
+            monto: montoParaDB,
+            id_motivo: parseInt(idMotivo),
+            usuario: usuario
         });
 
         if (!response.ok) throw new Error("Error al persistir en base de datos");
@@ -664,18 +664,51 @@ async function eliminarMovimiento(id) {
     if (!confirm("¿Estás seguro de que querés borrar este movimiento?")) return;
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/movimientos/${id}`, {
-            method: 'DELETE'
-        });
+        const response = await api.delete(`/movimientos/${id}`);
 
         if (response.ok) {
             // REFRESCAR TODO: Esto recalcula totales, gráfico y tabla automáticamente
-            cargarDatosHistoricos(usuarioLogueado);
+            cargarDatosHistoricos();
         } else {
             alert("Error al eliminar");
         }
     } catch (error) {
         console.error("Error:", error);
+    }
+}
+
+// ============================
+// SUGERENCIAS: AGREGAR BÁSICOS
+// ============================
+async function agregarBasicosHome() {
+    const hoy = new Date();
+    const mes = hoy.getMonth() + 1;
+    const anio = hoy.getFullYear();
+
+    // Feedback visual inmediato
+    const tbody = document.getElementById('cuerpo-tabla-movimientos');
+    if (tbody) {
+        tbody.innerHTML = `<tr><td colspan="4" class="text-center py-20"><div class="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-indigo-600 rounded-full" role="status"></div></td></tr>`;
+    }
+
+    try {
+        const response = await api.post('/movimientos-basicos', {
+            usuario: usuarioLogueado,
+            mes,
+            anio
+        });
+
+        if (response && response.ok) {
+            console.log("[Home] Básicos agregados con éxito.");
+            await cargarDatosHistoricos();
+        } else {
+            alert("No se pudieron agregar los movimientos básicos.");
+            await cargarDatosHistoricos();
+        }
+    } catch (error) {
+        console.error("Error al agregar básicos:", error);
+        alert("Error de conexión.");
+        await cargarDatosHistoricos();
     }
 }
 
@@ -909,15 +942,10 @@ async function guardarNuevoMotivo() {
     console.log("Enviando datos:", datos); // Esto te permite ver en consola qué se envía
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/motivos', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(datos)
-        });
+        const response = await api.post('/motivos', datos);
 
-        const data = await response.json();
-
-        if (response.ok) {
+        if (response && response.ok) {
+            const data = await response.json();
             console.log("Respuesta servidor:", data);
             cerrarModalMotivo();
             // Corregido el nombre de la función a cargarMotivosDelMes

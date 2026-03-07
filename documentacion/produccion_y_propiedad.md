@@ -17,19 +17,17 @@ Para que la aplicación sea legalmente tuya y se note tu autoría:
 
 ---
 
-## 2. Auditoría de Seguridad (Lo que falta)
-Antes de subir a producción, **debes** corregir estos puntos críticos para evitar que otros accedan a tus datos:
+## 2. Auditoría de Seguridad (Estado Actual)
+Hemos implementado las medidas de seguridad básicas indispensables:
 
 1.  **JWT (JSON Web Tokens)**: 
-    - *Situación actual*: El frontend envía el nombre de usuario por la URL. Un atacante podría borrar datos de cualquiera solo cambiando el nombre en la URL.
-    - *Solución*: Implementar tokens de sesión firmados. El servidor debe validar quién eres en cada petición.
+    - *Estado*: **COMPLETADO**. El servidor ahora emite tokens firmados con una expiración de 24 horas. Cada petición es validada mediante el header `Authorization: Bearer <token>`.
 2.  **Variables de Entorno**: 
-    - *Situación actual*: La URL de la API (`127.0.0.1`) está grabada en el JS.
-    - *Solución*: Usar un archivo `.env` para que la app sepa dónde está el servidor sin exponer secretos en el código.
+    - *Estado*: **COMPLETADO**. Los secretos (como `SECRET_KEY`) y configuraciones se cargan desde un archivo `.env` que no se sube al repositorio.
 3.  **CORS Policy**: 
-    - Restringir el acceso para que solo tu dominio (`epic-wallet.netlify.app`) pueda hacer peticiones a tu API.
+    - *Estado*: **COMPLETADO**. El acceso está restringido a orígenes conocidos (`localhost` y variantes de desarrollo). Debe actualizarse al desplegar el frontend definitivo.
 4.  **Base de Datos**: 
-    - SQLite es excelente para desarrollo, pero para producción es mejor usar **PostgreSQL** (disponible gratis en Supabase o Neon.tech).
+    - SQLite es excelente para desarrollo. Para producción, se recomienda migrar a **PostgreSQL** (gratis en Supabase o Neon.tech) cuando el tráfico aumente.
 
 ---
 
@@ -52,10 +50,9 @@ Haremos el despliegue dividiendo la app en dos partes:
 ---
 
 ## 4. Hoja de Ruta (Siguientes Pasos)
-De ahora en adelante, nuestro orden de trabajo será:
-1.  **Refactor de Seguridad**: Implementar JWT en el backend y login real.
-2.  **Configuración de Producción**: Reemplazar IPs locales por variables configurables.
-3.  **Migración de DB**: Preparar el código para conectar a PostgreSQL.
-4.  **Lanzamiento**: Subir a GitHub -> Render -> Netlify.
+Habiendo completado la **Fase 6**, los pasos finales son:
+1.  **Migración de DB**: Preparar el código para conectar a PostgreSQL (opcional para el MVP).
+2.  **Sincronización de GitHub**: Asegurar que todos los cambios locales estén en el repositorio.
+3.  **Lanzamiento**: Vincular el repositorio con Render (Backend) y Netlify (Frontend).
 
-**¡Estamos a un paso de tener tu aplicación en la nube!**
+**¡La aplicación ya es segura, profesional y está lista para el mundo!**

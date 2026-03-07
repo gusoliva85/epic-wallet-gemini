@@ -1,22 +1,11 @@
-FASE 5
-Quiero que revises todo el codigo y entiendas que es lo que hace la aplicacion. una vez que lo hagas tengo que pedirte dos cosas que te las voy a ir pidiendo por etapas.
+FASE 6
+Quiero que revises todo el codigo, les la documentacion en documentacion y entiendas que es lo que hace la aplicacion. En base a eso voy hacerte varios pedidos:
 
-Punto 1. Correcciones
-Home: En la pantalla principal tengo varias secciones con diferente informacion en cada una. En primer lugar quiero que las transicciones y efectos los resaltes mas, en segundo lugar la parte de "Balance Anual"tiene un grafico en el cual muestra los movimientos por meses (de los cuales exista informacion) de gastos, ingresos y dinero restante, si bien el grafico es excelente porque tiene toda la informacion que necesito, se puede observar que no ocupa todo el ancho de la seccion de "Balance Anual" es necesario corregir esto (si es posible necesito 3 mockups de las opciones que tenes para reemplazar este grafico por otros que contengan la misma informacion, mostramelo en un html basico que vas a guardarlo dentro de la carpeta nueva llamada ejemplos o como consideres que sea la mejor forma de hacerlo). Tercer lugar necesito que las secciones "Categorias del Mes" y "Actividad Reciente" sean un poco mas grandes, no digo que lo estires a lo ancho, eso esta perfecto, pero que sean un poco mas largo, un 1.5 mas largo, pero sin modificar la estetica ni romper nada de lo que tiene actualmente.
+Paso 1. Propiedad Intelectual y Marca
+Necesito que hagas lo siguiente
+Copyright: Añadir un footer en todas las páginas: © 2026 Epic Wallet - Desarrollado por Gustavo A Oliva.
+Licencia: Crear un archivo LICENSE en la raíz. Recomiendo la Licencia MIT (permite que otros vean el código pero te reconoce como autor original).
+Favicon: Cambiar el icono por defecto del navegador por un logo propio (Dame unas opciones para poder ver que iconos podes hacer original para mi aplicacion).
 
-De los mockups que me mostraste me gusto la opcion "Opción 3: Dashboard Mixto" pero antes de aplicarla, me podes mostrar 3 opciones mas similares?
-Tambien me gustaria que "Categorias del Mes" y "Actividad Reciente" lo alarges otro poquito mas y que dentro de "Categorias del Mes" podrias poner el mismo grafico de dona que esta en la pagina "Detalle Mensual", se que el area es mas chica pero es la mejor forma de mantener una misma estetica.
-
-Perfecto! quiero que la seccion de "Balance Anual" cambies el grafico y lo adaptes tal y como esta el actual por el del mockup "Opción 5: Mixto - Premium Glow".
-En la seccion "Categorias del Mes" se que lo subrayado de cada item representa el porcentaje de lo que se gasto en el mes, pero quiero que para sacar el porcentaje del mes, en lo subrayado de cada item no se contemple el item "Sueldo" (este item siempre debe estar primero) pero de esta forma va a quedar mejor visualmente y lo subrayado se va a ver mejor.
-
-Punto 2. Seccion Ayuda
-Vas a observar que en la seccion "Nuevo" y "Balance Anual" tienen un icono de Informacion, la idea es que al pasar el mouse sobre ese icono o presionarlo se pueda ver un modal en donde se pueda visualizar la informacion de que es lo que se puede observar en esa parte de las secciones del home, esto es vital para que el usuario entienda que es lo que ves. Quiero que con lo que ya analizaste veas lo que intente implementar sin exito y hagas de una mejor manera y que sigas conservando toda la informacion centralizada dentro del archivo ayuda.js. Con todo el analisis que hiciste vas a poder poner en todo el home todos los iconos de informacion en la parte que consideres necesario y la descripcion correcta.
-Todo el codigo tiene que estar perfectamente acomodado y comentado, respetando las buenas practicas.
-
-Punto 3. Detalle Mensual
-Dentro de la pagina "Detalle Mensual" estan todos los meses previos, con su informacion correspondiente, pero y si me olvide de agregar algo? o si quiero ajustar la informacion que existe? o si quiero eliminarlo? Necesito que en cada seccion de mes me de la oportuinidad de agregar items, eliminar y modificar los existentes. En caso que el mes no tenga informacion va a existir un boton llamado "Agregar basicos" y vas a cargar los items basicos (existe una regla para esto dentro del codigo para indicar cuales son los minimos agregar, en caso de que no aplique, crea una regla que sea para ingresar los minimos e indispensables en estos casos). Cabe aclarar que todo lo que se modifique aca impacta directamente en lapagina "Home" en la parte de ahorro historico.
-
-Punto 4. Revision de codigo
-Con los puntos anteriores ya estaria dispuesto a poner el codigo en produccion, pero es la primera vez que lo voy hacer por lo que necesito que revises todo lo existente y hagas un reporte con lo que falta, los puntos fuertes y que hay que mejorar antes de la subida a produccion, esto no solo incluye al codigo sino en la parte de seguridad, para cumplir lo minimo e indispensable.
-Para todo esto vas hacer 2 archivos en formato mp en la carpeta documentacion, el primero va a tener el funcionamiento completo de la aplicacion y el otro documento vas a indicar que tengo que hacer para que se note que esta aplicacion me pertenece y es de mi propiedad intelectual y tambien todo el informe al final de como se sube a produccion (en lo posible que todo sea gratuito) y todo lo que tengo que hacer de aca en adelante, este ultimo documento necesito que lo hagas como consideres el orden necesario y toda la informacion correspondiente, lo mas importante es que tiene que ser claro para mi y para vos, ya que la implementacion la vamos hacer juntos
+Metadatos
+Actualizar los tags <meta name="author" content="Tu Nombre"> en el head de cada HTML.

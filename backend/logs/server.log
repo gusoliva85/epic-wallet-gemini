@@ -69,3 +69,2114 @@
 2026-02-25 17:10:33,756 [INFO] Tablas de base de datos verificadas/creadas correctamente.
 2026-02-25 17:10:43,772 [INFO] Intento de login para usuario: gusoliva
 2026-02-25 17:10:43,974 [INFO] Login exitoso para usuario: gusoliva
+2026-03-04 23:51:05,494 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-05 00:44:33,938 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-05 00:44:50,757 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-05 00:44:50,757 [INFO] Origen: null
+2026-03-05 00:44:50,785 [INFO] Petición: POST http://localhost:8000/login
+2026-03-05 00:44:50,785 [INFO] Origen: null
+2026-03-05 00:44:50,789 [INFO] Intento de login para usuario: gusoliva
+2026-03-05 00:44:51,916 [INFO] Login exitoso para usuario: gusoliva
+2026-03-05 00:45:02,835 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-05 00:45:02,836 [INFO] Origen: null
+2026-03-05 00:45:02,844 [INFO] Petición: POST http://localhost:8000/login
+2026-03-05 00:45:02,845 [INFO] Origen: null
+2026-03-05 00:45:02,846 [INFO] Intento de login para usuario: gusoliva
+2026-03-05 00:45:03,044 [INFO] Login exitoso para usuario: gusoliva
+2026-03-05 00:47:53,263 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-05 00:48:00,280 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-05 00:48:00,280 [INFO] Origen: null
+2026-03-05 00:48:00,308 [INFO] Petición: POST http://localhost:8000/login
+2026-03-05 00:48:00,308 [INFO] Origen: null
+2026-03-05 00:48:00,311 [INFO] Intento de login para usuario: gusoliva
+2026-03-05 00:48:00,513 [WARNING] Intento de login fallido (password incorrecto): gusoliva
+2026-03-05 00:48:05,386 [INFO] Petición: POST http://localhost:8000/login
+2026-03-05 00:48:05,386 [INFO] Origen: null
+2026-03-05 00:48:05,388 [INFO] Intento de login para usuario: gusoliva
+2026-03-05 00:48:05,597 [INFO] Login exitoso para usuario: gusoliva
+2026-03-05 00:49:21,365 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-05 00:49:30,459 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-05 00:49:30,460 [INFO] Origen: null
+2026-03-05 00:49:30,497 [INFO] Petición: POST http://localhost:8000/login
+2026-03-05 00:49:30,497 [INFO] Origen: null
+2026-03-05 00:49:30,500 [INFO] Intento de login para usuario: gusoliva
+2026-03-05 00:49:30,717 [INFO] Login exitoso para usuario: gusoliva
+2026-03-05 00:49:41,729 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-05 00:49:49,838 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-05 00:49:49,839 [INFO] Origen: null
+2026-03-05 00:49:49,873 [INFO] Petición: POST http://localhost:8000/login
+2026-03-05 00:49:49,873 [INFO] Origen: null
+2026-03-05 00:49:49,876 [INFO] Intento de login para usuario: gusoliva
+2026-03-05 00:49:50,083 [INFO] Login exitoso para usuario: gusoliva
+2026-03-05 00:58:39,099 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-05 00:58:48,430 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-05 00:58:48,430 [INFO] Origen: null
+2026-03-05 00:58:48,456 [INFO] Petición: POST http://localhost:8000/login
+2026-03-05 00:58:48,456 [INFO] Origen: null
+2026-03-05 00:58:48,459 [INFO] Intento de login para usuario: gusoliva
+2026-03-05 00:58:48,664 [INFO] Login exitoso para usuario: gusoliva
+2026-03-05 00:58:49,631 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-05 00:58:49,631 [INFO] Origen: null
+2026-03-05 00:58:49,631 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-05 00:58:49,631 [INFO] Origen: null
+2026-03-05 00:58:49,633 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-05 00:58:49,633 [INFO] Origen: null
+2026-03-05 00:58:49,634 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-05 00:58:49,635 [INFO] Origen: null
+2026-03-05 00:58:49,652 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-05 00:58:49,652 [INFO] Origen: null
+2026-03-05 00:58:49,655 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-05 00:58:49,655 [INFO] Origen: null
+2026-03-05 00:58:57,424 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-05 00:58:57,424 [INFO] Origen: null
+2026-03-05 00:58:57,426 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-05 00:58:57,426 [INFO] Origen: null
+2026-03-05 00:58:57,426 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-05 00:58:57,426 [INFO] Origen: null
+2026-03-05 00:58:57,427 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-05 00:58:57,427 [INFO] Origen: null
+2026-03-05 00:58:57,429 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-05 00:58:57,429 [INFO] Origen: null
+2026-03-05 00:58:57,430 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-05 00:58:57,430 [INFO] Origen: null
+2026-03-05 00:58:57,430 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-05 00:58:57,430 [INFO] Origen: null
+2026-03-05 00:58:57,432 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-05 00:58:57,432 [INFO] Origen: null
+2026-03-05 00:58:57,433 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-05 00:58:57,433 [INFO] Origen: null
+2026-03-05 00:58:57,433 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-05 00:58:57,433 [INFO] Origen: null
+2026-03-05 00:58:57,434 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-05 00:58:57,435 [INFO] Origen: null
+2026-03-05 00:58:57,436 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-05 00:58:57,436 [INFO] Origen: null
+2026-03-05 00:59:03,387 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-05 00:59:03,388 [INFO] Origen: null
+2026-03-05 00:59:03,388 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-05 00:59:03,389 [INFO] Origen: null
+2026-03-05 00:59:03,400 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-05 00:59:03,400 [INFO] Origen: null
+2026-03-05 00:59:06,912 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-05 00:59:06,913 [INFO] Origen: null
+2026-03-05 00:59:06,913 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-05 00:59:06,913 [INFO] Origen: null
+2026-03-05 00:59:06,915 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-05 00:59:06,915 [INFO] Origen: null
+2026-03-05 00:59:06,916 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-05 00:59:06,916 [INFO] Origen: null
+2026-03-05 00:59:06,916 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-05 00:59:06,916 [INFO] Origen: null
+2026-03-05 00:59:06,917 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-05 00:59:06,918 [INFO] Origen: null
+2026-03-06 20:50:13,084 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-06 20:52:36,127 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-06 20:52:45,735 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-06 20:52:45,736 [INFO] Origen: null
+2026-03-06 20:52:45,767 [INFO] Petición: POST http://localhost:8000/login
+2026-03-06 20:52:45,767 [INFO] Origen: null
+2026-03-06 20:52:45,770 [INFO] Intento de login para usuario: gusoliva
+2026-03-06 20:52:45,985 [INFO] Login exitoso para usuario: gusoliva
+2026-03-06 20:52:46,978 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 20:52:46,978 [INFO] Origen: null
+2026-03-06 20:52:46,978 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 20:52:46,979 [INFO] Origen: null
+2026-03-06 20:52:46,981 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 20:52:46,981 [INFO] Origen: null
+2026-03-06 20:52:46,982 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 20:52:46,982 [INFO] Origen: null
+2026-03-06 20:52:46,998 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 20:52:46,998 [INFO] Origen: null
+2026-03-06 20:52:47,001 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 20:52:47,001 [INFO] Origen: null
+2026-03-06 20:52:50,774 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 20:52:50,774 [INFO] Origen: null
+2026-03-06 20:52:50,775 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 20:52:50,775 [INFO] Origen: null
+2026-03-06 20:52:50,776 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 20:52:50,776 [INFO] Origen: null
+2026-03-06 20:52:50,777 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 20:52:50,777 [INFO] Origen: null
+2026-03-06 20:52:50,779 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 20:52:50,779 [INFO] Origen: null
+2026-03-06 20:52:50,780 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 20:52:50,780 [INFO] Origen: null
+2026-03-06 20:52:50,780 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 20:52:50,780 [INFO] Origen: null
+2026-03-06 20:52:50,781 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 20:52:50,782 [INFO] Origen: null
+2026-03-06 20:52:50,782 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 20:52:50,782 [INFO] Origen: null
+2026-03-06 20:52:50,784 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 20:52:50,784 [INFO] Origen: null
+2026-03-06 20:52:50,788 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 20:52:50,789 [INFO] Origen: null
+2026-03-06 20:52:50,789 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 20:52:50,790 [INFO] Origen: null
+2026-03-06 20:52:58,175 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 20:52:58,175 [INFO] Origen: null
+2026-03-06 20:52:58,178 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 20:52:58,178 [INFO] Origen: null
+2026-03-06 20:52:58,185 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 20:52:58,186 [INFO] Origen: null
+2026-03-06 20:55:26,164 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 20:55:26,164 [INFO] Origen: null
+2026-03-06 20:55:26,384 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 20:55:26,384 [INFO] Origen: null
+2026-03-06 20:55:26,412 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 20:55:26,412 [INFO] Origen: null
+2026-03-06 20:55:43,842 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 20:55:43,843 [INFO] Origen: null
+2026-03-06 20:55:44,085 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 20:55:44,085 [INFO] Origen: null
+2026-03-06 20:55:44,105 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 20:55:44,105 [INFO] Origen: null
+2026-03-06 20:55:56,900 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 20:55:56,900 [INFO] Origen: null
+2026-03-06 20:55:57,160 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 20:55:57,161 [INFO] Origen: null
+2026-03-06 20:55:57,169 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 20:55:57,169 [INFO] Origen: null
+2026-03-06 20:56:06,874 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 20:56:06,874 [INFO] Origen: null
+2026-03-06 20:56:07,150 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 20:56:07,150 [INFO] Origen: null
+2026-03-06 20:56:07,158 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 20:56:07,159 [INFO] Origen: null
+2026-03-06 20:57:10,615 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 20:57:10,616 [INFO] Origen: null
+2026-03-06 20:57:10,924 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 20:57:10,925 [INFO] Origen: null
+2026-03-06 20:57:10,933 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 20:57:10,933 [INFO] Origen: null
+2026-03-06 20:57:29,637 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 20:57:29,637 [INFO] Origen: null
+2026-03-06 20:57:29,964 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 20:57:29,964 [INFO] Origen: null
+2026-03-06 20:57:29,973 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 20:57:29,974 [INFO] Origen: null
+2026-03-06 20:57:37,751 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 20:57:37,751 [INFO] Origen: null
+2026-03-06 20:57:38,093 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 20:57:38,093 [INFO] Origen: null
+2026-03-06 20:57:38,101 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 20:57:38,101 [INFO] Origen: null
+2026-03-06 20:58:18,722 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 20:58:18,723 [INFO] Origen: null
+2026-03-06 20:58:19,095 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 20:58:19,095 [INFO] Origen: null
+2026-03-06 20:58:19,105 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 20:58:19,105 [INFO] Origen: null
+2026-03-06 20:58:29,888 [INFO] Petición: OPTIONS http://127.0.0.1:8000/motivos
+2026-03-06 20:58:29,889 [INFO] Origen: null
+2026-03-06 20:58:29,890 [INFO] Petición: POST http://127.0.0.1:8000/motivos
+2026-03-06 20:58:29,890 [INFO] Origen: null
+2026-03-06 20:58:40,318 [INFO] Petición: POST http://127.0.0.1:8000/motivos
+2026-03-06 20:58:40,319 [INFO] Origen: null
+2026-03-06 20:58:43,730 [INFO] Petición: POST http://127.0.0.1:8000/motivos
+2026-03-06 20:58:43,730 [INFO] Origen: null
+2026-03-06 21:00:59,130 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 21:00:59,131 [INFO] Origen: null
+2026-03-06 21:00:59,132 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 21:00:59,132 [INFO] Origen: null
+2026-03-06 21:00:59,133 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 21:00:59,133 [INFO] Origen: null
+2026-03-06 21:00:59,134 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 21:00:59,134 [INFO] Origen: null
+2026-03-06 21:00:59,142 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 21:00:59,142 [INFO] Origen: null
+2026-03-06 21:00:59,144 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 21:00:59,144 [INFO] Origen: null
+2026-03-06 21:01:07,226 [INFO] Petición: POST http://localhost:8000/motivos
+2026-03-06 21:01:07,226 [INFO] Origen: null
+2026-03-06 21:01:07,677 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 21:01:07,678 [INFO] Origen: null
+2026-03-06 21:01:22,505 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 21:01:22,506 [INFO] Origen: null
+2026-03-06 21:01:22,995 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 21:01:22,995 [INFO] Origen: null
+2026-03-06 21:01:23,021 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 21:01:23,021 [INFO] Origen: null
+2026-03-06 21:01:55,331 [INFO] Petición: POST http://localhost:8000/motivos
+2026-03-06 21:01:55,331 [INFO] Origen: null
+2026-03-06 21:01:56,318 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 21:01:56,318 [INFO] Origen: null
+2026-03-06 21:02:02,588 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 21:02:02,589 [INFO] Origen: null
+2026-03-06 21:02:03,113 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 21:02:03,113 [INFO] Origen: null
+2026-03-06 21:02:03,122 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 21:02:03,123 [INFO] Origen: null
+2026-03-06 21:02:13,045 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:02:13,045 [INFO] Origen: null
+2026-03-06 21:02:13,046 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:02:13,046 [INFO] Origen: null
+2026-03-06 21:02:13,047 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:02:13,047 [INFO] Origen: null
+2026-03-06 21:02:13,048 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:02:13,048 [INFO] Origen: null
+2026-03-06 21:02:13,050 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:02:13,051 [INFO] Origen: null
+2026-03-06 21:02:13,051 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:02:13,051 [INFO] Origen: null
+2026-03-06 21:03:28,920 [INFO] Petición: OPTIONS http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:03:28,920 [INFO] Origen: null
+2026-03-06 21:03:28,922 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:03:28,922 [INFO] Origen: null
+2026-03-06 21:03:28,927 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 21:03:28,927 [INFO] Origen: null
+2026-03-06 21:03:29,731 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:03:29,731 [INFO] Origen: null
+2026-03-06 21:03:41,798 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/97
+2026-03-06 21:03:41,798 [INFO] Origen: null
+2026-03-06 21:03:41,800 [INFO] Petición: PUT http://localhost:8000/movimientos/97
+2026-03-06 21:03:41,800 [INFO] Origen: null
+2026-03-06 21:03:42,373 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:03:42,373 [INFO] Origen: null
+2026-03-06 21:03:42,374 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:03:42,374 [INFO] Origen: null
+2026-03-06 21:03:42,376 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:03:42,376 [INFO] Origen: null
+2026-03-06 21:03:42,376 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:03:42,376 [INFO] Origen: null
+2026-03-06 21:03:42,377 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:03:42,377 [INFO] Origen: null
+2026-03-06 21:03:42,377 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:03:42,378 [INFO] Origen: null
+2026-03-06 21:03:42,378 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:03:42,378 [INFO] Origen: null
+2026-03-06 21:03:42,378 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:03:42,378 [INFO] Origen: null
+2026-03-06 21:03:42,382 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:03:42,382 [INFO] Origen: null
+2026-03-06 21:03:42,382 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:03:42,382 [INFO] Origen: null
+2026-03-06 21:03:42,383 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:03:42,383 [INFO] Origen: null
+2026-03-06 21:03:42,384 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:03:42,385 [INFO] Origen: null
+2026-03-06 21:04:41,821 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:04:41,821 [INFO] Origen: null
+2026-03-06 21:04:48,643 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/78
+2026-03-06 21:04:48,644 [INFO] Origen: null
+2026-03-06 21:04:48,645 [INFO] Petición: PUT http://localhost:8000/movimientos/78
+2026-03-06 21:04:48,645 [INFO] Origen: null
+2026-03-06 21:04:49,248 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:04:49,248 [INFO] Origen: null
+2026-03-06 21:04:49,249 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:04:49,249 [INFO] Origen: null
+2026-03-06 21:04:49,251 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:04:49,251 [INFO] Origen: null
+2026-03-06 21:04:49,252 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:04:49,252 [INFO] Origen: null
+2026-03-06 21:04:49,252 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:04:49,253 [INFO] Origen: null
+2026-03-06 21:04:49,255 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:04:49,255 [INFO] Origen: null
+2026-03-06 21:05:04,881 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:05:04,882 [INFO] Origen: null
+2026-03-06 21:05:12,583 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/79
+2026-03-06 21:05:12,583 [INFO] Origen: null
+2026-03-06 21:05:12,584 [INFO] Petición: PUT http://localhost:8000/movimientos/79
+2026-03-06 21:05:12,584 [INFO] Origen: null
+2026-03-06 21:05:12,624 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:05:12,624 [INFO] Origen: null
+2026-03-06 21:05:12,625 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:05:12,625 [INFO] Origen: null
+2026-03-06 21:05:12,626 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:05:12,627 [INFO] Origen: null
+2026-03-06 21:05:12,627 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:05:12,627 [INFO] Origen: null
+2026-03-06 21:05:12,627 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:05:12,627 [INFO] Origen: null
+2026-03-06 21:05:12,628 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:05:12,629 [INFO] Origen: null
+2026-03-06 21:05:20,467 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:05:20,467 [INFO] Origen: null
+2026-03-06 21:05:26,401 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/80
+2026-03-06 21:05:26,401 [INFO] Origen: null
+2026-03-06 21:05:26,403 [INFO] Petición: PUT http://localhost:8000/movimientos/80
+2026-03-06 21:05:26,403 [INFO] Origen: null
+2026-03-06 21:05:26,468 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:05:26,468 [INFO] Origen: null
+2026-03-06 21:05:26,469 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:05:26,469 [INFO] Origen: null
+2026-03-06 21:05:26,471 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:05:26,471 [INFO] Origen: null
+2026-03-06 21:05:26,471 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:05:26,472 [INFO] Origen: null
+2026-03-06 21:05:26,472 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:05:26,473 [INFO] Origen: null
+2026-03-06 21:05:26,474 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:05:26,474 [INFO] Origen: null
+2026-03-06 21:05:38,969 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:05:38,969 [INFO] Origen: null
+2026-03-06 21:05:44,673 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/81
+2026-03-06 21:05:44,673 [INFO] Origen: null
+2026-03-06 21:05:44,675 [INFO] Petición: PUT http://localhost:8000/movimientos/81
+2026-03-06 21:05:44,675 [INFO] Origen: null
+2026-03-06 21:05:44,803 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:05:44,803 [INFO] Origen: null
+2026-03-06 21:05:44,804 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:05:44,804 [INFO] Origen: null
+2026-03-06 21:05:44,806 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:05:44,806 [INFO] Origen: null
+2026-03-06 21:05:44,806 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:05:44,807 [INFO] Origen: null
+2026-03-06 21:05:44,807 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:05:44,808 [INFO] Origen: null
+2026-03-06 21:05:44,808 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:05:44,808 [INFO] Origen: null
+2026-03-06 21:05:55,823 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:05:55,823 [INFO] Origen: null
+2026-03-06 21:06:02,800 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/82
+2026-03-06 21:06:02,801 [INFO] Origen: null
+2026-03-06 21:06:02,802 [INFO] Petición: PUT http://localhost:8000/movimientos/82
+2026-03-06 21:06:02,802 [INFO] Origen: null
+2026-03-06 21:06:02,929 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:06:02,929 [INFO] Origen: null
+2026-03-06 21:06:02,930 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:06:02,930 [INFO] Origen: null
+2026-03-06 21:06:02,931 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:06:02,931 [INFO] Origen: null
+2026-03-06 21:06:02,932 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:06:02,932 [INFO] Origen: null
+2026-03-06 21:06:02,932 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:06:02,932 [INFO] Origen: null
+2026-03-06 21:06:02,934 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:06:02,934 [INFO] Origen: null
+2026-03-06 21:06:27,906 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:06:27,907 [INFO] Origen: null
+2026-03-06 21:07:11,092 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:07:11,092 [INFO] Origen: null
+2026-03-06 21:07:18,356 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/86
+2026-03-06 21:07:18,356 [INFO] Origen: null
+2026-03-06 21:07:18,357 [INFO] Petición: PUT http://localhost:8000/movimientos/86
+2026-03-06 21:07:18,357 [INFO] Origen: null
+2026-03-06 21:07:18,516 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:07:18,516 [INFO] Origen: null
+2026-03-06 21:07:18,517 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:07:18,517 [INFO] Origen: null
+2026-03-06 21:07:18,518 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:07:18,518 [INFO] Origen: null
+2026-03-06 21:07:18,519 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:07:18,519 [INFO] Origen: null
+2026-03-06 21:07:18,534 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:07:18,534 [INFO] Origen: null
+2026-03-06 21:07:18,535 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:07:18,535 [INFO] Origen: null
+2026-03-06 21:28:55,816 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:28:55,816 [INFO] Origen: null
+2026-03-06 21:28:55,817 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:28:55,817 [INFO] Origen: null
+2026-03-06 21:28:55,818 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:28:55,818 [INFO] Origen: null
+2026-03-06 21:28:55,818 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:28:55,818 [INFO] Origen: null
+2026-03-06 21:28:55,819 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:28:55,819 [INFO] Origen: null
+2026-03-06 21:28:55,823 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:28:55,823 [INFO] Origen: null
+2026-03-06 21:28:55,824 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:28:55,824 [INFO] Origen: null
+2026-03-06 21:28:55,824 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:28:55,825 [INFO] Origen: null
+2026-03-06 21:28:55,825 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:28:55,825 [INFO] Origen: null
+2026-03-06 21:28:55,826 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:28:55,826 [INFO] Origen: null
+2026-03-06 21:28:55,826 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:28:55,827 [INFO] Origen: null
+2026-03-06 21:28:55,829 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:28:55,829 [INFO] Origen: null
+2026-03-06 21:29:04,978 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:29:04,978 [INFO] Origen: null
+2026-03-06 21:29:04,979 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:29:04,979 [INFO] Origen: null
+2026-03-06 21:29:04,980 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:29:04,980 [INFO] Origen: null
+2026-03-06 21:29:04,980 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:29:04,980 [INFO] Origen: null
+2026-03-06 21:29:04,980 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:29:04,981 [INFO] Origen: null
+2026-03-06 21:29:04,982 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:29:04,982 [INFO] Origen: null
+2026-03-06 21:29:04,983 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:29:04,983 [INFO] Origen: null
+2026-03-06 21:29:04,984 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:29:04,984 [INFO] Origen: null
+2026-03-06 21:29:04,985 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:29:04,985 [INFO] Origen: null
+2026-03-06 21:29:04,986 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:29:04,986 [INFO] Origen: null
+2026-03-06 21:29:04,986 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:29:04,986 [INFO] Origen: null
+2026-03-06 21:29:04,987 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:29:04,988 [INFO] Origen: null
+2026-03-06 21:29:11,660 [INFO] Petición: OPTIONS http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:29:11,660 [INFO] Origen: null
+2026-03-06 21:29:11,662 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:29:11,662 [INFO] Origen: null
+2026-03-06 21:32:30,703 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:32:30,703 [INFO] Origen: null
+2026-03-06 21:32:30,704 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:32:30,704 [INFO] Origen: null
+2026-03-06 21:32:30,706 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:32:30,706 [INFO] Origen: null
+2026-03-06 21:32:30,706 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:32:30,706 [INFO] Origen: null
+2026-03-06 21:32:30,707 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:32:30,707 [INFO] Origen: null
+2026-03-06 21:32:30,707 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:32:30,707 [INFO] Origen: null
+2026-03-06 21:32:30,708 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:32:30,708 [INFO] Origen: null
+2026-03-06 21:32:30,710 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:32:30,710 [INFO] Origen: null
+2026-03-06 21:32:30,711 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:32:30,711 [INFO] Origen: null
+2026-03-06 21:32:30,713 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:32:30,713 [INFO] Origen: null
+2026-03-06 21:32:30,713 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:32:30,713 [INFO] Origen: null
+2026-03-06 21:32:30,713 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:32:30,713 [INFO] Origen: null
+2026-03-06 21:33:14,760 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:33:14,760 [INFO] Origen: null
+2026-03-06 21:33:14,761 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:33:14,761 [INFO] Origen: null
+2026-03-06 21:33:14,762 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:33:14,762 [INFO] Origen: null
+2026-03-06 21:33:14,762 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:33:14,762 [INFO] Origen: null
+2026-03-06 21:33:14,763 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:33:14,763 [INFO] Origen: null
+2026-03-06 21:33:14,764 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:33:14,765 [INFO] Origen: null
+2026-03-06 21:33:14,765 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:33:14,765 [INFO] Origen: null
+2026-03-06 21:33:14,767 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:33:14,767 [INFO] Origen: null
+2026-03-06 21:33:14,768 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:33:14,768 [INFO] Origen: null
+2026-03-06 21:33:14,768 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:33:14,768 [INFO] Origen: null
+2026-03-06 21:33:14,770 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:33:14,771 [INFO] Origen: null
+2026-03-06 21:33:14,771 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:33:14,771 [INFO] Origen: null
+2026-03-06 21:33:20,853 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 21:33:20,853 [INFO] Origen: null
+2026-03-06 21:33:20,855 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 21:33:20,855 [INFO] Origen: null
+2026-03-06 21:33:20,859 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 21:33:20,859 [INFO] Origen: null
+2026-03-06 21:33:20,860 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 21:33:20,860 [INFO] Origen: null
+2026-03-06 21:33:20,870 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 21:33:20,870 [INFO] Origen: null
+2026-03-06 21:33:20,871 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 21:33:20,872 [INFO] Origen: null
+2026-03-06 21:33:23,260 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:33:23,260 [INFO] Origen: null
+2026-03-06 21:33:23,261 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:33:23,261 [INFO] Origen: null
+2026-03-06 21:33:23,262 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:33:23,262 [INFO] Origen: null
+2026-03-06 21:33:23,262 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:33:23,262 [INFO] Origen: null
+2026-03-06 21:33:23,264 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:33:23,265 [INFO] Origen: null
+2026-03-06 21:33:23,266 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:33:23,266 [INFO] Origen: null
+2026-03-06 21:33:41,136 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-06 21:33:48,058 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-06 21:33:48,058 [INFO] Origen: null
+2026-03-06 21:33:48,079 [INFO] Petición: POST http://localhost:8000/login
+2026-03-06 21:33:48,080 [INFO] Origen: null
+2026-03-06 21:33:48,082 [INFO] Intento de login para usuario: gusoliva
+2026-03-06 21:33:48,284 [INFO] Login exitoso para usuario: gusoliva
+2026-03-06 21:33:49,273 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 21:33:49,273 [INFO] Origen: null
+2026-03-06 21:33:49,274 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 21:33:49,274 [INFO] Origen: null
+2026-03-06 21:33:49,294 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 21:33:49,294 [INFO] Origen: null
+2026-03-06 21:33:51,561 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:33:51,562 [INFO] Origen: null
+2026-03-06 21:33:51,563 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:33:51,563 [INFO] Origen: null
+2026-03-06 21:33:51,565 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:33:51,565 [INFO] Origen: null
+2026-03-06 21:33:51,565 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:33:51,565 [INFO] Origen: null
+2026-03-06 21:33:51,565 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:33:51,565 [INFO] Origen: null
+2026-03-06 21:33:51,566 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:33:51,566 [INFO] Origen: null
+2026-03-06 21:41:18,568 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:41:18,568 [INFO] Origen: null
+2026-03-06 21:41:18,569 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:41:18,569 [INFO] Origen: null
+2026-03-06 21:41:18,571 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:41:18,571 [INFO] Origen: null
+2026-03-06 21:41:18,571 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:41:18,571 [INFO] Origen: null
+2026-03-06 21:41:18,572 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:41:18,572 [INFO] Origen: null
+2026-03-06 21:41:18,572 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:41:18,572 [INFO] Origen: null
+2026-03-06 21:41:18,573 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:41:18,573 [INFO] Origen: null
+2026-03-06 21:41:18,575 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:41:18,575 [INFO] Origen: null
+2026-03-06 21:41:18,576 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:41:18,577 [INFO] Origen: null
+2026-03-06 21:41:18,577 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:41:18,577 [INFO] Origen: null
+2026-03-06 21:41:18,578 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:41:18,578 [INFO] Origen: null
+2026-03-06 21:41:18,578 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:41:18,580 [INFO] Origen: null
+2026-03-06 21:41:56,924 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-06 21:42:04,830 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-06 21:42:04,830 [INFO] Origen: null
+2026-03-06 21:42:04,863 [INFO] Petición: POST http://localhost:8000/login
+2026-03-06 21:42:04,864 [INFO] Origen: null
+2026-03-06 21:42:04,866 [INFO] Intento de login para usuario: gusoliva
+2026-03-06 21:42:05,069 [INFO] Login exitoso para usuario: gusoliva
+2026-03-06 21:42:06,045 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 21:42:06,046 [INFO] Origen: null
+2026-03-06 21:42:06,046 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 21:42:06,046 [INFO] Origen: null
+2026-03-06 21:42:06,048 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 21:42:06,048 [INFO] Origen: null
+2026-03-06 21:42:06,049 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 21:42:06,049 [INFO] Origen: null
+2026-03-06 21:42:06,069 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 21:42:06,070 [INFO] Origen: null
+2026-03-06 21:42:06,071 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 21:42:06,071 [INFO] Origen: null
+2026-03-06 21:42:10,319 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:42:10,319 [INFO] Origen: null
+2026-03-06 21:42:10,320 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:42:10,320 [INFO] Origen: null
+2026-03-06 21:42:10,322 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:42:10,322 [INFO] Origen: null
+2026-03-06 21:42:10,322 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:42:10,323 [INFO] Origen: null
+2026-03-06 21:42:10,323 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:42:10,323 [INFO] Origen: null
+2026-03-06 21:42:10,324 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:42:10,324 [INFO] Origen: null
+2026-03-06 21:42:10,324 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:42:10,324 [INFO] Origen: null
+2026-03-06 21:42:10,326 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:42:10,327 [INFO] Origen: null
+2026-03-06 21:42:10,328 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:42:10,328 [INFO] Origen: null
+2026-03-06 21:42:10,329 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:42:10,329 [INFO] Origen: null
+2026-03-06 21:42:10,330 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:42:10,330 [INFO] Origen: null
+2026-03-06 21:42:10,332 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:42:10,332 [INFO] Origen: null
+2026-03-06 21:45:57,701 [INFO] Petición: GET http://127.0.0.1:8000/login.html
+2026-03-06 21:45:57,701 [INFO] Origen: None
+2026-03-06 21:45:57,730 [INFO] Petición: GET http://127.0.0.1:8000/favicon.ico
+2026-03-06 21:45:57,730 [INFO] Origen: None
+2026-03-06 21:46:06,697 [INFO] Petición: GET http://127.0.0.1:8000/docs
+2026-03-06 21:46:06,697 [INFO] Origen: None
+2026-03-06 21:46:07,088 [INFO] Petición: GET http://127.0.0.1:8000/openapi.json
+2026-03-06 21:46:07,088 [INFO] Origen: None
+2026-03-06 21:46:20,053 [INFO] Petición: POST http://127.0.0.1:8000/login
+2026-03-06 21:46:20,053 [INFO] Origen: http://127.0.0.1:8000
+2026-03-06 21:46:46,026 [INFO] Petición: POST http://127.0.0.1:8000/login
+2026-03-06 21:46:46,026 [INFO] Origen: http://127.0.0.1:8000
+2026-03-06 21:46:46,027 [INFO] Intento de login para usuario: gusoliva
+2026-03-06 21:46:46,222 [WARNING] Intento de login fallido (password incorrecto): gusoliva
+2026-03-06 21:47:58,484 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-06 21:48:00,347 [INFO] Petición: GET http://127.0.0.1:8000/docs
+2026-03-06 21:48:00,348 [INFO] Origen: None
+2026-03-06 21:48:00,601 [INFO] Petición: GET http://127.0.0.1:8000/openapi.json
+2026-03-06 21:48:00,601 [INFO] Origen: None
+2026-03-06 21:48:18,595 [INFO] Petición: GET http://127.0.0.1:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:48:18,595 [INFO] Origen: None
+2026-03-06 21:49:00,313 [INFO] Petición: POST http://127.0.0.1:8000/register
+2026-03-06 21:49:00,313 [INFO] Origen: http://127.0.0.1:8000
+2026-03-06 21:49:09,827 [INFO] Petición: GET http://127.0.0.1:8000/motivos
+2026-03-06 21:49:09,827 [INFO] Origen: None
+2026-03-06 21:49:16,894 [INFO] Petición: GET http://127.0.0.1:8000/openapi.json
+2026-03-06 21:49:16,894 [INFO] Origen: None
+2026-03-06 21:49:16,924 [INFO] Petición: GET http://127.0.0.1:8000/favicon.ico
+2026-03-06 21:49:16,924 [INFO] Origen: None
+2026-03-06 21:49:29,411 [INFO] Petición: POST http://127.0.0.1:8000/register
+2026-03-06 21:49:29,412 [INFO] Origen: http://127.0.0.1:8000
+2026-03-06 21:49:42,278 [INFO] Petición: GET http://127.0.0.1:8000/js/api.js
+2026-03-06 21:49:42,278 [INFO] Origen: None
+2026-03-06 21:49:55,061 [INFO] Petición: POST http://127.0.0.1:8000/login
+2026-03-06 21:49:55,062 [INFO] Origen: http://127.0.0.1:8000
+2026-03-06 21:49:55,063 [INFO] Intento de login para usuario: Gusoliva
+2026-03-06 21:50:05,578 [INFO] Petición: POST http://127.0.0.1:8000/register
+2026-03-06 21:50:05,578 [INFO] Origen: http://127.0.0.1:8000
+2026-03-06 21:50:05,884 [INFO] Petición: POST http://127.0.0.1:8000/login
+2026-03-06 21:50:05,884 [INFO] Origen: http://127.0.0.1:8000
+2026-03-06 21:50:05,885 [INFO] Intento de login para usuario: testuser
+2026-03-06 21:50:06,082 [INFO] Login exitoso para usuario: testuser
+2026-03-06 21:50:06,086 [INFO] Petición: GET http://127.0.0.1:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:50:06,086 [INFO] Origen: None
+2026-03-06 21:50:22,765 [INFO] Petición: GET http://127.0.0.1:8000/docs
+2026-03-06 21:50:22,765 [INFO] Origen: None
+2026-03-06 21:50:22,819 [INFO] Petición: GET http://127.0.0.1:8000/openapi.json
+2026-03-06 21:50:22,820 [INFO] Origen: None
+2026-03-06 21:50:36,376 [INFO] Petición: GET http://127.0.0.1:8000/ping
+2026-03-06 21:50:36,376 [INFO] Origen: None
+2026-03-06 21:51:00,855 [INFO] Petición: POST http://127.0.0.1:8000/login
+2026-03-06 21:51:00,855 [INFO] Origen: http://127.0.0.1:8000
+2026-03-06 21:51:22,629 [INFO] Petición: POST http://127.0.0.1:8000/login
+2026-03-06 21:51:22,629 [INFO] Origen: http://127.0.0.1:8000
+2026-03-06 21:51:22,630 [INFO] Intento de login para usuario: testuser
+2026-03-06 21:51:22,827 [INFO] Login exitoso para usuario: testuser
+2026-03-06 21:51:40,841 [INFO] Petición: GET http://127.0.0.1:8000/dashboard
+2026-03-06 21:51:40,841 [INFO] Origen: None
+2026-03-06 21:57:59,651 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-06 21:58:07,004 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-06 21:58:07,004 [INFO] Origen: null
+2026-03-06 21:58:07,040 [INFO] Petición: POST http://localhost:8000/login
+2026-03-06 21:58:07,040 [INFO] Origen: null
+2026-03-06 21:58:07,043 [INFO] Intento de login para usuario: gusoliva
+2026-03-06 21:58:07,243 [INFO] Login exitoso para usuario: gusoliva
+2026-03-06 21:58:08,218 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 21:58:08,218 [INFO] Origen: null
+2026-03-06 21:58:08,218 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 21:58:08,218 [INFO] Origen: null
+2026-03-06 21:58:08,220 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 21:58:08,220 [INFO] Origen: null
+2026-03-06 21:58:08,221 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 21:58:08,221 [INFO] Origen: null
+2026-03-06 21:58:08,238 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 21:58:08,239 [INFO] Origen: null
+2026-03-06 21:58:08,240 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 21:58:08,240 [INFO] Origen: null
+2026-03-06 21:58:09,401 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:58:09,401 [INFO] Origen: null
+2026-03-06 21:58:09,402 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:58:09,402 [INFO] Origen: null
+2026-03-06 21:58:09,403 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:58:09,403 [INFO] Origen: null
+2026-03-06 21:58:09,404 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:58:09,404 [INFO] Origen: null
+2026-03-06 21:58:09,405 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:58:09,405 [INFO] Origen: null
+2026-03-06 21:58:09,405 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:58:09,406 [INFO] Origen: null
+2026-03-06 21:58:09,406 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:58:09,406 [INFO] Origen: null
+2026-03-06 21:58:09,408 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:58:09,408 [INFO] Origen: null
+2026-03-06 21:58:09,410 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:58:09,410 [INFO] Origen: null
+2026-03-06 21:58:09,411 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:58:09,412 [INFO] Origen: null
+2026-03-06 21:58:09,412 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:58:09,412 [INFO] Origen: null
+2026-03-06 21:58:09,413 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:58:09,414 [INFO] Origen: null
+2026-03-06 21:58:23,449 [INFO] Petición: OPTIONS http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:58:23,449 [INFO] Origen: null
+2026-03-06 21:58:23,450 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:58:23,450 [INFO] Origen: null
+2026-03-06 21:58:30,220 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/44
+2026-03-06 21:58:30,220 [INFO] Origen: null
+2026-03-06 21:58:30,221 [INFO] Petición: PUT http://localhost:8000/movimientos/44
+2026-03-06 21:58:30,222 [INFO] Origen: null
+2026-03-06 21:58:30,233 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:58:30,233 [INFO] Origen: null
+2026-03-06 21:58:30,234 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:58:30,234 [INFO] Origen: null
+2026-03-06 21:58:30,236 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:58:30,237 [INFO] Origen: null
+2026-03-06 21:58:30,237 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:58:30,237 [INFO] Origen: null
+2026-03-06 21:58:30,239 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:58:30,239 [INFO] Origen: null
+2026-03-06 21:58:30,241 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:58:30,241 [INFO] Origen: null
+2026-03-06 21:58:37,011 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:58:37,011 [INFO] Origen: null
+2026-03-06 21:58:37,012 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:58:37,012 [INFO] Origen: null
+2026-03-06 21:58:37,013 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:58:37,014 [INFO] Origen: null
+2026-03-06 21:58:37,014 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:58:37,014 [INFO] Origen: null
+2026-03-06 21:58:37,014 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:58:37,014 [INFO] Origen: null
+2026-03-06 21:58:37,015 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:58:37,016 [INFO] Origen: null
+2026-03-06 21:58:37,016 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:58:37,016 [INFO] Origen: null
+2026-03-06 21:58:37,018 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:58:37,018 [INFO] Origen: null
+2026-03-06 21:58:37,019 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:58:37,019 [INFO] Origen: null
+2026-03-06 21:58:37,019 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:58:37,020 [INFO] Origen: null
+2026-03-06 21:58:37,020 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:58:37,020 [INFO] Origen: null
+2026-03-06 21:58:37,021 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:58:37,022 [INFO] Origen: null
+2026-03-06 21:58:39,213 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:58:39,214 [INFO] Origen: null
+2026-03-06 21:58:45,702 [INFO] Petición: PUT http://localhost:8000/movimientos/44
+2026-03-06 21:58:45,702 [INFO] Origen: null
+2026-03-06 21:58:45,711 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:58:45,711 [INFO] Origen: null
+2026-03-06 21:58:45,713 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:58:45,714 [INFO] Origen: null
+2026-03-06 21:58:45,716 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:58:45,716 [INFO] Origen: null
+2026-03-06 21:58:45,717 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:58:45,717 [INFO] Origen: null
+2026-03-06 21:58:45,717 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:58:45,717 [INFO] Origen: null
+2026-03-06 21:58:45,718 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:58:45,719 [INFO] Origen: null
+2026-03-06 21:58:48,966 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 21:58:48,966 [INFO] Origen: null
+2026-03-06 21:58:48,970 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 21:58:48,970 [INFO] Origen: null
+2026-03-06 21:58:48,977 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 21:58:48,977 [INFO] Origen: null
+2026-03-06 21:58:50,080 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:58:50,080 [INFO] Origen: null
+2026-03-06 21:58:50,081 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:58:50,081 [INFO] Origen: null
+2026-03-06 21:58:50,082 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:58:50,082 [INFO] Origen: null
+2026-03-06 21:58:50,083 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:58:50,083 [INFO] Origen: null
+2026-03-06 21:58:50,084 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:58:50,084 [INFO] Origen: null
+2026-03-06 21:58:50,086 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:58:50,088 [INFO] Origen: null
+2026-03-06 21:58:55,475 [INFO] Petición: DELETE http://localhost:8000/movimientos/44
+2026-03-06 21:58:55,475 [INFO] Origen: null
+2026-03-06 21:58:55,732 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:58:55,732 [INFO] Origen: null
+2026-03-06 21:58:55,734 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:58:55,734 [INFO] Origen: null
+2026-03-06 21:58:55,737 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:58:55,737 [INFO] Origen: null
+2026-03-06 21:58:55,738 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:58:55,739 [INFO] Origen: null
+2026-03-06 21:58:55,739 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:58:55,739 [INFO] Origen: null
+2026-03-06 21:58:55,740 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:58:55,740 [INFO] Origen: null
+2026-03-06 21:58:57,685 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:58:57,685 [INFO] Origen: null
+2026-03-06 21:58:57,690 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 21:58:57,690 [INFO] Origen: null
+2026-03-06 21:58:57,948 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:58:57,949 [INFO] Origen: null
+2026-03-06 21:59:03,817 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/98
+2026-03-06 21:59:03,817 [INFO] Origen: null
+2026-03-06 21:59:03,819 [INFO] Petición: PUT http://localhost:8000/movimientos/98
+2026-03-06 21:59:03,819 [INFO] Origen: null
+2026-03-06 21:59:04,093 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:59:04,093 [INFO] Origen: null
+2026-03-06 21:59:04,094 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:59:04,094 [INFO] Origen: null
+2026-03-06 21:59:04,096 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:59:04,097 [INFO] Origen: null
+2026-03-06 21:59:04,097 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:59:04,097 [INFO] Origen: null
+2026-03-06 21:59:04,097 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:59:04,098 [INFO] Origen: null
+2026-03-06 21:59:04,099 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:59:04,099 [INFO] Origen: null
+2026-03-06 21:59:07,590 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:59:07,590 [INFO] Origen: null
+2026-03-06 21:59:13,222 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/82
+2026-03-06 21:59:13,222 [INFO] Origen: null
+2026-03-06 21:59:13,224 [INFO] Petición: PUT http://localhost:8000/movimientos/82
+2026-03-06 21:59:13,224 [INFO] Origen: null
+2026-03-06 21:59:13,644 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:59:13,644 [INFO] Origen: null
+2026-03-06 21:59:13,644 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:59:13,645 [INFO] Origen: null
+2026-03-06 21:59:13,647 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:59:13,647 [INFO] Origen: null
+2026-03-06 21:59:13,647 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:59:13,648 [INFO] Origen: null
+2026-03-06 21:59:13,649 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:59:13,649 [INFO] Origen: null
+2026-03-06 21:59:13,650 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:59:13,651 [INFO] Origen: null
+2026-03-06 21:59:17,452 [INFO] Petición: DELETE http://localhost:8000/movimientos/82
+2026-03-06 21:59:17,453 [INFO] Origen: null
+2026-03-06 21:59:17,756 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:59:17,756 [INFO] Origen: null
+2026-03-06 21:59:17,757 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:59:17,757 [INFO] Origen: null
+2026-03-06 21:59:17,758 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:59:17,758 [INFO] Origen: null
+2026-03-06 21:59:17,759 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:59:17,759 [INFO] Origen: null
+2026-03-06 21:59:17,760 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:59:17,760 [INFO] Origen: null
+2026-03-06 21:59:17,760 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:59:17,760 [INFO] Origen: null
+2026-03-06 21:59:21,723 [INFO] Petición: DELETE http://localhost:8000/movimientos/98
+2026-03-06 21:59:21,723 [INFO] Origen: null
+2026-03-06 21:59:22,166 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:59:22,167 [INFO] Origen: null
+2026-03-06 21:59:22,167 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:59:22,167 [INFO] Origen: null
+2026-03-06 21:59:22,168 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:59:22,168 [INFO] Origen: null
+2026-03-06 21:59:22,168 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:59:22,169 [INFO] Origen: null
+2026-03-06 21:59:22,170 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:59:22,170 [INFO] Origen: null
+2026-03-06 21:59:22,170 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:59:22,171 [INFO] Origen: null
+2026-03-06 21:59:29,646 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:59:29,646 [INFO] Origen: null
+2026-03-06 21:59:29,651 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-06 21:59:29,651 [INFO] Origen: null
+2026-03-06 21:59:30,131 [INFO] Petición: GET http://localhost:8000/motivos?mes=2&anio=2026
+2026-03-06 21:59:30,131 [INFO] Origen: null
+2026-03-06 21:59:35,244 [INFO] Petición: PUT http://localhost:8000/movimientos/98
+2026-03-06 21:59:35,244 [INFO] Origen: null
+2026-03-06 21:59:35,746 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 21:59:35,746 [INFO] Origen: null
+2026-03-06 21:59:35,748 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 21:59:35,748 [INFO] Origen: null
+2026-03-06 21:59:35,748 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 21:59:35,748 [INFO] Origen: null
+2026-03-06 21:59:35,752 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 21:59:35,752 [INFO] Origen: null
+2026-03-06 21:59:35,753 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 21:59:35,753 [INFO] Origen: null
+2026-03-06 21:59:35,753 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 21:59:35,753 [INFO] Origen: null
+2026-03-06 21:59:40,868 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 21:59:40,869 [INFO] Origen: null
+2026-03-06 21:59:40,869 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 21:59:40,870 [INFO] Origen: null
+2026-03-06 21:59:40,879 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 21:59:40,880 [INFO] Origen: null
+2026-03-06 21:59:55,835 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 21:59:55,835 [INFO] Origen: null
+2026-03-06 21:59:55,836 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 21:59:55,836 [INFO] Origen: null
+2026-03-06 21:59:55,837 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 21:59:55,837 [INFO] Origen: null
+2026-03-06 21:59:55,838 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 21:59:55,838 [INFO] Origen: null
+2026-03-06 21:59:55,848 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 21:59:55,848 [INFO] Origen: null
+2026-03-06 21:59:55,849 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 21:59:55,850 [INFO] Origen: null
+2026-03-06 22:00:01,442 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 22:00:01,442 [INFO] Origen: null
+2026-03-06 22:00:01,443 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 22:00:01,443 [INFO] Origen: null
+2026-03-06 22:00:01,454 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 22:00:01,454 [INFO] Origen: null
+2026-03-06 22:00:06,819 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:00:06,820 [INFO] Origen: null
+2026-03-06 22:00:06,823 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:00:06,823 [INFO] Origen: null
+2026-03-06 22:00:06,829 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:00:06,830 [INFO] Origen: null
+2026-03-06 22:00:06,830 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:00:06,830 [INFO] Origen: null
+2026-03-06 22:00:06,831 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:00:06,832 [INFO] Origen: null
+2026-03-06 22:00:06,832 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:00:06,832 [INFO] Origen: null
+2026-03-06 22:00:11,382 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 22:00:11,382 [INFO] Origen: null
+2026-03-06 22:00:11,383 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 22:00:11,383 [INFO] Origen: null
+2026-03-06 22:00:11,394 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 22:00:11,394 [INFO] Origen: null
+2026-03-06 22:00:13,661 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:00:13,661 [INFO] Origen: null
+2026-03-06 22:00:13,662 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:00:13,662 [INFO] Origen: null
+2026-03-06 22:00:13,664 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:00:13,664 [INFO] Origen: null
+2026-03-06 22:00:13,664 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:00:13,664 [INFO] Origen: null
+2026-03-06 22:00:13,665 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:00:13,665 [INFO] Origen: null
+2026-03-06 22:00:13,665 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:00:13,665 [INFO] Origen: null
+2026-03-06 22:00:15,701 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 22:00:15,701 [INFO] Origen: null
+2026-03-06 22:00:15,703 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 22:00:15,704 [INFO] Origen: null
+2026-03-06 22:00:15,714 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 22:00:15,714 [INFO] Origen: null
+2026-03-06 22:00:16,772 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:00:16,772 [INFO] Origen: null
+2026-03-06 22:00:16,775 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:00:16,775 [INFO] Origen: null
+2026-03-06 22:00:16,776 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:00:16,776 [INFO] Origen: null
+2026-03-06 22:00:16,777 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:00:16,777 [INFO] Origen: null
+2026-03-06 22:00:16,778 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:00:16,779 [INFO] Origen: null
+2026-03-06 22:00:16,779 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:00:16,779 [INFO] Origen: null
+2026-03-06 22:00:24,426 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 22:00:24,426 [INFO] Origen: null
+2026-03-06 22:00:24,427 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 22:00:24,427 [INFO] Origen: null
+2026-03-06 22:00:24,438 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 22:00:24,439 [INFO] Origen: null
+2026-03-06 22:00:31,480 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 22:00:31,480 [INFO] Origen: null
+2026-03-06 22:00:31,481 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 22:00:31,481 [INFO] Origen: null
+2026-03-06 22:00:31,482 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 22:00:31,482 [INFO] Origen: null
+2026-03-06 22:00:31,483 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 22:00:31,483 [INFO] Origen: null
+2026-03-06 22:00:31,492 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 22:00:31,492 [INFO] Origen: null
+2026-03-06 22:00:31,493 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 22:00:31,493 [INFO] Origen: null
+2026-03-06 22:00:33,259 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:00:33,260 [INFO] Origen: null
+2026-03-06 22:00:33,260 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:00:33,261 [INFO] Origen: null
+2026-03-06 22:00:33,261 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:00:33,261 [INFO] Origen: null
+2026-03-06 22:00:33,262 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:00:33,263 [INFO] Origen: null
+2026-03-06 22:00:33,263 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:00:33,263 [INFO] Origen: null
+2026-03-06 22:00:33,266 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:00:33,267 [INFO] Origen: null
+2026-03-06 22:03:07,624 [INFO] Petición: OPTIONS http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-06 22:03:07,624 [INFO] Origen: null
+2026-03-06 22:03:07,626 [INFO] Petición: GET http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-06 22:03:07,626 [INFO] Origen: null
+2026-03-06 22:03:12,861 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/14
+2026-03-06 22:03:12,862 [INFO] Origen: null
+2026-03-06 22:03:12,863 [INFO] Petición: PUT http://localhost:8000/movimientos/14
+2026-03-06 22:03:12,863 [INFO] Origen: null
+2026-03-06 22:03:13,544 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:03:13,544 [INFO] Origen: null
+2026-03-06 22:03:13,544 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:03:13,545 [INFO] Origen: null
+2026-03-06 22:03:13,546 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:03:13,546 [INFO] Origen: null
+2026-03-06 22:03:13,547 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:03:13,547 [INFO] Origen: null
+2026-03-06 22:03:13,547 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:03:13,548 [INFO] Origen: null
+2026-03-06 22:03:13,550 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:03:13,551 [INFO] Origen: null
+2026-03-06 22:03:35,421 [INFO] Petición: GET http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-06 22:03:35,422 [INFO] Origen: null
+2026-03-06 22:03:40,857 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/20
+2026-03-06 22:03:40,858 [INFO] Origen: null
+2026-03-06 22:03:40,859 [INFO] Petición: PUT http://localhost:8000/movimientos/20
+2026-03-06 22:03:40,859 [INFO] Origen: null
+2026-03-06 22:03:41,345 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:03:41,346 [INFO] Origen: null
+2026-03-06 22:03:41,346 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:03:41,346 [INFO] Origen: null
+2026-03-06 22:03:41,348 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:03:41,349 [INFO] Origen: null
+2026-03-06 22:03:41,349 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:03:41,349 [INFO] Origen: null
+2026-03-06 22:03:41,351 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:03:41,351 [INFO] Origen: null
+2026-03-06 22:03:41,352 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:03:41,353 [INFO] Origen: null
+2026-03-06 22:22:02,031 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 22:22:02,031 [INFO] Origen: null
+2026-03-06 22:22:02,034 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 22:22:02,034 [INFO] Origen: null
+2026-03-06 22:22:02,035 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 22:22:02,035 [INFO] Origen: null
+2026-03-06 22:22:02,036 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 22:22:02,036 [INFO] Origen: null
+2026-03-06 22:22:02,046 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 22:22:02,047 [INFO] Origen: null
+2026-03-06 22:22:02,048 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 22:22:02,048 [INFO] Origen: null
+2026-03-06 22:22:04,290 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:22:04,291 [INFO] Origen: null
+2026-03-06 22:22:04,291 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:22:04,291 [INFO] Origen: null
+2026-03-06 22:22:04,293 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:22:04,293 [INFO] Origen: null
+2026-03-06 22:22:04,294 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:22:04,294 [INFO] Origen: null
+2026-03-06 22:22:04,294 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:22:04,295 [INFO] Origen: null
+2026-03-06 22:22:04,295 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:22:04,295 [INFO] Origen: null
+2026-03-06 22:22:04,298 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:22:04,298 [INFO] Origen: null
+2026-03-06 22:22:04,300 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:22:04,300 [INFO] Origen: null
+2026-03-06 22:22:04,301 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:22:04,301 [INFO] Origen: null
+2026-03-06 22:22:04,303 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:22:04,303 [INFO] Origen: null
+2026-03-06 22:22:04,303 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:22:04,304 [INFO] Origen: null
+2026-03-06 22:22:04,304 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:22:04,304 [INFO] Origen: null
+2026-03-06 22:22:59,445 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:22:59,446 [INFO] Origen: null
+2026-03-06 22:22:59,447 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:22:59,447 [INFO] Origen: null
+2026-03-06 22:22:59,447 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:22:59,447 [INFO] Origen: null
+2026-03-06 22:22:59,448 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:22:59,448 [INFO] Origen: null
+2026-03-06 22:22:59,449 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:22:59,450 [INFO] Origen: null
+2026-03-06 22:22:59,450 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:22:59,450 [INFO] Origen: null
+2026-03-06 22:22:59,450 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:22:59,450 [INFO] Origen: null
+2026-03-06 22:22:59,451 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:22:59,452 [INFO] Origen: null
+2026-03-06 22:22:59,452 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:22:59,452 [INFO] Origen: null
+2026-03-06 22:22:59,454 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:22:59,455 [INFO] Origen: null
+2026-03-06 22:22:59,456 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:22:59,457 [INFO] Origen: null
+2026-03-06 22:22:59,457 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:22:59,457 [INFO] Origen: null
+2026-03-06 22:23:59,693 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/26
+2026-03-06 22:23:59,693 [INFO] Origen: null
+2026-03-06 22:23:59,695 [INFO] Petición: DELETE http://localhost:8000/movimientos/26
+2026-03-06 22:23:59,695 [INFO] Origen: null
+2026-03-06 22:24:00,285 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:24:00,285 [INFO] Origen: null
+2026-03-06 22:24:00,286 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:24:00,286 [INFO] Origen: null
+2026-03-06 22:24:00,288 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:24:00,288 [INFO] Origen: null
+2026-03-06 22:24:00,288 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:24:00,288 [INFO] Origen: null
+2026-03-06 22:24:00,289 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:24:00,289 [INFO] Origen: null
+2026-03-06 22:24:00,291 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:24:00,291 [INFO] Origen: null
+2026-03-06 22:24:07,554 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/14
+2026-03-06 22:24:07,554 [INFO] Origen: null
+2026-03-06 22:24:07,556 [INFO] Petición: DELETE http://localhost:8000/movimientos/14
+2026-03-06 22:24:07,556 [INFO] Origen: null
+2026-03-06 22:24:08,446 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:24:08,446 [INFO] Origen: null
+2026-03-06 22:24:08,447 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:24:08,448 [INFO] Origen: null
+2026-03-06 22:24:08,450 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:24:08,450 [INFO] Origen: null
+2026-03-06 22:24:08,451 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:24:08,452 [INFO] Origen: null
+2026-03-06 22:24:08,453 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:24:08,453 [INFO] Origen: null
+2026-03-06 22:24:08,453 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:24:08,453 [INFO] Origen: null
+2026-03-06 22:24:20,220 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/20
+2026-03-06 22:24:20,220 [INFO] Origen: null
+2026-03-06 22:24:20,221 [INFO] Petición: DELETE http://localhost:8000/movimientos/20
+2026-03-06 22:24:20,222 [INFO] Origen: null
+2026-03-06 22:24:20,259 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:24:20,260 [INFO] Origen: null
+2026-03-06 22:24:20,260 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:24:20,261 [INFO] Origen: null
+2026-03-06 22:24:20,262 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:24:20,262 [INFO] Origen: null
+2026-03-06 22:24:20,263 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:24:20,263 [INFO] Origen: null
+2026-03-06 22:24:20,263 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:24:20,263 [INFO] Origen: null
+2026-03-06 22:24:20,266 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:24:20,266 [INFO] Origen: null
+2026-03-06 22:24:39,599 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/29
+2026-03-06 22:24:39,599 [INFO] Origen: null
+2026-03-06 22:24:39,600 [INFO] Petición: DELETE http://localhost:8000/movimientos/29
+2026-03-06 22:24:39,600 [INFO] Origen: null
+2026-03-06 22:24:39,681 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:24:39,681 [INFO] Origen: null
+2026-03-06 22:24:39,682 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:24:39,682 [INFO] Origen: null
+2026-03-06 22:24:39,685 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:24:39,685 [INFO] Origen: null
+2026-03-06 22:24:39,686 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:24:39,686 [INFO] Origen: null
+2026-03-06 22:24:39,687 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:24:39,688 [INFO] Origen: null
+2026-03-06 22:24:39,688 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:24:39,688 [INFO] Origen: null
+2026-03-06 22:24:50,205 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/36
+2026-03-06 22:24:50,206 [INFO] Origen: null
+2026-03-06 22:24:50,207 [INFO] Petición: DELETE http://localhost:8000/movimientos/36
+2026-03-06 22:24:50,207 [INFO] Origen: null
+2026-03-06 22:24:50,311 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:24:50,311 [INFO] Origen: null
+2026-03-06 22:24:50,312 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:24:50,312 [INFO] Origen: null
+2026-03-06 22:24:50,314 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:24:50,314 [INFO] Origen: null
+2026-03-06 22:24:50,315 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:24:50,316 [INFO] Origen: null
+2026-03-06 22:24:50,317 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:24:50,317 [INFO] Origen: null
+2026-03-06 22:24:50,318 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:24:50,319 [INFO] Origen: null
+2026-03-06 22:24:54,549 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/16
+2026-03-06 22:24:54,549 [INFO] Origen: null
+2026-03-06 22:24:54,550 [INFO] Petición: DELETE http://localhost:8000/movimientos/16
+2026-03-06 22:24:54,550 [INFO] Origen: null
+2026-03-06 22:24:54,645 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:24:54,645 [INFO] Origen: null
+2026-03-06 22:24:54,646 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:24:54,646 [INFO] Origen: null
+2026-03-06 22:24:54,646 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:24:54,647 [INFO] Origen: null
+2026-03-06 22:24:54,647 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:24:54,647 [INFO] Origen: null
+2026-03-06 22:24:54,648 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:24:54,648 [INFO] Origen: null
+2026-03-06 22:24:54,648 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:24:54,649 [INFO] Origen: null
+2026-03-06 22:25:05,939 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/22
+2026-03-06 22:25:05,939 [INFO] Origen: null
+2026-03-06 22:25:05,941 [INFO] Petición: DELETE http://localhost:8000/movimientos/22
+2026-03-06 22:25:05,941 [INFO] Origen: null
+2026-03-06 22:25:06,091 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:25:06,091 [INFO] Origen: null
+2026-03-06 22:25:06,092 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:25:06,092 [INFO] Origen: null
+2026-03-06 22:25:06,095 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:25:06,095 [INFO] Origen: null
+2026-03-06 22:25:06,097 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:25:06,097 [INFO] Origen: null
+2026-03-06 22:25:06,097 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:25:06,098 [INFO] Origen: null
+2026-03-06 22:25:06,098 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:25:06,098 [INFO] Origen: null
+2026-03-06 22:25:12,083 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/23
+2026-03-06 22:25:12,084 [INFO] Origen: null
+2026-03-06 22:25:12,085 [INFO] Petición: DELETE http://localhost:8000/movimientos/23
+2026-03-06 22:25:12,085 [INFO] Origen: null
+2026-03-06 22:25:12,271 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:25:12,271 [INFO] Origen: null
+2026-03-06 22:25:12,272 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:25:12,272 [INFO] Origen: null
+2026-03-06 22:25:12,274 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:25:12,275 [INFO] Origen: null
+2026-03-06 22:25:12,275 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:25:12,275 [INFO] Origen: null
+2026-03-06 22:25:12,277 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:25:12,277 [INFO] Origen: null
+2026-03-06 22:25:12,277 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:25:12,278 [INFO] Origen: null
+2026-03-06 22:40:09,963 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/24
+2026-03-06 22:40:09,963 [INFO] Origen: null
+2026-03-06 22:40:09,965 [INFO] Petición: DELETE http://localhost:8000/movimientos/24
+2026-03-06 22:40:09,965 [INFO] Origen: null
+2026-03-06 22:40:10,123 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:40:10,124 [INFO] Origen: null
+2026-03-06 22:40:10,125 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:40:10,125 [INFO] Origen: null
+2026-03-06 22:40:10,125 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:40:10,126 [INFO] Origen: null
+2026-03-06 22:40:10,128 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:40:10,128 [INFO] Origen: null
+2026-03-06 22:40:10,128 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:40:10,128 [INFO] Origen: null
+2026-03-06 22:40:10,129 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:40:10,130 [INFO] Origen: null
+2026-03-06 22:40:10,130 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:40:10,130 [INFO] Origen: null
+2026-03-06 22:40:10,130 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:40:10,130 [INFO] Origen: null
+2026-03-06 22:40:10,130 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:40:10,131 [INFO] Origen: null
+2026-03-06 22:40:10,134 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:40:10,134 [INFO] Origen: null
+2026-03-06 22:40:10,134 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:40:10,135 [INFO] Origen: null
+2026-03-06 22:40:10,135 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:40:10,135 [INFO] Origen: null
+2026-03-06 22:40:14,612 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/25
+2026-03-06 22:40:14,613 [INFO] Origen: null
+2026-03-06 22:40:14,614 [INFO] Petición: DELETE http://localhost:8000/movimientos/25
+2026-03-06 22:40:14,614 [INFO] Origen: null
+2026-03-06 22:40:14,784 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:40:14,784 [INFO] Origen: null
+2026-03-06 22:40:14,785 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:40:14,785 [INFO] Origen: null
+2026-03-06 22:40:14,785 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:40:14,786 [INFO] Origen: null
+2026-03-06 22:40:14,786 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:40:14,786 [INFO] Origen: null
+2026-03-06 22:40:14,787 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:40:14,787 [INFO] Origen: null
+2026-03-06 22:40:14,788 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:40:14,788 [INFO] Origen: null
+2026-03-06 22:40:19,328 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/27
+2026-03-06 22:40:19,329 [INFO] Origen: null
+2026-03-06 22:40:19,330 [INFO] Petición: DELETE http://localhost:8000/movimientos/27
+2026-03-06 22:40:19,330 [INFO] Origen: null
+2026-03-06 22:40:19,588 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:40:19,588 [INFO] Origen: null
+2026-03-06 22:40:19,589 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:40:19,589 [INFO] Origen: null
+2026-03-06 22:40:19,589 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:40:19,590 [INFO] Origen: null
+2026-03-06 22:40:19,590 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:40:19,590 [INFO] Origen: null
+2026-03-06 22:40:19,590 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:40:19,591 [INFO] Origen: null
+2026-03-06 22:40:19,591 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:40:19,591 [INFO] Origen: null
+2026-03-06 22:45:08,203 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-06 22:45:15,023 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-06 22:45:15,023 [INFO] Origen: null
+2026-03-06 22:45:15,057 [INFO] Petición: POST http://localhost:8000/login
+2026-03-06 22:45:15,057 [INFO] Origen: null
+2026-03-06 22:45:15,060 [INFO] Intento de login para usuario: gusoliva
+2026-03-06 22:45:15,273 [INFO] Login exitoso para usuario: gusoliva
+2026-03-06 22:45:16,245 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 22:45:16,245 [INFO] Origen: null
+2026-03-06 22:45:16,245 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 22:45:16,245 [INFO] Origen: null
+2026-03-06 22:45:16,247 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 22:45:16,247 [INFO] Origen: null
+2026-03-06 22:45:16,248 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 22:45:16,248 [INFO] Origen: null
+2026-03-06 22:45:16,265 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 22:45:16,265 [INFO] Origen: null
+2026-03-06 22:45:16,267 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 22:45:16,267 [INFO] Origen: null
+2026-03-06 22:45:18,564 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:45:18,564 [INFO] Origen: null
+2026-03-06 22:45:18,565 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:45:18,565 [INFO] Origen: null
+2026-03-06 22:45:18,566 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:45:18,566 [INFO] Origen: null
+2026-03-06 22:45:18,567 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:45:18,567 [INFO] Origen: null
+2026-03-06 22:45:18,568 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:45:18,568 [INFO] Origen: null
+2026-03-06 22:45:18,568 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:45:18,569 [INFO] Origen: null
+2026-03-06 22:45:18,570 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:45:18,570 [INFO] Origen: null
+2026-03-06 22:45:18,572 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:45:18,572 [INFO] Origen: null
+2026-03-06 22:45:18,573 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:45:18,573 [INFO] Origen: null
+2026-03-06 22:45:18,573 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:45:18,573 [INFO] Origen: null
+2026-03-06 22:45:18,575 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:45:18,575 [INFO] Origen: null
+2026-03-06 22:45:18,575 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:45:18,575 [INFO] Origen: null
+2026-03-06 22:52:11,789 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:52:11,789 [INFO] Origen: null
+2026-03-06 22:52:11,790 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:52:11,790 [INFO] Origen: null
+2026-03-06 22:52:11,791 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:52:11,791 [INFO] Origen: null
+2026-03-06 22:52:11,791 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:52:11,791 [INFO] Origen: null
+2026-03-06 22:52:11,792 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:52:11,793 [INFO] Origen: null
+2026-03-06 22:52:11,793 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:52:11,793 [INFO] Origen: null
+2026-03-06 22:52:11,794 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:52:11,794 [INFO] Origen: null
+2026-03-06 22:52:11,795 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:52:11,795 [INFO] Origen: null
+2026-03-06 22:52:11,796 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:52:11,797 [INFO] Origen: null
+2026-03-06 22:52:11,797 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:52:11,797 [INFO] Origen: null
+2026-03-06 22:52:11,799 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:52:11,799 [INFO] Origen: null
+2026-03-06 22:52:11,799 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:52:11,799 [INFO] Origen: null
+2026-03-06 22:53:24,747 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-06 22:53:43,351 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-06 22:53:43,351 [INFO] Origen: null
+2026-03-06 22:53:43,353 [INFO] Petición: POST http://localhost:8000/login
+2026-03-06 22:53:43,353 [INFO] Origen: null
+2026-03-06 22:53:43,355 [INFO] Intento de login para usuario: gusoliva
+2026-03-06 22:53:43,558 [INFO] Login exitoso para usuario: gusoliva
+2026-03-06 22:53:44,540 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 22:53:44,540 [INFO] Origen: null
+2026-03-06 22:53:44,541 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 22:53:44,541 [INFO] Origen: null
+2026-03-06 22:53:44,543 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 22:53:44,543 [INFO] Origen: null
+2026-03-06 22:53:44,544 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 22:53:44,544 [INFO] Origen: null
+2026-03-06 22:53:44,562 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 22:53:44,563 [INFO] Origen: null
+2026-03-06 22:53:44,564 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 22:53:44,565 [INFO] Origen: null
+2026-03-06 22:53:47,561 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:53:47,561 [INFO] Origen: null
+2026-03-06 22:53:47,562 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:53:47,562 [INFO] Origen: null
+2026-03-06 22:53:47,563 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:53:47,563 [INFO] Origen: null
+2026-03-06 22:53:47,564 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:53:47,564 [INFO] Origen: null
+2026-03-06 22:53:47,565 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:53:47,565 [INFO] Origen: null
+2026-03-06 22:53:47,565 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:53:47,565 [INFO] Origen: null
+2026-03-06 22:53:47,566 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:53:47,566 [INFO] Origen: null
+2026-03-06 22:53:47,569 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:53:47,569 [INFO] Origen: null
+2026-03-06 22:53:47,569 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:53:47,569 [INFO] Origen: null
+2026-03-06 22:53:47,573 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:53:47,575 [INFO] Origen: null
+2026-03-06 22:53:47,576 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:53:47,576 [INFO] Origen: null
+2026-03-06 22:53:47,576 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:53:47,576 [INFO] Origen: null
+2026-03-06 22:54:44,104 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:54:44,104 [INFO] Origen: null
+2026-03-06 22:54:44,106 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:54:44,106 [INFO] Origen: null
+2026-03-06 22:54:44,107 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:54:44,107 [INFO] Origen: null
+2026-03-06 22:54:44,107 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:54:44,107 [INFO] Origen: null
+2026-03-06 22:54:44,107 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:54:44,108 [INFO] Origen: null
+2026-03-06 22:54:44,108 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:54:44,109 [INFO] Origen: null
+2026-03-06 22:54:44,109 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:54:44,109 [INFO] Origen: null
+2026-03-06 22:54:44,111 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:54:44,111 [INFO] Origen: null
+2026-03-06 22:54:44,113 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:54:44,113 [INFO] Origen: null
+2026-03-06 22:54:44,113 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:54:44,114 [INFO] Origen: null
+2026-03-06 22:54:44,114 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:54:44,114 [INFO] Origen: null
+2026-03-06 22:54:44,115 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:54:44,116 [INFO] Origen: null
+2026-03-06 22:54:51,877 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-06 22:55:05,470 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-06 22:55:05,470 [INFO] Origen: null
+2026-03-06 22:55:05,500 [INFO] Petición: POST http://localhost:8000/login
+2026-03-06 22:55:05,500 [INFO] Origen: null
+2026-03-06 22:55:05,502 [INFO] Intento de login para usuario: gusoliva
+2026-03-06 22:55:05,712 [INFO] Login exitoso para usuario: gusoliva
+2026-03-06 22:55:06,688 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-06 22:55:06,688 [INFO] Origen: null
+2026-03-06 22:55:06,689 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-06 22:55:06,689 [INFO] Origen: null
+2026-03-06 22:55:06,690 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-06 22:55:06,690 [INFO] Origen: null
+2026-03-06 22:55:06,691 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-06 22:55:06,691 [INFO] Origen: null
+2026-03-06 22:55:06,716 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-06 22:55:06,717 [INFO] Origen: null
+2026-03-06 22:55:06,719 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-06 22:55:06,719 [INFO] Origen: null
+2026-03-06 22:55:08,206 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:55:08,206 [INFO] Origen: null
+2026-03-06 22:55:08,207 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:55:08,207 [INFO] Origen: null
+2026-03-06 22:55:08,208 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:55:08,209 [INFO] Origen: null
+2026-03-06 22:55:08,209 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:55:08,209 [INFO] Origen: null
+2026-03-06 22:55:08,210 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:55:08,210 [INFO] Origen: null
+2026-03-06 22:55:08,211 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:55:08,211 [INFO] Origen: null
+2026-03-06 22:55:08,212 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:55:08,213 [INFO] Origen: null
+2026-03-06 22:55:08,213 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:55:08,213 [INFO] Origen: null
+2026-03-06 22:55:08,214 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:55:08,214 [INFO] Origen: null
+2026-03-06 22:55:08,215 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:55:08,215 [INFO] Origen: null
+2026-03-06 22:55:08,216 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:55:08,216 [INFO] Origen: null
+2026-03-06 22:55:08,220 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:55:08,221 [INFO] Origen: null
+2026-03-06 22:57:13,961 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/33
+2026-03-06 22:57:13,961 [INFO] Origen: null
+2026-03-06 22:57:13,963 [INFO] Petición: DELETE http://localhost:8000/movimientos/33
+2026-03-06 22:57:13,963 [INFO] Origen: null
+2026-03-06 22:57:14,347 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-06 22:57:14,347 [INFO] Origen: null
+2026-03-06 22:57:14,348 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-06 22:57:14,349 [INFO] Origen: null
+2026-03-06 22:57:14,351 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-06 22:57:14,352 [INFO] Origen: null
+2026-03-06 22:57:14,353 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-06 22:57:14,353 [INFO] Origen: null
+2026-03-06 22:57:14,354 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-06 22:57:14,354 [INFO] Origen: null
+2026-03-06 22:57:14,354 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-06 22:57:14,354 [INFO] Origen: null
+2026-03-06 22:58:09,916 [INFO] Petición: OPTIONS http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-06 22:58:09,916 [INFO] Origen: null
+2026-03-06 22:58:09,918 [INFO] Petición: GET http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-06 22:58:09,918 [INFO] Origen: null
+2026-03-06 22:58:26,460 [INFO] Petición: GET http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-06 22:58:26,460 [INFO] Origen: null
+2026-03-07 00:18:45,491 [INFO] Petición: OPTIONS http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-07 00:18:45,491 [INFO] Origen: null
+2026-03-07 00:18:45,492 [INFO] Petición: GET http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-07 00:18:45,492 [INFO] Origen: null
+2026-03-07 00:19:09,904 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-07 00:19:29,938 [INFO] Petición: OPTIONS http://localhost:8000/login
+2026-03-07 00:19:29,938 [INFO] Origen: null
+2026-03-07 00:19:29,976 [INFO] Petición: POST http://localhost:8000/login
+2026-03-07 00:19:29,976 [INFO] Origen: null
+2026-03-07 00:19:29,993 [INFO] Intento de login para usuario: gusoliva
+2026-03-07 00:19:30,191 [INFO] Login exitoso para usuario: gusoliva
+2026-03-07 00:19:31,374 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-07 00:19:31,374 [INFO] Origen: null
+2026-03-07 00:19:31,374 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-07 00:19:31,374 [INFO] Origen: null
+2026-03-07 00:19:31,376 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:19:31,376 [INFO] Origen: null
+2026-03-07 00:19:31,377 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:19:31,377 [INFO] Origen: null
+2026-03-07 00:19:31,393 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-07 00:19:31,394 [INFO] Origen: null
+2026-03-07 00:19:31,397 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:19:31,397 [INFO] Origen: null
+2026-03-07 00:19:34,016 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:19:34,016 [INFO] Origen: null
+2026-03-07 00:19:34,017 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:19:34,017 [INFO] Origen: null
+2026-03-07 00:19:34,018 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:19:34,018 [INFO] Origen: null
+2026-03-07 00:19:34,019 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:19:34,019 [INFO] Origen: null
+2026-03-07 00:19:34,020 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:19:34,020 [INFO] Origen: null
+2026-03-07 00:19:34,021 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:19:34,021 [INFO] Origen: null
+2026-03-07 00:19:34,021 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:19:34,022 [INFO] Origen: null
+2026-03-07 00:19:34,022 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:19:34,022 [INFO] Origen: null
+2026-03-07 00:19:34,023 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:19:34,024 [INFO] Origen: null
+2026-03-07 00:19:34,025 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:19:34,025 [INFO] Origen: null
+2026-03-07 00:19:34,026 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:19:34,026 [INFO] Origen: null
+2026-03-07 00:19:34,027 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:19:34,027 [INFO] Origen: null
+2026-03-07 00:19:42,730 [INFO] Petición: OPTIONS http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-07 00:19:42,730 [INFO] Origen: null
+2026-03-07 00:19:42,731 [INFO] Petición: GET http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-07 00:19:42,731 [INFO] Origen: null
+2026-03-07 00:21:55,476 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:21:55,477 [INFO] Origen: null
+2026-03-07 00:21:55,477 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:21:55,477 [INFO] Origen: null
+2026-03-07 00:21:55,479 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:21:55,479 [INFO] Origen: null
+2026-03-07 00:21:55,479 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:21:55,479 [INFO] Origen: null
+2026-03-07 00:21:55,480 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:21:55,480 [INFO] Origen: null
+2026-03-07 00:21:55,480 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:21:55,480 [INFO] Origen: null
+2026-03-07 00:21:55,481 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:21:55,481 [INFO] Origen: null
+2026-03-07 00:21:55,482 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:21:55,482 [INFO] Origen: null
+2026-03-07 00:21:55,484 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:21:55,484 [INFO] Origen: null
+2026-03-07 00:21:55,485 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:21:55,485 [INFO] Origen: null
+2026-03-07 00:21:55,486 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:21:55,486 [INFO] Origen: null
+2026-03-07 00:21:55,486 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:21:55,486 [INFO] Origen: null
+2026-03-07 00:22:03,608 [INFO] Petición: GET http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-07 00:22:03,609 [INFO] Origen: null
+2026-03-07 00:22:08,773 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/35
+2026-03-07 00:22:08,773 [INFO] Origen: null
+2026-03-07 00:22:08,775 [INFO] Petición: PUT http://localhost:8000/movimientos/35
+2026-03-07 00:22:08,775 [INFO] Origen: null
+2026-03-07 00:22:08,863 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:22:08,863 [INFO] Origen: null
+2026-03-07 00:22:08,864 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:22:08,864 [INFO] Origen: null
+2026-03-07 00:22:08,866 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:22:08,866 [INFO] Origen: null
+2026-03-07 00:22:08,866 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:22:08,866 [INFO] Origen: null
+2026-03-07 00:22:08,867 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:22:08,867 [INFO] Origen: null
+2026-03-07 00:22:08,869 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:22:08,869 [INFO] Origen: null
+2026-03-07 00:22:35,360 [INFO] Petición: GET http://localhost:8000/motivos?mes=1&anio=2026
+2026-03-07 00:22:35,360 [INFO] Origen: null
+2026-03-07 00:22:40,880 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/21
+2026-03-07 00:22:40,880 [INFO] Origen: null
+2026-03-07 00:22:40,881 [INFO] Petición: PUT http://localhost:8000/movimientos/21
+2026-03-07 00:22:40,881 [INFO] Origen: null
+2026-03-07 00:22:40,990 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:22:40,990 [INFO] Origen: null
+2026-03-07 00:22:40,991 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:22:40,991 [INFO] Origen: null
+2026-03-07 00:22:40,993 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:22:40,994 [INFO] Origen: null
+2026-03-07 00:22:40,994 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:22:40,994 [INFO] Origen: null
+2026-03-07 00:22:40,996 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:22:40,996 [INFO] Origen: null
+2026-03-07 00:22:40,997 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:22:40,998 [INFO] Origen: null
+2026-03-07 00:22:46,654 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:22:46,654 [INFO] Origen: null
+2026-03-07 00:22:46,655 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:22:46,655 [INFO] Origen: null
+2026-03-07 00:22:46,664 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:22:46,664 [INFO] Origen: null
+2026-03-07 00:22:58,419 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:22:58,419 [INFO] Origen: null
+2026-03-07 00:22:58,421 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:22:58,421 [INFO] Origen: null
+2026-03-07 00:22:58,421 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:22:58,422 [INFO] Origen: null
+2026-03-07 00:22:58,422 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:22:58,422 [INFO] Origen: null
+2026-03-07 00:22:58,423 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:22:58,423 [INFO] Origen: null
+2026-03-07 00:22:58,425 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:22:58,425 [INFO] Origen: null
+2026-03-07 00:23:18,990 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:23:18,990 [INFO] Origen: null
+2026-03-07 00:23:18,991 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:23:18,991 [INFO] Origen: null
+2026-03-07 00:23:19,002 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:23:19,002 [INFO] Origen: null
+2026-03-07 00:23:27,864 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:23:27,864 [INFO] Origen: null
+2026-03-07 00:23:27,868 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:23:27,868 [INFO] Origen: null
+2026-03-07 00:23:27,870 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:23:27,870 [INFO] Origen: null
+2026-03-07 00:23:27,871 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:23:27,871 [INFO] Origen: null
+2026-03-07 00:23:27,872 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:23:27,872 [INFO] Origen: null
+2026-03-07 00:23:27,872 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:23:27,872 [INFO] Origen: null
+2026-03-07 00:24:33,793 [INFO] Petición: OPTIONS http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:24:33,793 [INFO] Origen: null
+2026-03-07 00:24:33,795 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:24:33,795 [INFO] Origen: null
+2026-03-07 00:24:41,795 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/54
+2026-03-07 00:24:41,795 [INFO] Origen: null
+2026-03-07 00:24:41,797 [INFO] Petición: PUT http://localhost:8000/movimientos/54
+2026-03-07 00:24:41,797 [INFO] Origen: null
+2026-03-07 00:24:42,048 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:24:42,048 [INFO] Origen: null
+2026-03-07 00:24:42,049 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:24:42,049 [INFO] Origen: null
+2026-03-07 00:24:42,050 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:24:42,050 [INFO] Origen: null
+2026-03-07 00:24:42,051 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:24:42,052 [INFO] Origen: null
+2026-03-07 00:24:42,052 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:24:42,053 [INFO] Origen: null
+2026-03-07 00:24:42,055 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:24:42,055 [INFO] Origen: null
+2026-03-07 00:24:46,290 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:24:46,291 [INFO] Origen: null
+2026-03-07 00:24:52,772 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/61
+2026-03-07 00:24:52,772 [INFO] Origen: null
+2026-03-07 00:24:52,773 [INFO] Petición: PUT http://localhost:8000/movimientos/61
+2026-03-07 00:24:52,773 [INFO] Origen: null
+2026-03-07 00:24:53,057 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:24:53,057 [INFO] Origen: null
+2026-03-07 00:24:53,058 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:24:53,058 [INFO] Origen: null
+2026-03-07 00:24:53,060 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:24:53,060 [INFO] Origen: null
+2026-03-07 00:24:53,060 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:24:53,060 [INFO] Origen: null
+2026-03-07 00:24:53,060 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:24:53,060 [INFO] Origen: null
+2026-03-07 00:24:53,063 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:24:53,064 [INFO] Origen: null
+2026-03-07 00:25:00,244 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:25:00,245 [INFO] Origen: null
+2026-03-07 00:25:07,344 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/62
+2026-03-07 00:25:07,345 [INFO] Origen: null
+2026-03-07 00:25:07,346 [INFO] Petición: PUT http://localhost:8000/movimientos/62
+2026-03-07 00:25:07,346 [INFO] Origen: null
+2026-03-07 00:25:07,568 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:25:07,568 [INFO] Origen: null
+2026-03-07 00:25:07,569 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:25:07,569 [INFO] Origen: null
+2026-03-07 00:25:07,571 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:25:07,572 [INFO] Origen: null
+2026-03-07 00:25:07,573 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:25:07,573 [INFO] Origen: null
+2026-03-07 00:25:07,573 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:25:07,573 [INFO] Origen: null
+2026-03-07 00:25:07,576 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:25:07,576 [INFO] Origen: null
+2026-03-07 00:25:13,270 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:25:13,270 [INFO] Origen: null
+2026-03-07 00:25:17,090 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/63
+2026-03-07 00:25:17,091 [INFO] Origen: null
+2026-03-07 00:25:17,092 [INFO] Petición: PUT http://localhost:8000/movimientos/63
+2026-03-07 00:25:17,092 [INFO] Origen: null
+2026-03-07 00:25:17,442 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:25:17,442 [INFO] Origen: null
+2026-03-07 00:25:17,443 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:25:17,443 [INFO] Origen: null
+2026-03-07 00:25:17,445 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:25:17,445 [INFO] Origen: null
+2026-03-07 00:25:17,445 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:25:17,445 [INFO] Origen: null
+2026-03-07 00:25:17,446 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:25:17,447 [INFO] Origen: null
+2026-03-07 00:25:17,447 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:25:17,447 [INFO] Origen: null
+2026-03-07 00:25:24,322 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:25:24,322 [INFO] Origen: null
+2026-03-07 00:25:31,248 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/57
+2026-03-07 00:25:31,248 [INFO] Origen: null
+2026-03-07 00:25:31,249 [INFO] Petición: PUT http://localhost:8000/movimientos/57
+2026-03-07 00:25:31,250 [INFO] Origen: null
+2026-03-07 00:25:31,633 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:25:31,633 [INFO] Origen: null
+2026-03-07 00:25:31,633 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:25:31,634 [INFO] Origen: null
+2026-03-07 00:25:31,635 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:25:31,635 [INFO] Origen: null
+2026-03-07 00:25:31,636 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:25:31,636 [INFO] Origen: null
+2026-03-07 00:25:31,637 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:25:31,637 [INFO] Origen: null
+2026-03-07 00:25:31,638 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:25:31,638 [INFO] Origen: null
+2026-03-07 00:25:35,768 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:25:35,768 [INFO] Origen: null
+2026-03-07 00:25:41,241 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/56
+2026-03-07 00:25:41,241 [INFO] Origen: null
+2026-03-07 00:25:41,242 [INFO] Petición: PUT http://localhost:8000/movimientos/56
+2026-03-07 00:25:41,242 [INFO] Origen: null
+2026-03-07 00:25:41,661 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:25:41,662 [INFO] Origen: null
+2026-03-07 00:25:41,662 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:25:41,663 [INFO] Origen: null
+2026-03-07 00:25:41,665 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:25:41,665 [INFO] Origen: null
+2026-03-07 00:25:41,667 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:25:41,668 [INFO] Origen: null
+2026-03-07 00:25:41,668 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:25:41,668 [INFO] Origen: null
+2026-03-07 00:25:41,669 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:25:41,669 [INFO] Origen: null
+2026-03-07 00:25:46,308 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:25:46,308 [INFO] Origen: null
+2026-03-07 00:25:51,768 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/55
+2026-03-07 00:25:51,768 [INFO] Origen: null
+2026-03-07 00:25:51,770 [INFO] Petición: PUT http://localhost:8000/movimientos/55
+2026-03-07 00:25:51,770 [INFO] Origen: null
+2026-03-07 00:25:52,082 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:25:52,082 [INFO] Origen: null
+2026-03-07 00:25:52,083 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:25:52,083 [INFO] Origen: null
+2026-03-07 00:25:52,085 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:25:52,085 [INFO] Origen: null
+2026-03-07 00:25:52,086 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:25:52,086 [INFO] Origen: null
+2026-03-07 00:25:52,087 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:25:52,088 [INFO] Origen: null
+2026-03-07 00:25:52,088 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:25:52,088 [INFO] Origen: null
+2026-03-07 00:26:05,736 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:26:05,736 [INFO] Origen: null
+2026-03-07 00:26:12,314 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/59
+2026-03-07 00:26:12,314 [INFO] Origen: null
+2026-03-07 00:26:12,316 [INFO] Petición: PUT http://localhost:8000/movimientos/59
+2026-03-07 00:26:12,316 [INFO] Origen: null
+2026-03-07 00:26:12,821 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:26:12,821 [INFO] Origen: null
+2026-03-07 00:26:12,822 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:26:12,822 [INFO] Origen: null
+2026-03-07 00:26:12,825 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:26:12,825 [INFO] Origen: null
+2026-03-07 00:26:12,825 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:26:12,825 [INFO] Origen: null
+2026-03-07 00:26:12,827 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:26:12,827 [INFO] Origen: null
+2026-03-07 00:26:12,829 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:26:12,829 [INFO] Origen: null
+2026-03-07 00:26:22,942 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:26:22,942 [INFO] Origen: null
+2026-03-07 00:26:26,280 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/70
+2026-03-07 00:26:26,280 [INFO] Origen: null
+2026-03-07 00:26:26,281 [INFO] Petición: PUT http://localhost:8000/movimientos/70
+2026-03-07 00:26:26,281 [INFO] Origen: null
+2026-03-07 00:26:26,645 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:26:26,645 [INFO] Origen: null
+2026-03-07 00:26:26,648 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:26:26,648 [INFO] Origen: null
+2026-03-07 00:26:26,649 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:26:26,649 [INFO] Origen: null
+2026-03-07 00:26:26,650 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:26:26,651 [INFO] Origen: null
+2026-03-07 00:26:26,651 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:26:26,651 [INFO] Origen: null
+2026-03-07 00:26:26,653 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:26:26,653 [INFO] Origen: null
+2026-03-07 00:26:34,222 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:26:34,222 [INFO] Origen: null
+2026-03-07 00:26:40,432 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/58
+2026-03-07 00:26:40,432 [INFO] Origen: null
+2026-03-07 00:26:40,433 [INFO] Petición: PUT http://localhost:8000/movimientos/58
+2026-03-07 00:26:40,434 [INFO] Origen: null
+2026-03-07 00:26:40,999 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:26:40,999 [INFO] Origen: null
+2026-03-07 00:26:41,000 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:26:41,000 [INFO] Origen: null
+2026-03-07 00:26:41,001 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:26:41,001 [INFO] Origen: null
+2026-03-07 00:26:41,002 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:26:41,002 [INFO] Origen: null
+2026-03-07 00:26:41,005 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:26:41,005 [INFO] Origen: null
+2026-03-07 00:26:41,005 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:26:41,005 [INFO] Origen: null
+2026-03-07 00:27:16,269 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:27:16,270 [INFO] Origen: null
+2026-03-07 00:27:16,275 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-07 00:27:16,275 [INFO] Origen: null
+2026-03-07 00:27:16,879 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:27:16,879 [INFO] Origen: null
+2026-03-07 00:27:35,269 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:27:35,270 [INFO] Origen: null
+2026-03-07 00:27:35,274 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-07 00:27:35,274 [INFO] Origen: null
+2026-03-07 00:27:35,705 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:27:35,705 [INFO] Origen: null
+2026-03-07 00:27:56,295 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:27:56,295 [INFO] Origen: null
+2026-03-07 00:27:56,302 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-07 00:27:56,302 [INFO] Origen: null
+2026-03-07 00:27:56,756 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:27:56,756 [INFO] Origen: null
+2026-03-07 00:28:05,519 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:28:05,519 [INFO] Origen: null
+2026-03-07 00:28:11,471 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/60
+2026-03-07 00:28:11,471 [INFO] Origen: null
+2026-03-07 00:28:11,472 [INFO] Petición: PUT http://localhost:8000/movimientos/60
+2026-03-07 00:28:11,473 [INFO] Origen: null
+2026-03-07 00:28:12,176 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:28:12,176 [INFO] Origen: null
+2026-03-07 00:28:12,177 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:28:12,177 [INFO] Origen: null
+2026-03-07 00:28:12,180 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:28:12,180 [INFO] Origen: null
+2026-03-07 00:28:12,182 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:28:12,182 [INFO] Origen: null
+2026-03-07 00:28:12,182 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:28:12,183 [INFO] Origen: null
+2026-03-07 00:28:12,184 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:28:12,184 [INFO] Origen: null
+2026-03-07 00:28:32,294 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:28:32,294 [INFO] Origen: null
+2026-03-07 00:28:35,667 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/73
+2026-03-07 00:28:35,667 [INFO] Origen: null
+2026-03-07 00:28:35,668 [INFO] Petición: PUT http://localhost:8000/movimientos/73
+2026-03-07 00:28:35,668 [INFO] Origen: null
+2026-03-07 00:28:36,171 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:28:36,172 [INFO] Origen: null
+2026-03-07 00:28:36,173 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:28:36,173 [INFO] Origen: null
+2026-03-07 00:28:36,175 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:28:36,175 [INFO] Origen: null
+2026-03-07 00:28:36,176 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:28:36,176 [INFO] Origen: null
+2026-03-07 00:28:36,176 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:28:36,177 [INFO] Origen: null
+2026-03-07 00:28:36,177 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:28:36,177 [INFO] Origen: null
+2026-03-07 00:28:43,501 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:28:43,501 [INFO] Origen: null
+2026-03-07 00:28:47,600 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/64
+2026-03-07 00:28:47,601 [INFO] Origen: null
+2026-03-07 00:28:47,602 [INFO] Petición: PUT http://localhost:8000/movimientos/64
+2026-03-07 00:28:47,602 [INFO] Origen: null
+2026-03-07 00:28:48,372 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:28:48,372 [INFO] Origen: null
+2026-03-07 00:28:48,374 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:28:48,374 [INFO] Origen: null
+2026-03-07 00:28:48,375 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:28:48,375 [INFO] Origen: null
+2026-03-07 00:28:48,378 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:28:48,378 [INFO] Origen: null
+2026-03-07 00:28:48,378 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:28:48,378 [INFO] Origen: null
+2026-03-07 00:28:48,379 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:28:48,379 [INFO] Origen: null
+2026-03-07 00:28:52,638 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:28:52,638 [INFO] Origen: null
+2026-03-07 00:29:02,665 [INFO] Petición: OPTIONS http://localhost:8000/movimientos/65
+2026-03-07 00:29:02,665 [INFO] Origen: null
+2026-03-07 00:29:02,666 [INFO] Petición: PUT http://localhost:8000/movimientos/65
+2026-03-07 00:29:02,667 [INFO] Origen: null
+2026-03-07 00:29:03,218 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:29:03,218 [INFO] Origen: null
+2026-03-07 00:29:03,218 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:29:03,219 [INFO] Origen: null
+2026-03-07 00:29:03,220 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:29:03,220 [INFO] Origen: null
+2026-03-07 00:29:03,220 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:29:03,221 [INFO] Origen: null
+2026-03-07 00:29:03,222 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:29:03,223 [INFO] Origen: null
+2026-03-07 00:29:03,223 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:29:03,223 [INFO] Origen: null
+2026-03-07 00:29:08,515 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:29:08,515 [INFO] Origen: null
+2026-03-07 00:29:08,520 [INFO] Petición: POST http://localhost:8000/movimientos
+2026-03-07 00:29:08,520 [INFO] Origen: null
+2026-03-07 00:29:09,079 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:29:09,079 [INFO] Origen: null
+2026-03-07 00:29:28,244 [INFO] Petición: GET http://localhost:8000/motivos?mes=12&anio=2025
+2026-03-07 00:29:28,245 [INFO] Origen: null
+2026-03-07 00:29:34,858 [INFO] Petición: PUT http://localhost:8000/movimientos/60
+2026-03-07 00:29:34,858 [INFO] Origen: null
+2026-03-07 00:29:35,453 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:29:35,453 [INFO] Origen: null
+2026-03-07 00:29:35,455 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:29:35,455 [INFO] Origen: null
+2026-03-07 00:29:35,457 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:29:35,458 [INFO] Origen: null
+2026-03-07 00:29:35,458 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:29:35,458 [INFO] Origen: null
+2026-03-07 00:29:35,460 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:29:35,460 [INFO] Origen: null
+2026-03-07 00:29:35,460 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:29:35,460 [INFO] Origen: null
+2026-03-07 00:29:53,638 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-basicos
+2026-03-07 00:29:53,638 [INFO] Origen: null
+2026-03-07 00:29:53,639 [INFO] Petición: POST http://localhost:8000/movimientos-basicos
+2026-03-07 00:29:53,640 [INFO] Origen: null
+2026-03-07 00:29:53,721 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:29:53,722 [INFO] Origen: null
+2026-03-07 00:29:53,723 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:29:53,723 [INFO] Origen: null
+2026-03-07 00:29:53,726 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:29:53,727 [INFO] Origen: null
+2026-03-07 00:29:53,727 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:29:53,727 [INFO] Origen: null
+2026-03-07 00:29:53,729 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:29:53,730 [INFO] Origen: null
+2026-03-07 00:29:53,730 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:29:53,730 [INFO] Origen: null
+2026-03-07 00:30:04,194 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-07 00:30:04,195 [INFO] Origen: null
+2026-03-07 00:30:04,196 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-07 00:30:04,196 [INFO] Origen: null
+2026-03-07 00:30:04,197 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:30:04,197 [INFO] Origen: null
+2026-03-07 00:30:04,198 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:30:04,198 [INFO] Origen: null
+2026-03-07 00:30:04,208 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-07 00:30:04,208 [INFO] Origen: null
+2026-03-07 00:30:04,209 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:30:04,209 [INFO] Origen: null
+2026-03-07 00:30:09,334 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:30:09,334 [INFO] Origen: null
+2026-03-07 00:30:09,335 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:30:09,336 [INFO] Origen: null
+2026-03-07 00:30:09,336 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:30:09,336 [INFO] Origen: null
+2026-03-07 00:30:09,337 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:30:09,337 [INFO] Origen: null
+2026-03-07 00:30:09,337 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:30:09,338 [INFO] Origen: null
+2026-03-07 00:30:09,339 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:30:09,340 [INFO] Origen: null
+2026-03-07 00:30:12,031 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:30:12,031 [INFO] Origen: null
+2026-03-07 00:30:12,034 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:30:12,034 [INFO] Origen: null
+2026-03-07 00:30:12,043 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:30:12,043 [INFO] Origen: null
+2026-03-07 00:31:23,923 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:31:23,923 [INFO] Origen: null
+2026-03-07 00:31:23,925 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:31:23,925 [INFO] Origen: null
+2026-03-07 00:31:23,925 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:31:23,925 [INFO] Origen: null
+2026-03-07 00:31:23,926 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:31:23,926 [INFO] Origen: null
+2026-03-07 00:31:23,926 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:31:23,926 [INFO] Origen: null
+2026-03-07 00:31:23,928 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:31:23,929 [INFO] Origen: null
+2026-03-07 00:33:21,610 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:33:21,610 [INFO] Origen: null
+2026-03-07 00:33:21,611 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:33:21,611 [INFO] Origen: null
+2026-03-07 00:33:21,620 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:33:21,620 [INFO] Origen: null
+2026-03-07 00:35:02,881 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:35:02,881 [INFO] Origen: null
+2026-03-07 00:35:02,883 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:35:02,883 [INFO] Origen: null
+2026-03-07 00:35:02,883 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:35:02,883 [INFO] Origen: null
+2026-03-07 00:35:02,883 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:35:02,884 [INFO] Origen: null
+2026-03-07 00:35:02,884 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:35:02,884 [INFO] Origen: null
+2026-03-07 00:35:02,886 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:35:02,886 [INFO] Origen: null
+2026-03-07 00:35:02,888 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:35:02,888 [INFO] Origen: null
+2026-03-07 00:35:02,888 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:35:02,888 [INFO] Origen: null
+2026-03-07 00:35:02,889 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:35:02,889 [INFO] Origen: null
+2026-03-07 00:35:02,889 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:35:02,890 [INFO] Origen: null
+2026-03-07 00:35:02,890 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:35:02,890 [INFO] Origen: null
+2026-03-07 00:35:02,891 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:35:02,891 [INFO] Origen: null
+2026-03-07 00:35:06,116 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:35:06,116 [INFO] Origen: null
+2026-03-07 00:35:06,117 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:35:06,117 [INFO] Origen: null
+2026-03-07 00:35:06,127 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:35:06,127 [INFO] Origen: null
+2026-03-07 00:35:18,257 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:35:18,257 [INFO] Origen: null
+2026-03-07 00:35:18,259 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:35:18,259 [INFO] Origen: null
+2026-03-07 00:35:18,259 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:35:18,259 [INFO] Origen: null
+2026-03-07 00:35:18,260 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:35:18,260 [INFO] Origen: null
+2026-03-07 00:35:18,261 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:35:18,261 [INFO] Origen: null
+2026-03-07 00:35:18,263 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:35:18,263 [INFO] Origen: null
+2026-03-07 00:35:22,074 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:35:22,075 [INFO] Origen: null
+2026-03-07 00:35:22,075 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:35:22,075 [INFO] Origen: null
+2026-03-07 00:35:22,104 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:35:22,104 [INFO] Origen: null
+2026-03-07 00:35:48,698 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-07 00:36:11,931 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-07 00:36:36,009 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-07 00:36:52,166 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-07 00:37:11,116 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-07 00:37:31,599 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-07 00:37:58,551 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:37:58,552 [INFO] Origen: null
+2026-03-07 00:37:58,554 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:37:58,554 [INFO] Origen: null
+2026-03-07 00:37:58,582 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:37:58,582 [INFO] Origen: null
+2026-03-07 00:38:00,440 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:38:00,441 [INFO] Origen: null
+2026-03-07 00:38:00,442 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:38:00,442 [INFO] Origen: null
+2026-03-07 00:38:00,443 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:38:00,443 [INFO] Origen: null
+2026-03-07 00:38:00,444 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:38:00,444 [INFO] Origen: null
+2026-03-07 00:38:00,446 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:38:00,446 [INFO] Origen: null
+2026-03-07 00:38:00,446 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:38:00,447 [INFO] Origen: null
+2026-03-07 00:38:01,962 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:38:01,962 [INFO] Origen: null
+2026-03-07 00:38:01,962 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:38:01,963 [INFO] Origen: null
+2026-03-07 00:38:01,964 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:38:01,964 [INFO] Origen: null
+2026-03-07 00:38:01,965 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:38:01,965 [INFO] Origen: null
+2026-03-07 00:38:01,965 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:38:01,966 [INFO] Origen: null
+2026-03-07 00:38:01,966 [INFO] Petición: OPTIONS http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:38:01,966 [INFO] Origen: null
+2026-03-07 00:38:01,967 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=3&anio=2026
+2026-03-07 00:38:01,967 [INFO] Origen: null
+2026-03-07 00:38:01,967 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=2&anio=2026
+2026-03-07 00:38:01,967 [INFO] Origen: null
+2026-03-07 00:38:01,970 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=1&anio=2026
+2026-03-07 00:38:01,970 [INFO] Origen: null
+2026-03-07 00:38:01,970 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=12&anio=2025
+2026-03-07 00:38:01,971 [INFO] Origen: null
+2026-03-07 00:38:01,971 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=10&anio=2025
+2026-03-07 00:38:01,971 [INFO] Origen: null
+2026-03-07 00:38:01,972 [INFO] Petición: GET http://localhost:8000/movimientos-mensuales?mes=11&anio=2025
+2026-03-07 00:38:01,972 [INFO] Origen: null
+2026-03-07 00:38:06,080 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:38:06,080 [INFO] Origen: null
+2026-03-07 00:38:06,083 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:38:06,083 [INFO] Origen: null
+2026-03-07 00:38:06,091 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:38:06,092 [INFO] Origen: null
+2026-03-07 00:38:08,422 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-07 00:38:08,423 [INFO] Origen: null
+2026-03-07 00:38:08,424 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-07 00:38:08,482 [INFO] Origen: null
+2026-03-07 00:38:08,483 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:38:08,483 [INFO] Origen: null
+2026-03-07 00:38:08,485 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:38:08,485 [INFO] Origen: null
+2026-03-07 00:38:08,493 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:38:08,493 [INFO] Origen: null
+2026-03-07 00:38:31,302 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-07 00:38:50,362 [INFO] Tablas de base de datos verificadas/creadas correctamente.
+2026-03-07 00:39:48,678 [INFO] Petición: OPTIONS http://localhost:8000/motivos
+2026-03-07 00:39:48,678 [INFO] Origen: null
+2026-03-07 00:39:48,679 [INFO] Petición: OPTIONS http://localhost:8000/dashboard
+2026-03-07 00:39:48,680 [INFO] Origen: null
+2026-03-07 00:39:48,681 [INFO] Petición: GET http://localhost:8000/motivos
+2026-03-07 00:39:48,681 [INFO] Origen: null
+2026-03-07 00:39:48,682 [INFO] Petición: GET http://localhost:8000/dashboard
+2026-03-07 00:39:48,683 [INFO] Origen: null
+2026-03-07 00:39:48,711 [INFO] Petición: OPTIONS http://localhost:8000/movimientos
+2026-03-07 00:39:48,711 [INFO] Origen: null
+2026-03-07 00:39:48,712 [INFO] Petición: GET http://localhost:8000/movimientos
+2026-03-07 00:39:48,712 [INFO] Origen: null

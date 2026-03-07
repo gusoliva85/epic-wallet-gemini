@@ -25,9 +25,11 @@ La aplicación sigue un modelo Cliente-Servidor desacoplado:
 
 ## 3. Lógica del Backend (`backend/app/main.py`)
 
-### Gestión de Usuarios
+### Gestión de Usuarios y Seguridad
 - Registro con encriptación de contraseñas mediante `bcrypt`.
-- Verificación de credenciales en el Login.
+- Autenticación mediante **JWT (JSON Web Tokens)** con tiempo de expiración de 24 horas.
+- Validación de **CORS** restringida a dominios autorizados de desarrollo y producción.
+- Configuración centralizada mediante variables de entorno (`.env`).
 
 ### Herencia de Motivos (`inicializar_motivos_mes`)
 Es el "corazón" de la aplicación. Al cambiar de mes o registrar un nuevo usuario:
@@ -36,9 +38,10 @@ Es el "corazón" de la aplicación. Al cambiar de mes o registrar un nuevo usuar
 3. Si es un usuario nuevo, carga el set por defecto (Sueldo, Luz, Gas, etc.).
 
 ### Endpoints Principales
-- `GET /dashboard/{usuario}`: Resumen consolidado para la Home.
+- `GET /dashboard`: Resumen consolidado para la Home (incluye Auth).
 - `GET /movimientos-mensuales`: Filtra datos por mes y año para el historial.
 - `POST /movimientos-basicos`: Automatiza la creación de la estructura mínima mensual.
+- `POST /login`: Genera el token de acceso seguro.
 
 ## 4. Flujo de Datos
 1. El usuario se loguea; su nombre se guarda en `sessionStorage`.

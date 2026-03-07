@@ -8,7 +8,7 @@ const errorMessage = document.getElementById('errorMessage');
 function validarInputs() {
     const user = userInput.value.trim();
     const pass = passInput.value.trim();
-    
+
     // Regla: Usuario 6-20 caracteres y sin espacios
     const isUserValid = user.length >= 6 && user.length <= 20 && !user.includes(' ');
     const isPassValid = pass.length >= 1;
@@ -26,37 +26,43 @@ passInput.addEventListener('input', validarInputs);
 // 2. Envío de datos al Backend
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     // Limpiar errores previos
     errorMessage.classList.add('hidden');
     btnLogin.innerText = "VERIFICANDO...";
     btnLogin.disabled = true;
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                usuario: userInput.value.trim(),
-                password: passInput.value
-            })
+        const response = await api.post('/login', {
+            usuario: userInput.value.trim(),
+            password: passInput.value
         });
+
+        if (!response) {
+            throw new Error("No response from server");
+        }
 
         const data = await response.json();
 
         if (response.ok) {
-            // ÉXITO: GUARDAR EL NOMBRE EN LA SESIÓN
-            // Tomamos el valor que el usuario escribió en el input
-            sessionStorage.setItem('usuarioNombre', data.usuario); //userInput.value.trim());
+            // ÉXITO: GUARDAR EL TOKEN Y EL NOMBRE EN AMBOS POR COMPATIBILIDAD file://
+            api.setToken(data.access_token);
+
+            localStorage.setItem('usuarioNombre', data.usuario);
+            localStorage.setItem('nombreReal', data.nombreReal);
+
+            sessionStorage.setItem('usuarioNombre', data.usuario);
             sessionStorage.setItem('nombreReal', data.nombreReal);
+
+            console.log("[Login] Datos de sesión guardados.");
 
             btnLogin.innerText = "¡ÉXITO!";
             btnLogin.classList.replace('bg-primary', 'bg-green-600');
-            
+
             setTimeout(() => {
-                window.location.href = 'index.html'; 
+                window.location.href = 'index.html';
             }, 800);
-            
+
         } else {
             // ERROR: Mostrar mensaje del backend
             errorMessage.textContent = data.detail || "Error al ingresar";
@@ -65,7 +71,8 @@ loginForm.addEventListener('submit', async (e) => {
             btnLogin.disabled = false;
         }
     } catch (err) {
-        errorMessage.textContent = "Servidor fuera de línea";
+        console.error("Login error:", err);
+        errorMessage.textContent = "Servidor fuera de línea o error de red";
         errorMessage.classList.remove('hidden');
         btnLogin.innerText = "INGRESAR";
         btnLogin.disabled = false;

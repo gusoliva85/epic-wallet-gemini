@@ -4,7 +4,7 @@ const btnRegister = document.getElementById('btnRegister');
 
 registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     errorMessage.classList.add('hidden');
     btnRegister.innerText = "CREANDO CUENTA...";
     btnRegister.disabled = true;
@@ -18,18 +18,14 @@ registerForm.addEventListener('submit', async (e) => {
     };
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(userData)
-        });
+        const response = await api.post('/register', userData);
 
         const data = await response.json();
 
         if (response.ok) {
             btnRegister.classList.replace('bg-primary', 'bg-green-600');
             btnRegister.innerText = "¡CUENTA CREADA!";
-            
+
             setTimeout(() => {
                 window.location.href = 'login.html';
             }, 1500);
