@@ -1,0 +1,39 @@
+En esta fase vamos a cambiar lo que es la forma de usar la aplicacion. se ven un par de cosas al hacerse responsive para celulares que no esta funcionando muy bien y rompe la experiencia.
+En la carpeta frontend\ejemplos\ puse varias imagenes, ahora te voy a comentar a que hacen referencia.
+
+Reglas
+En el nombre de las imagenes cuando pongo Baja se refiere a que estan en una resulocion baja de telefono 380 x 854.
+En el nombre de las imagenes cuando pongo Media se refiere a que estan en una resulocion media de telefono 720 x 1600.
+En general vamos a estar trabajando en las medidas de Media, pero lo de Bajo lo popngo por las dudas.
+La aplicacion va a tener que identificar, independientemente de la resulicion, que esta siento ejecutada en un celular.
+
+Epic_1_Baja.png y Epic_2_Media.png
+Se muestran las tarjetas principales en donde estan los valores principales de la aplicacion, pero la fuente o el estilo es tan grande que entra una tarjeta arriba de la otra.
+Seria ideal hacer filas de 2x2, quedando en la primera fila Ingeso y Gastos, y en la segunda fila Restante y Global.
+Esta cambio no va a tener que impactar en el formato de las tarjetas, sumas, reglas, valores, colores, etc. solo tratar de adaptar el tamaño y fuente.
+
+Epic_3_Media.png
+En la parte de nuevo movimiento al querer seleccionar el motivo, mo puedo hacer scroll con la barra lateral como con un mouse, se tiene que cambiar a poder bajar arrastrando para abajo o arriba, como la forma de hacerse con el celular, esto pasa en este y cualquier combo que existe en la app, hay que cambiarlo.
+El grafico en vez de mostrar 12 meses tendria que bajar a mostrar solo 6 meses.
+Al querer ingresar un monto, en este caso solo se aceptan numeros, se habilitara el teclado del telefono, pero solo el de numeros, el que es alfanumerico NO!
+
+Epic_4_Media.png
+Este grafico pierde estetica al hacerce chico el grafico de dona, necesito que vuelvas a reformular el grafico de tal manera que sea vistoso y que sea lindo visualmente.
+
+Epic_5_Media.png
+En esta pantalla se ve el grafico de dona que pasa algo similar, hay mucho margin o paddin entre el grafico y el resto de la informacion, dejando mucho espacio libre que queda mal esteticamente. Necesito que esto sea corregido.
+
+TODOS los combos van a tener que ser corregidos para quie se pueda deslizar no como si fuera un mouse sino como si fuera un touchpad en donde se pueda deslizar de esa forma.
+TODOS los input van a tener que reconocer que al estar en un telefono al querer ingresar un monto, al ser solo numerico, se va a tener que habilitar el teclado numerico del telefono, no el alfanumerico.
+
+A modo ejemplo puse templates de imagenes de un proyecto similar en las imagenes llamadas Android_1.jpg, Android_2.jpg y Android_3.jpg. Necesito que tomes todo este concepto y lo apliques a este proyecto solamente cuando este en un celular, en el formato que mencione previamente.
+
+Se que en base a este nuevo pedido van a surgir dudas, por lo que te pido que antes de continuar, para ser mas certeros, pregunta todo lo que consideres necesario.
+
+
+
+CORRECCIONES:
+Correcciones que quedaron mal:
+* Home seccion Nuevo, esta seccion no quiero que comparta media pantalla, quiero que ocupe todo el ancho de pantalla, reacomodalo todo de la mejor maneraa posible. La seccion Balance Anual tambien quiero que este debajo de nuevo y que ocupe todo el ancho de la pantalla.
+* Detalle mensual, Periodo, no esta centrado, arreglalo y ponelo centrado asi queda bien esteticamente.
+* Detalle mensual, seccion de meses. El grafico tiene mucho espacio por todos lados, necesito que los datos esten mas cerca asi no queda tanto espacio en blanco sin usa

@@ -9,7 +9,7 @@ const isLocal = window.location.hostname === 'localhost' ||
     window.location.hostname === '' ||
     window.location.protocol === 'file:';
 
-const API_BASE_URL = isLocal ? 'http://localhost:8000' : 'https://epic-wallet-api.onrender.com';
+const API_BASE_URL = isLocal ? 'http://localhost:8000' : 'https://epic-wallet-gemini.onrender.com';
 console.log(`[API] Entorno: ${isLocal ? 'LOCAL' : 'PRODUCCIÓN'} (${API_BASE_URL})`);
 
 const api = {
